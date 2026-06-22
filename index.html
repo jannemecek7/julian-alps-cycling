@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julian Alps cycling</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#1a1a18;--white:#ffffff;
+  --olive-dark:#2d2d1e;--olive-btn:#6b6633;--olive-btn2:#7a7545;
+  --olive-text:#3a3818;--gold:#c8971a;--gray-dark:#2a2a28;
+  --head:'Bebas Neue',sans-serif;--body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:#fff;color:var(--black);overflow-x:hidden;position:relative}
+body::before{content:'';position:absolute;top:88vh;left:0;width:100%;height:4300px;z-index:0;pointer-events:none;opacity:0.18;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 4300' preserveAspectRatio='none'%3E%3Cpath d='M1180 20 C930 250 980 430 730 590 C470 760 270 700 220 960 C160 1270 620 1240 710 1505 C795 1755 445 1910 520 2190 C590 2450 1030 2410 1115 2685 C1215 3010 700 3160 760 3500 C805 3770 1085 3840 980 4240' fill='none' stroke='%236b6633' stroke-width='7' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3Ccircle cx='1180' cy='20' r='13' fill='%236b6633'/%3E%3Ccircle cx='980' cy='4240' r='13' fill='%236b6633'/%3E%3C/svg%3E") center top/100% 100% no-repeat}
+nav,header,section,.intro-section,.local-section,.dark-section,.gal-section,.rev-section,.faq-section,.contact-section,.closing,footer{position:relative;z-index:1}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(.22,.68,0,1.2),transform 0.7s cubic-bezier(.22,.68,0,1.2)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:0.08s}.delay-2{transition-delay:0.18s}
+.delay-3{transition-delay:0.28s}.delay-4{transition-delay:0.38s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 2rem;background:#fff;border-bottom:1px solid rgba(0,0,0,0.08);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+.nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none}
+.nav-logo img{height:46px;transition:transform 0.3s}
+.nav-logo:hover img{transform:scale(1.04)}
+.nav-logo-text{font-family:var(--head);font-size:1.3rem;letter-spacing:0.12em;color:var(--black)}
+.nav-lang{display:flex;gap:0.5rem;font-size:0.8rem;font-weight:600;letter-spacing:0.1em}
+.nav-lang a{color:#aaa;text-decoration:none;transition:color 0.2s}
+.nav-lang a.active,.nav-lang a:hover{color:var(--black)}
+.nav-lang span{color:#ddd}
+
+/* HERO */
+.hero{position:relative;height:calc(100vh - 70px);min-height:650px;overflow:hidden;margin-top:70px}
+.hero-bg-img{position:absolute;inset:0;background:url('assets/image-01-2e0dff7f46.jpg') center/cover no-repeat;transform:scale(1.08);will-change:transform}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.62) 0%,rgba(0,0,0,0.1) 100%)}
+.hero-content{position:absolute;bottom:4rem;left:clamp(1.4rem,4vw,4rem);right:clamp(1.4rem,4vw,4rem);z-index:1;max-width:860px}
+.hero-subtitle{font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.5rem;line-height:1.6;opacity:0;transform:translateY(20px);transition:opacity 0.8s 0.2s ease,transform 0.8s 0.2s ease}
+.hero-subtitle.in{opacity:1;transform:translateY(0)}
+.hero h1{font-family:var(--head);font-size:clamp(3.5rem,8vw,7.6rem);color:#fff;line-height:0.9;text-transform:uppercase;margin-bottom:2rem;letter-spacing:0.035em;opacity:0;transform:translateY(30px);transition:opacity 0.8s 0.4s ease,transform 0.8s 0.4s ease}
+.hero h1.in{opacity:1;transform:translateY(0)}
+.hero-btns{opacity:0;transform:translateY(20px);transition:opacity 0.8s 0.65s ease,transform 0.8s 0.65s ease;display:flex;gap:0.9rem;flex-wrap:wrap}
+.hero-btns.in{opacity:1;transform:translateY(0)}
+.btn-olive{background:var(--gold);color:#161610;padding:0.95rem 2.35rem;font-family:var(--head);font-size:1.18rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border-radius:0;transition:background 0.2s,transform 0.15s,color 0.2s,border-color 0.2s}
+.btn-olive:hover{background:#fff;color:#161610;border-color:#fff;transform:translateY(-2px)}
+.btn-olive2{background:rgba(255,255,255,0.08);color:#fff;padding:0.95rem 2.35rem;font-family:var(--head);font-size:1.18rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.65);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border-radius:0;transition:background 0.2s,transform 0.15s,color 0.2s,border-color 0.2s}
+.btn-olive2:hover{background:#fff;color:#161610;border-color:#fff;transform:translateY(-2px)}
+.contact-section .btn-olive2{color:var(--olive-text);border-color:#c8c2ad;background:transparent}
+.contact-section .btn-olive2:hover{background:var(--olive-text);color:#fff;border-color:var(--olive-text)}
+
+/* INTRO */
+.intro-section{padding:6rem 2.8rem 4.5rem;max-width:1500px;margin:0 auto}
+.story-heading{font-family:var(--head);font-size:clamp(3.8rem,8vw,8rem);line-height:0.9;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1320px;margin-bottom:4.4rem}
+.story-heading span{color:#8b969b}
+.intro-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:4.5rem;align-items:end}
+.story-list{display:flex;flex-direction:column;gap:2rem;font-family:var(--body)}
+.story-option{font-family:var(--head);font-size:clamp(2.7rem,5vw,5.6rem);line-height:0.9;color:#b3bbc0;font-weight:400;letter-spacing:0.035em;text-transform:uppercase}
+.story-option.active{display:flex;align-items:center;justify-content:space-between;gap:2rem;color:#111}
+.story-option.active::after{content:'\2192';font-size:4rem;line-height:0.8;color:#111}
+.story-copy{max-width:620px;font-size:1.02rem;line-height:1.72;color:#222;margin-top:-0.65rem}
+.intro-img-wrap{position:relative;overflow:hidden;border-radius:32px;min-height:430px;align-self:stretch;background:#eef3f1}
+.intro-img-wrap::after{content:'';position:absolute;left:38%;bottom:-1px;width:25%;height:22%;background:#fff;border-radius:32px 32px 0 0;pointer-events:none}
+.intro-img-wrap img{width:100%;height:100%;min-height:430px;object-fit:cover;display:block;transition:transform 0.6s ease}
+.intro-img-wrap:hover img{transform:scale(1.04)}
+
+/* TURE */
+.tours-section{padding:5.6rem 3rem 6.5rem;text-align:left;background:#fff;position:relative;overflow:hidden;scroll-margin-top:92px}
+.tours-section::before{display:none}
+.tours-section h2{font-family:var(--head);font-size:clamp(3.8rem,8vw,8rem);font-weight:400;line-height:0.9;text-transform:uppercase;letter-spacing:0.035em;margin:0 auto 4rem;display:block;max-width:1500px;background:transparent;padding:0;color:#111}
+.tours-section h2::after{content:'Izberi svoj ritem';display:block;width:max-content;margin-top:1.65rem;padding:0.48rem 0.85rem;border-radius:0;background:#edf3f5;font-family:var(--body);font-size:0.78rem;line-height:1;font-weight:800;color:#111;letter-spacing:0.12em;text-transform:uppercase}
+.tours-grid{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:2rem;max-width:1500px;margin:0 auto}
+.tura-card{position:relative;height:390px;text-align:left;cursor:pointer;padding:0;overflow:hidden;background:#dfe5e0;border:0;border-radius:25px;box-shadow:none;transition:transform 0.28s ease,box-shadow 0.28s ease}
+.tura-card::before,.tura-card::after{display:none}
+.tura-card:hover{transform:translateY(-8px);background:#dfe5e0;box-shadow:0 24px 45px rgba(21,28,24,0.18)}
+.tura-circle{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:25px;overflow:hidden;margin:0;background:#182016;border:0;box-shadow:none;transition:none}
+.tura-circle::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.05) 45%,rgba(0,0,0,0.22) 100%);z-index:1;pointer-events:none}
+.tura-circle::after{content:'Julian Alps';position:absolute;left:14px;top:14px;bottom:auto;z-index:2;padding:0.42rem 0.72rem;border-radius:999px;background:#111;color:#fff;font-size:0.78rem;font-weight:800;letter-spacing:0}
+.tura-card:hover .tura-circle{transform:none;box-shadow:none}
+.tura-circle img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.62);filter:saturate(1.1) contrast(1.04);transition:transform 0.55s ease,filter 0.35s ease}
+.tura-card:hover .tura-circle img{transform:scale(1.72);filter:saturate(1.18) contrast(1.08)}
+.tura-name{position:absolute;left:18px;right:18px;bottom:92px;z-index:3;background:#fff;border-radius:18px 18px 0 0;padding:1.1rem 1.2rem 0.35rem;font-family:var(--head);font-size:1.65rem;line-height:0.95;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;margin:0}
+.tura-name::after{content:'Julian Alps \00B7 vodena tura';display:block;margin-top:0.55rem;font-size:0.78rem;font-family:var(--body);font-weight:600;color:#7d8990}
+.tura-card:nth-child(1) .tura-name::after{content:'Razgledna tura \00B7 2 uri'}
+.tura-card:nth-child(2) .tura-name::after{content:'Alpski vzponi \00B7 3 ure'}
+.tura-card:nth-child(3) .tura-name::after{content:'Doline in vasice \00B7 4 ure'}
+.tura-card:nth-child(4) .tura-name::after{content:'Celodnevno do\017Eivetje \00B7 5 ur'}
+.tura-icons{position:absolute;left:18px;right:18px;bottom:58px;z-index:3;min-height:0;display:flex;align-items:center;background:#fff;padding:0 1.2rem 0.2rem}
+.tura-icons img{height:18px;filter:contrast(1.05);opacity:0.85}
+.tura-btn-el{position:absolute;left:18px;right:18px;bottom:16px;z-index:3;width:auto;background:#fff;color:#111;padding:0.35rem 1.2rem 1.05rem;font-family:var(--body);font-size:0.98rem;font-weight:800;letter-spacing:0;text-transform:none;border:0;cursor:pointer;border-radius:0 0 18px 18px;margin:0;text-align:left;transition:none}
+.tura-card:hover .tura-btn-el{background:#fff;border-color:transparent;color:#111;transform:none}
+
+/* LOCAL KNOWLEDGE */
+.local-section{padding:5rem 2.8rem 6rem;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.18fr 0.86fr 0.64fr;gap:2.4rem;align-items:stretch}
+.local-photo{border-radius:32px;min-height:520px;background-size:cover;background-position:center;overflow:hidden;position:relative}
+.local-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.12))}
+.local-photo-main{background-image:linear-gradient(135deg,rgba(82,92,48,0.1),rgba(0,0,0,0.18)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 680'%3E%3Crect width='900' height='680' fill='%23dfe7dc'/%3E%3Cpath d='M0 476 C170 356 278 392 420 288 C570 178 700 190 900 78 L900 680 L0 680Z' fill='%23566538'/%3E%3Cpath d='M0 382 C150 320 252 332 398 230 C518 146 704 132 900 42 L900 218 C735 212 626 270 505 342 C325 450 150 448 0 544Z' fill='%2394a46d'/%3E%3Cpath d='M88 516 C248 392 412 410 580 292 C696 210 796 178 900 166' fill='none' stroke='%23f4f0df' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M0 604 L900 604 L900 680 L0 680Z' fill='%23383f28'/%3E%3C/svg%3E")}
+.local-photo-side{background-image:linear-gradient(135deg,rgba(20,50,74,0.08),rgba(0,0,0,0.1)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 680'%3E%3Crect width='520' height='680' fill='%238fc8dd'/%3E%3Cpath d='M0 310 C120 210 230 250 330 160 C405 94 466 80 520 64 L520 680 L0 680Z' fill='%235b7b4c'/%3E%3Cpath d='M0 452 C170 382 315 414 520 320 L520 680 L0 680Z' fill='%238aa05c'/%3E%3Ccircle cx='330' cy='492' r='58' fill='none' stroke='%23181818' stroke-width='14'/%3E%3Ccircle cx='222' cy='536' r='58' fill='none' stroke='%23181818' stroke-width='14'/%3E%3Cpath d='M222 536 L290 472 L330 492 M290 472 L268 420 M268 420 L332 420' fill='none' stroke='%23181818' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.local-copy{font-size:clamp(1.45rem,2vw,2rem);line-height:1.46;color:#111;padding-top:0.35rem}
+.local-note{grid-column:2/3;align-self:end;margin-top:2rem;background:rgba(239,245,247,0.92);border-radius:28px;padding:2rem;box-shadow:0 20px 55px rgba(39,53,45,0.12)}
+.local-note h3{font-family:var(--head);font-size:2.6rem;line-height:0.95;margin-bottom:1rem;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111}
+.local-note p{font-size:1rem;line-height:1.7;color:#222}
+
+/* DARK SECTION */
+.dark-section{background:var(--olive-dark);padding:5rem 2.5rem;position:relative;overflow:hidden}
+.dark-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1200px;margin:0 auto;align-items:start}
+.zakaj-left h2{font-family:var(--head);font-size:clamp(3rem,6vw,5.5rem);color:#fff;text-transform:uppercase;line-height:0.92;margin-bottom:2.5rem}
+.zakaj-items{display:flex;flex-direction:column}
+.zakaj-item{border-top:1px solid rgba(255,255,255,0.12);cursor:pointer;overflow:hidden}
+.zakaj-item:last-child{border-bottom:1px solid rgba(255,255,255,0.12)}
+.zakaj-item-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0.5rem;gap:1rem}
+.zakaj-icon{font-size:1.3rem;width:36px;text-align:center;flex-shrink:0}
+.zakaj-title{font-family:var(--head);font-size:1.3rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;flex:1;transition:color 0.2s}
+.zakaj-arrow{width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:rgba(255,255,255,0.5);transition:transform 0.3s,background 0.2s,border-color 0.2s;flex-shrink:0}
+.zakaj-item.open .zakaj-arrow{transform:rotate(180deg);background:var(--gold);border-color:var(--gold);color:#fff}
+.zakaj-item.open .zakaj-title{color:var(--gold)}
+.zakaj-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s;font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.75;font-weight:300;padding:0 0.5rem}
+.zakaj-body.open{max-height:120px;padding:0 0.5rem 1rem}
+.rez-right h2{font-family:var(--head);font-size:clamp(2.2rem,4.5vw,4rem);color:#fff;text-transform:uppercase;line-height:0.92;margin-bottom:2.5rem;text-align:right}
+.rez-steps-wrap{display:flex;flex-direction:column}
+.rez-step{display:flex;align-items:flex-start;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:padding-left 0.25s}
+.rez-step:first-child{border-top:1px solid rgba(255,255,255,0.1)}
+.rez-step:hover{padding-left:0.4rem}
+.rez-step-num{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.1rem;color:rgba(255,255,255,0.5);flex-shrink:0;transition:background 0.3s,border-color 0.3s,color 0.3s}
+.rez-step.active .rez-step-num{background:var(--gold);border-color:var(--gold);color:#fff}
+.rez-step-title{font-family:var(--head);font-size:1.1rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);transition:color 0.3s;margin-bottom:0.2rem}
+.rez-step.active .rez-step-title{color:#fff}
+.rez-step-desc{font-size:0.82rem;color:rgba(255,255,255,0);line-height:1.65;font-weight:300;max-height:0;overflow:hidden;transition:max-height 0.35s ease,color 0.3s}
+.rez-step.active .rez-step-desc{color:rgba(255,255,255,0.45);max-height:60px}
+.dark-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160'%3E%3Cpolygon points='0,160 180,50 300,110 460,15 600,80 740,5 880,70 1050,25 1200,60 1200,160' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") bottom/cover no-repeat;pointer-events:none}
+
+/* ========== GALERIJA — lightbox ========== */
+.gal-section{background:#fff;padding:4rem 2.5rem}
+.gal-section h2{font-family:var(--head);font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:0.04em;text-align:center;margin-bottom:2rem}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:1200px;margin:0 auto}
+.gal-item{overflow:hidden;height:220px;cursor:zoom-in;position:relative}
+.gal-item::after{
+  content:'🔍';
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;opacity:0;
+  transition:background 0.3s,opacity 0.3s;
+}
+.gal-item:hover::after{background:rgba(0,0,0,0.3);opacity:1}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
+.gal-item:hover img{transform:scale(1.06)}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,0.95);
+  align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.lightbox.open{display:flex}
+.lightbox-img-wrap{
+  position:relative;max-width:90vw;max-height:80vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-img-wrap img{
+  max-width:90vw;max-height:78vh;
+  object-fit:contain;display:block;
+  border-radius:2px;
+  transform:scale(0.92);opacity:0;
+  transition:transform 0.35s ease,opacity 0.35s ease;
+}
+.lightbox.open .lightbox-img-wrap img{transform:scale(1);opacity:1}
+.lb-close{
+  position:fixed;top:1.2rem;right:1.5rem;
+  background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:42px;height:42px;border-radius:50%;font-size:1.2rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;z-index:10;
+}
+.lb-close:hover{background:rgba(255,255,255,0.25)}
+.lb-prev,.lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:50px;height:50px;border-radius:50%;font-size:1.4rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;z-index:10;
+}
+.lb-prev{left:1.5rem}.lb-next{right:1.5rem}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.25)}
+.lb-counter{
+  font-family:var(--head);font-size:1rem;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.4);margin-top:1rem;
+}
+.lb-dots{display:flex;gap:0.5rem;margin-top:0.8rem}
+.lb-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.25);border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.2s;padding:0;
+}
+.lb-dot.active{background:#fff;transform:scale(1.3)}
+
+/* RECENZIJE */
+.rev-section{background:#fff;padding:2rem 2.5rem 4rem}
+.rev-section h2{font-family:var(--head);font-size:clamp(1.8rem,3.5vw,2.8rem);text-transform:uppercase;letter-spacing:0.04em;text-align:center;margin-bottom:2rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.rev-card{border:2px solid var(--black);padding:1.5rem 1.5rem 1.2rem;background:#fff;transition:transform 0.3s,box-shadow 0.3s}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+.rev-quote{font-size:3.2rem;line-height:0.75;color:var(--gold);font-family:Georgia,serif;display:block;margin-bottom:0.7rem}
+.rev-text{font-size:0.92rem;color:#333;line-height:1.75;margin-bottom:0.8rem}
+.rev-author{font-size:0.8rem;color:#888;font-style:italic}
+
+/* FAQ */
+.faq-section{background:#fff;padding:3rem 2.5rem 5rem}
+.faq-section h2{font-family:var(--head);font-size:clamp(2rem,4vw,3rem);text-transform:uppercase;letter-spacing:0.04em;text-align:center;margin-bottom:2.5rem}
+.faq-tabs{display:flex;justify-content:center;gap:0;max-width:800px;margin:0 auto 2.5rem;border:2px solid var(--black);overflow:hidden}
+.faq-tab{flex:1;padding:0.7rem 0.5rem;font-family:var(--head);font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;background:#fff;border:none;cursor:pointer;color:#aaa;transition:background 0.25s,color 0.25s;border-right:1px solid var(--black)}
+.faq-tab:last-child{border-right:none}
+.faq-tab.active{background:var(--olive-dark);color:#fff}
+.faq-tab:hover:not(.active){background:#f5f3ee;color:var(--black)}
+.faq-panels{max-width:800px;margin:0 auto}
+.faq-panel{display:none}.faq-panel.active{display:block}
+.faq-item{border-bottom:1px solid #e0ddd5}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;font-family:var(--body);font-size:0.9rem;font-weight:700;color:var(--black);text-align:left;gap:1rem;text-transform:uppercase;letter-spacing:0.05em}
+.faq-q:hover{color:var(--olive-btn)}
+.faq-q-arrow{width:22px;height:22px;border-radius:50%;border:1.5px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#aaa;flex-shrink:0;transition:transform 0.25s,background 0.2s,border-color 0.2s,color 0.2s}
+.faq-item.open .faq-q-arrow{transform:rotate(180deg);background:var(--olive-btn);border-color:var(--olive-btn);color:#fff}
+.faq-item.open .faq-q{color:var(--olive-btn)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;font-size:0.88rem;color:#555;line-height:1.8;font-weight:300}
+.faq-a.open{max-height:200px;padding-bottom:1rem}
+
+/* KONTAKT */
+.contact-section{background:#fff;padding:3rem 2.5rem 5rem;border-top:1px solid #eee}
+.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.contact-section h2{font-family:var(--head);font-size:clamp(1.8rem,3.5vw,2.8rem);text-transform:uppercase;margin-bottom:0.5rem}
+.contact-section .sub{font-size:0.88rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.25rem;color:#333}
+.contact-form{display:grid;gap:0.8rem;margin-top:1.8rem}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:0.75rem 1rem;background:#f7f5f0;border:1px solid #ddd;font-family:var(--body);font-size:0.9rem;color:var(--black);outline:none;transition:border-color 0.2s;border-radius:4px}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--olive-btn)}
+.contact-form textarea{height:100px;resize:vertical}
+.contact-form select{color:#888}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.form-success{display:none;padding:2rem 0}
+.form-success p{font-family:var(--head);font-size:1.8rem;color:var(--olive-btn)}
+
+/* CLOSING */
+.closing{background:var(--gray-dark);padding:5rem 2rem;text-align:center;overflow:hidden}
+.closing-logo{margin-bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem}
+.closing-logo img{height:48px;filter:brightness(0) invert(1);opacity:0.5}
+.closing-logo span{font-family:var(--head);font-size:0.9rem;letter-spacing:0.25em;color:rgba(255,255,255,0.3)}
+.closing h2{font-family:var(--head);font-size:clamp(5rem,14vw,12rem);color:#fff;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em}
+
+footer{background:var(--gray-dark);border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
+
+/* MODALI */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.8);align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(30px);opacity:0;transition:transform 0.35s ease,opacity 0.35s ease}
+.modal-overlay.open .modal{transform:translateY(0);opacity:1}
+.modal-img{height:210px;overflow:hidden;position:relative}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-close{position:absolute;top:0.8rem;right:0.8rem;z-index:10;background:rgba(0,0,0,0.5);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-body{padding:1.8rem}
+.modal-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.2rem}
+.modal-title{font-family:var(--head);font-size:2rem;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;color:var(--olive-text)}
+.modal-meta{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #e8e4dc;margin-bottom:1.2rem}
+.meta-item{padding:0.8rem;text-align:center;border-right:1px solid #e8e4dc}
+.meta-item:last-child{border-right:none}
+.meta-lbl{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.12em;color:#aaa;margin-bottom:0.2rem}
+.meta-val{font-family:var(--head);font-size:1.4rem;color:var(--olive-btn)}
+.modal-desc{font-size:0.87rem;color:#444;line-height:1.8;margin-bottom:1.5rem}
+.modal-cta{width:100%;background:var(--olive-btn);color:#fff;padding:0.85rem;font-family:var(--body);font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.modal-cta:hover{background:var(--olive-btn2)}
+
+@media(max-width:900px){
+  .dark-section-inner,.intro-grid,.contact-inner{grid-template-columns:1fr}
+  .intro-section{padding:4rem 1.5rem 3.5rem}
+  .story-heading{margin-bottom:3rem}
+  .intro-img-wrap,.intro-img-wrap img{min-height:360px}
+  .tours-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
+  .local-section{grid-template-columns:1fr;gap:1.35rem;padding:4rem 1.5rem 5rem}
+  .local-photo{min-height:360px}
+  .local-note{grid-column:auto;margin-top:1.25rem}
+  .rez-right h2{text-align:left}
+  .rev-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .faq-tabs{flex-wrap:wrap}
+  .faq-tab{border-bottom:1px solid var(--black)}
+  .lb-prev{left:0.5rem}.lb-next{right:0.5rem}
+}
+@media(max-width:520px){
+  .hero{height:calc(100vh - 62px);min-height:560px;margin-top:62px}
+  .hero-content{bottom:2.2rem}
+  .hero-subtitle{font-size:0.65rem}
+  .hero h1{font-size:clamp(3.1rem,16vw,5rem);margin-bottom:1.35rem}
+  .btn-olive,.btn-olive2{width:100%;padding:0.85rem 1.1rem;font-size:1.05rem}
+  nav{padding:0.65rem 1rem}
+  .nav-logo{gap:0.35rem}
+  .nav-logo img{height:38px}
+  .nav-logo-text{font-size:1rem;letter-spacing:0.08em}
+  .nav-lang{gap:0.28rem;font-size:0.68rem;letter-spacing:0.07em}
+  .intro-section{padding:3.2rem 1.1rem 3rem}
+  .story-heading{font-size:3.25rem;line-height:0.94;margin-bottom:2.4rem}
+  .story-list{gap:1.35rem}
+  .story-option{font-size:2.6rem}
+  .story-option.active::after{font-size:2.7rem}
+  .story-copy{font-size:0.96rem}
+  .intro-img-wrap,.intro-img-wrap img{min-height:300px}
+  .intro-img-wrap::after{width:31%;height:18%;left:36%;border-radius:24px 24px 0 0}
+  .tours-section{padding:3.7rem 1.1rem 4.6rem}
+  .tours-section h2{font-size:3.25rem;margin-bottom:2.6rem}
+  .tours-section h2::after{margin-top:1.1rem}
+  .tours-grid{grid-template-columns:1fr;gap:1.15rem}
+  .tura-card{height:370px;border-radius:22px}
+  .tura-circle{border-radius:22px}
+  .tura-circle img{transform:scale(1.68)}
+  .tura-card:hover .tura-circle img{transform:scale(1.76)}
+  .tura-name{font-size:1.22rem}
+  .local-section{padding:3.6rem 1.1rem 4.2rem}
+  .local-photo{min-height:300px;border-radius:24px}
+  .local-copy{font-size:1.28rem}
+  .local-note{border-radius:22px;padding:1.35rem}
+  .local-note h3{font-size:2.05rem}
+  .local-note p{font-size:0.94rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="#" class="nav-logo"><img src="assets/image-02-20a15ea4e9.png" alt="Julian Alps cycling"><span class="nav-logo-text">JULIAN ALPS CYCLING</span></a>
+  <div class="nav-lang"><a href="#" class="active">SI</a><span>|</span><a href="#">EN</a><span>|</span><a href="#">DE</a></div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-bg-img" id="heroBg"></div>
+  <div class="hero-content" id="heroContent">
+    <p class="hero-subtitle" id="heroSub">VODENI KOLESARSKI IZLETI<br>ZA VSE RAVNI KOLESARJEV</p>
+    <h1 id="heroH1">KOLESARSKI IZLETI.<br>DOŽIVETJA, KI OSTANEJO.</h1>
+    <div class="hero-btns" id="heroBtns">
+      <a href="#kontakt" class="btn-olive">POVPRAŠAJ</a>
+      <a href="#ture" class="btn-olive2">OGLEJ SI TURE</a>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div class="intro-section">
+  <div class="story-heading reveal">Cesta se umiri, razgled prevzame tempo <span>mi pa sestavimo vožnjo, ki paše tvojemu dnevu.</span></div>
+  <div class="intro-grid">
+    <div class="story-list reveal-left"><div class="story-option active">Lahka vožnja</div><div class="story-copy">Začnemo pri tvojem ritmu, potem izberemo traso, postanke in razglede. Brez hitenja, brez kompliciranja - samo dobra vožnja skozi Julijske Alpe.</div><div class="story-option">Razgledni vzponi</div><div class="story-option">Tura po meri</div></div>
+    <div class="intro-img-wrap reveal-right"><img src="assets/image-03-b38989071a.png" alt="Kolesarji"></div>
+  </div>
+</div>
+
+<!-- TURE -->
+<section class="tours-section" id="ture">
+  <h2 class="reveal">PONUDBA IZLETOV</h2>
+  <div class="tours-grid">
+    <div class="tura-card reveal delay-1" onclick="openModal('t1')"><div class="tura-circle"><img src="assets/image-04-33dbcd4305.png" alt="Tura 1"></div><div class="tura-name">TURA 1</div><div class="tura-icons"><img src="assets/image-05-68dbdaad18.png" alt="ikona"></div><button class="tura-btn-el">VEČ O TURI</button></div>
+    <div class="tura-card reveal delay-2" onclick="openModal('t2')"><div class="tura-circle"><img src="assets/image-06-6ce9a59a55.png" alt="Tura 2"></div><div class="tura-name">TURA 2</div><div class="tura-icons"><img src="assets/image-07-730e5577c7.png" alt="ikona"></div><button class="tura-btn-el">VEČ O TURI</button></div>
+    <div class="tura-card reveal delay-3" onclick="openModal('t3')"><div class="tura-circle"><img src="assets/image-08-a3d0d9b26c.png" alt="Tura 3"></div><div class="tura-name">TURA 3</div><div class="tura-icons"><img src="assets/image-09-206105d4ca.png" alt="ikona"></div><button class="tura-btn-el">VEČ O TURI</button></div>
+    <div class="tura-card reveal delay-4" onclick="openModal('t4')"><div class="tura-circle"><img src="assets/image-10-d14ca99cb3.png" alt="Tura 4"></div><div class="tura-name">TURA 4</div><div class="tura-icons"><img src="assets/image-11-53562154c5.png" alt="ikona"></div><button class="tura-btn-el">VEČ O TURI</button></div>
+  </div>
+</section>
+
+<!-- LOCAL KNOWLEDGE -->
+<section class="local-section">
+  <div class="local-photo local-photo-main reveal-left"></div>
+  <div class="local-middle reveal">
+    <div class="local-copy">Od leta 2005 raziskujemo mirne ceste, prelaze in skrite doline. Zato izlet ni samo trasa na zemljevidu, ampak premišljen ritem vožnje, razgledov in lokalnih postankov.</div>
+    <div class="local-note">
+      <h3>Lokalno znanje, alpski občutek</h3>
+      <p>Izberemo ceste z manj prometa, najboljše razglede in pravo težavnost za vašo skupino. Vi samo pridete pripravljeni na vožnjo.</p>
+    </div>
+  </div>
+  <div class="local-photo local-photo-side reveal-right"></div>
+</section>
+
+<!-- DARK SECTION -->
+<section class="dark-section">
+  <div class="dark-section-inner">
+    <div class="zakaj-left reveal-left">
+      <h2>ZAKAJ<br>IZBRATI<br>NAS!</h2>
+      <div class="zakaj-items">
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">🗺</span><span class="zakaj-title">IZLETI ZA VSE RAVNI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Od sproščenih izletov za začetnike in družine do zahtevnih gorskih tur za izkušene kolesarje.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">📍</span><span class="zakaj-title">IZBRANE POTI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Vsaka trasa je skrbno izbrana — mimo najlepših razgledov in skozi mirna gorska naselja.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">🚴</span><span class="zakaj-title">IZKUŠENI VODNIKI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Naši vodniki poznajo vsak ovinek, vsako lokalno zgodbo in vsak razgled.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">👥</span><span class="zakaj-title">MAJHNE SKUPINE</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Do 8 udeležencev — za osebno izkušnjo, varno vožnjo in pravo kolesarsko vzdušje.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">⭐</span><span class="zakaj-title">DOŽIVETJA</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Razgledi, odmori, okusi in trenutki, ki ostanejo v spominu dolgo po turi.</div></div>
+      </div>
+    </div>
+    <div class="rez-right reveal-right">
+      <h2>KAKO<br>POTEKA<br>REZERVACIJA</h2>
+      <div class="rez-steps-wrap">
+        <div class="rez-step active" onclick="setRezStep(this)"><div class="rez-step-num">1</div><div class="rez-step-text"><div class="rez-step-title">IZBERITE TURO IN TERMIN</div><div class="rez-step-desc">Preglejte ponudbo in izberite turo. Razpoložljive termine sporočimo na povpraševanje.</div></div></div>
+        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">2</div><div class="rez-step-text"><div class="rez-step-title">POŠLJITE POVPRAŠEVANJE</div><div class="rez-step-desc">Izpolnite kontaktni obrazec. Sporočite nam skupino, termin in izkušnje.</div></div></div>
+        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">3</div><div class="rez-step-text"><div class="rez-step-title">POTRDIMO IN KOLESARIMO!</div><div class="rez-step-desc">Po potrditvi dobite vse podrobnosti — lokacijo starta, opremo in nasvete.</div></div></div>
+      </div>
+      <div style="margin-top:2rem;text-align:right"><a href="#kontakt" class="btn-olive">POŠLJI POVPRAŠEVANJE</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIJA -->
+<section class="gal-section" id="galerija">
+  <h2 class="reveal">GALERIJA</h2>
+  <div class="gal-grid">
+    <div class="gal-item reveal delay-1" onclick="openLightbox(0)"><img src="assets/image-12-42d24c65c8.png" alt="Galerija 1"></div>
+    <div class="gal-item reveal delay-2" onclick="openLightbox(1)"><img src="assets/image-13-ed08bd2ad2.png" alt="Galerija 2"></div>
+    <div class="gal-item reveal delay-3" onclick="openLightbox(2)"><img src="assets/image-14-21ffc4599b.png" alt="Galerija 3"></div>
+    <div class="gal-item reveal delay-4" onclick="openLightbox(3)"><img src="assets/image-15-3692c00272.png" alt="Galerija 4"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="lbClickOutside(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="lbPrev()">&#8592;</button>
+  <button class="lb-next" onclick="lbNext()">&#8594;</button>
+  <div class="lightbox-img-wrap"><img id="lbImg" src="" alt=""></div>
+  <div class="lb-counter" id="lbCounter">1 / 4</div>
+  <div class="lb-dots" id="lbDots"></div>
+</div>
+
+<!-- RECENZIJE -->
+<section class="rev-section">
+  <h2 class="reveal">KAJ PRAVIJO NAŠI KOLESARJI</h2>
+  <div class="rev-grid">
+    <div class="rev-card reveal delay-1"><span class="rev-quote">&ldquo;&rdquo;</span><p class="rev-text">"Odlična izkušnja, lepa trasa in sproščeno vzdušje. Tura je bila prilagojena našemu tempu."</p><p class="rev-author">— Ime, kraj</p></div>
+    <div class="rev-card reveal delay-2"><span class="rev-quote">&ldquo;&rdquo;</span><p class="rev-text">"Zelo priporočam vsem, ki želijo okolico spoznati na aktiven in drugačen način."</p><p class="rev-author">— Ime, kraj</p></div>
+    <div class="rev-card reveal delay-3"><span class="rev-quote">&ldquo;&rdquo;</span><p class="rev-text">"Super organizacija, prijazen pristop in čudoviti razgledi. Z veseljem pridemo še enkrat."</p><p class="rev-author">— Ime, kraj</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <h2 class="reveal">POGOSTA VPRAŠANJA</h2>
+  <div class="faq-tabs reveal">
+    <button class="faq-tab active" onclick="switchTab(this,'tab-splosno')">SPLOŠNO</button>
+    <button class="faq-tab" onclick="switchTab(this,'tab-ture')">TURE</button>
+    <button class="faq-tab" onclick="switchTab(this,'tab-oprema')">OPREMA</button>
+    <button class="faq-tab" onclick="switchTab(this,'tab-rezervacija')">REZERVACIJA</button>
+  </div>
+  <div class="faq-panels reveal">
+    <div class="faq-panel active" id="tab-splosno">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI SO TURE PRIMERNE ZA ZAČETNIKE?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Da, določene ture so primerne tudi za manj izkušene kolesarje. Turo prilagodimo glede na izkušnje in kondicijo.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KOLIKO OSEB JE LAHKO V SKUPINI?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Priporočena velikost je do 8 oseb. Za večje skupine se predhodno dogovorimo.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAJ SE ZGODI V PRIMERU SLABEGA VREMENA?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">V primeru neprimernega vremena se dogovorimo za drug termin ali prilagodimo potek ture.</div></div>
+    </div>
+    <div class="faq-panel" id="tab-ture">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO DOLGE SO TURE?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Od 2 do 5 ur, razdalje od 15 do 55 km glede na težavnost.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI SO TURE PRIMERNE ZA OTROKE?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Tura 1 je primerna za otroke nad 8 let v spremstvu. Ostale so za odrasle.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KJE SE TURE ZAČNEJO?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Točna lokacija starta je odvisna od izbrane ture. Podrobnosti dobite po potrditvi rezervacije.</div></div>
+    </div>
+    <div class="faq-panel" id="tab-oprema">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI POTREBUJEM SVOJE KOLO?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Udeleženci praviloma pridejo s svojim cestnim kolesom. Pomagamo z informacijami glede izposoje.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKŠNO OPREMO POTREBUJEM?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Čelada, kolesarska obleka, rokavice in sončna očala. Za daljše ture nahrbtnik z vodo.</div></div>
+    </div>
+    <div class="faq-panel" id="tab-rezervacija">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO REZERVIRAM TURO?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Izpolnite kontaktni obrazec ali pišite na info@probike-tours.si. Odgovorimo v 24 urah.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO POTEKA PLAČILO?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Gotovina ali bančno nakazilo po potrditvi rezervacije.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI LAHKO ODPOVEM REZERVACIJO?<span class="faq-q-arrow">&#8964;</span></button><div class="faq-a">Brezplačna odpoved do 48 ur pred turo. Kasnejša odpoved: administrativni stroški.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact-section" id="kontakt">
+  <div class="contact-inner">
+    <div class="reveal-left">
+      <h2>IMATE VPRAŠANJE?</h2>
+      <p class="sub">Z VESELJEM VAM POMAGAMO PRI IZBIRI PRAVE TURE.</p>
+      <p class="sub">POŠLJITE NAM POVPRAŠEVANJE IN SKUPAJ BOMO PRIPRAVILI KOLESARSKO IZKUŠNJO.</p>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
+        <a href="#ture" class="btn-olive">OGLEJ SI TURE</a>
+        <a href="#kontakt" class="btn-olive2">POVPRAŠAJ</a>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row"><input type="text" placeholder="Ime in priimek" required><input type="email" placeholder="E-pošta" required></div>
+        <input type="tel" placeholder="Telefon (neobvezno)">
+        <select><option value="">Katera tura vas zanima?</option><option>Tura 1 — Lahka (2h)</option><option>Tura 2 — Srednja (3h)</option><option>Tura 3 — Srednja (4h)</option><option>Tura 4 — Zahtevna (5h)</option><option>Nisem še odločen/a</option></select>
+        <textarea placeholder="Sporočilo — kdaj, koliko vas bo, izkušnje..."></textarea>
+        <button type="submit" class="btn-olive" style="border-radius:4px;padding:0.85rem;font-size:0.82rem;width:100%">POŠLJI POVPRAŠEVANJE →</button>
+      </form>
+      <div class="form-success" id="formSuccess"><p>✓ Hvala! Javimo se kmalu.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="closing-logo reveal"><img src="assets/image-02-20a15ea4e9.png" alt="Julian Alps cycling"><span>JULIAN ALPS CYCLING</span></div>
+  <h2 class="reveal">SE VIDIMO,<br>KMALU.</h2>
+</div>
+
+<footer><p>© 2025 Julian Alps cycling</p><p>info@probike-tours.si</p></footer>
+
+<!-- TOUR MODALI -->
+<div class="modal-overlay" id="modal-t1" onclick="closeOut(event,'t1')"><div class="modal"><div class="modal-img"><img src="assets/image-04-33dbcd4305.png" alt="Tura 1"><button class="modal-close" onclick="closeModal('t1')">✕</button></div><div class="modal-body"><p class="modal-label">Tura 01</p><h3 class="modal-title">DOLINA SOČE</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Razdalja</div><div class="meta-val">25 km</div></div><div class="meta-item"><div class="meta-lbl">Čas</div><div class="meta-val">~2h</div></div><div class="meta-item"><div class="meta-lbl">Težavnost</div><div class="meta-val">Lahka</div></div></div><p class="modal-desc">Sproščena vožnja vzdolž turkizne Soče skozi gorska naselja. Idealno za začetnike in ljubitelje narave.</p><button class="modal-cta" onclick="closeModal('t1');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">REZERVIRAJ TO TURO →</button></div></div></div>
+<div class="modal-overlay" id="modal-t2" onclick="closeOut(event,'t2')"><div class="modal"><div class="modal-img"><img src="assets/image-06-6ce9a59a55.png" alt="Tura 2"><button class="modal-close" onclick="closeModal('t2')">✕</button></div><div class="modal-body"><p class="modal-label">Tura 02</p><h3 class="modal-title">GORENJSKA POT</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Razdalja</div><div class="meta-val">40 km</div></div><div class="meta-item"><div class="meta-lbl">Čas</div><div class="meta-val">~3h</div></div><div class="meta-item"><div class="meta-lbl">Težavnost</div><div class="meta-val">Srednja</div></div></div><p class="modal-desc">Gorenjska ruta skozi vasice pod Karavankami. Vključuje postanek na lokalni kmetiji.</p><button class="modal-cta" onclick="closeModal('t2');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">REZERVIRAJ TO TURO →</button></div></div></div>
+<div class="modal-overlay" id="modal-t3" onclick="closeOut(event,'t3')"><div class="modal"><div class="modal-img"><img src="assets/image-08-a3d0d9b26c.png" alt="Tura 3"><button class="modal-close" onclick="closeModal('t3')">✕</button></div><div class="modal-body"><p class="modal-label">Tura 03</p><h3 class="modal-title">BOHINJSKA JEZERA</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Razdalja</div><div class="meta-val">35 km</div></div><div class="meta-item"><div class="meta-lbl">Čas</div><div class="meta-val">~4h</div></div><div class="meta-item"><div class="meta-lbl">Težavnost</div><div class="meta-val">Srednja</div></div></div><p class="modal-desc">Tura okrog Bohinjskega jezera skozi Triglavski narodni park.</p><button class="modal-cta" onclick="closeModal('t3');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">REZERVIRAJ TO TURO →</button></div></div></div>
+<div class="modal-overlay" id="modal-t4" onclick="closeOut(event,'t4')"><div class="modal"><div class="modal-img"><img src="assets/image-10-d14ca99cb3.png" alt="Tura 4"><button class="modal-close" onclick="closeModal('t4')">✕</button></div><div class="modal-body"><p class="modal-label">Tura 04</p><h3 class="modal-title">KRAŠKI RAZGLEDI</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Razdalja</div><div class="meta-val">55 km</div></div><div class="meta-item"><div class="meta-lbl">Čas</div><div class="meta-val">~5h</div></div><div class="meta-item"><div class="meta-lbl">Težavnost</div><div class="meta-val">Zahtevna</div></div></div><p class="modal-desc">Polna tura prek Krasa z razgledi na Tržaški zaliv. Vključuje degustacijo kraških specialitet.</p><button class="modal-cta" onclick="closeModal('t4');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">REZERVIRAJ TO TURO →</button></div></div></div>
+
+<script>
+// ===== HERO entrance =====
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    document.getElementById('heroSub').classList.add('in');
+    document.getElementById('heroH1').classList.add('in');
+    document.getElementById('heroBtns').classList.add('in');
+  },100);
+});
+
+// ===== HERO parallax =====
+window.addEventListener('scroll',function(){
+  var s=window.scrollY;
+  var bg=document.getElementById('heroBg');
+  if(bg) bg.style.transform='scale(1.08) translateY('+(s*0.25)+'px)';
+  var hc=document.getElementById('heroContent');
+  if(hc) hc.style.transform='translateY('+(s*0.12)+'px)';
+  document.getElementById('mainNav').classList.toggle('scrolled',s>20);
+});
+
+// ===== SCROLL REVEAL =====
+var revEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+revEls.forEach(function(el){ro.observe(el)});
+
+// ===== STATS counter =====
+document.querySelectorAll('.stat-item').forEach(function(item){
+  var so=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target.querySelector('.stat-num');
+        var target=parseInt(el.getAttribute('data-target'));
+        var start=null; el.style.opacity='1';
+        function step(ts){
+          if(!start)start=ts;
+          var p=Math.min((ts-start)/1200,1);
+          var ease=1-Math.pow(1-p,3);
+          el.textContent=Math.round(ease*target)+(target===100?'%':'+');
+          if(p<1)requestAnimationFrame(step);
+          else el.textContent=target+(target===100?'%':'+');
+        }
+        requestAnimationFrame(step);
+        so.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  so.observe(item);
+});
+
+// ===== LIGHTBOX =====
+// Read image srcs directly from DOM to avoid base64-in-JS escaping issues
+var lbImages = [];
+var lbCurrent = 0;
+
+function initLightbox() {
+  lbImages = [];
+  document.querySelectorAll('.gal-item img').forEach(function(img) {
+    lbImages.push(img.src);
+  });
+}
+
+function buildDots() {
+  var dotsEl = document.getElementById('lbDots');
+  dotsEl.innerHTML = '';
+  lbImages.forEach(function(src, i) {
+    var d = document.createElement('button');
+    d.className = 'lb-dot' + (i === lbCurrent ? ' active' : '');
+    d.onclick = function(e) { e.stopPropagation(); goToLb(i); };
+    dotsEl.appendChild(d);
+  });
+}
+
+function openLightbox(idx) {
+  initLightbox();
+  lbCurrent = idx;
+  var lb = document.getElementById('lightbox');
+  var img = document.getElementById('lbImg');
+  img.style.transition = 'none';
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.92)';
+  img.src = lbImages[lbCurrent];
+  img.onload = function() {
+    img.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+    img.style.opacity = '1';
+    img.style.transform = 'scale(1)';
+  };
+  document.getElementById('lbCounter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+  buildDots();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function goToLb(idx) {
+  lbCurrent = idx;
+  var img = document.getElementById('lbImg');
+  img.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.92)';
+  setTimeout(function() {
+    img.src = lbImages[lbCurrent];
+    img.onload = function() {
+      img.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+      img.style.opacity = '1';
+      img.style.transform = 'scale(1)';
+    };
+    document.getElementById('lbCounter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+    buildDots();
+  }, 150);
+}
+
+function lbNext() { goToLb((lbCurrent + 1) % lbImages.length); }
+function lbPrev() { goToLb((lbCurrent - 1 + lbImages.length) % lbImages.length); }
+function lbClickOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+
+// swipe support
+var lbTouchX=null;
+document.getElementById('lightbox').addEventListener('touchstart',function(e){lbTouchX=e.touches[0].clientX});
+document.getElementById('lightbox').addEventListener('touchend',function(e){
+  if(lbTouchX===null)return;
+  var dx=e.changedTouches[0].clientX-lbTouchX;
+  if(Math.abs(dx)>50){dx<0?lbNext():lbPrev();}
+  lbTouchX=null;
+});
+
+// ===== TOUR MODALI =====
+function openModal(id){document.getElementById('modal-'+id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById('modal-'+id).classList.remove('open');document.body.style.overflow=''}
+function closeOut(e,id){if(e.target===document.getElementById('modal-'+id))closeModal(id)}
+
+// ===== ZAKAJ =====
+function toggleZakaj(item){
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.zakaj-item').forEach(function(i){i.classList.remove('open');i.querySelector('.zakaj-body').classList.remove('open')});
+  if(!isOpen){item.classList.add('open');item.querySelector('.zakaj-body').classList.add('open')}
+}
+
+// ===== REZ STEPPER =====
+function setRezStep(step){
+  document.querySelectorAll('.rez-step').forEach(function(s){s.classList.remove('active')});
+  step.classList.add('active');
+}
+
+// ===== FAQ TABS =====
+function switchTab(btn,panelId){
+  document.querySelectorAll('.faq-tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.faq-panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open')});
+}
+
+// ===== FAQ ACCORDION =====
+function toggleFaq(btn){
+  var item=btn.parentElement,ans=item.querySelector('.faq-a'),isOpen=item.classList.contains('open');
+  btn.closest('.faq-panel').querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open')});
+  if(!isOpen){item.classList.add('open');ans.classList.add('open')}
+}
+
+// ===== FORM =====
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+</script>
+</body>
+</html>
