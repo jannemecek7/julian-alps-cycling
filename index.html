@@ -70,23 +70,22 @@ nav .nav-logo{opacity:0;pointer-events:none}
 
 /* INTRO */
 .intro-section{position:relative;min-height:980px;padding:7rem 2.8rem 6.5rem;overflow:hidden;background:#fff}
-.intro-section::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 980' preserveAspectRatio='none'%3E%3Cpath d='M1050 0 C970 150 850 205 650 270 C410 348 228 382 170 570 C108 770 310 885 520 980' fill='none' stroke='%23d8d7d1' stroke-width='8' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3C/svg%3E") center top/100% 100% no-repeat;opacity:0.8}
+.intro-section::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 980' preserveAspectRatio='none'%3E%3Cpath d='M210 785 C380 650 360 470 570 430 C820 382 920 610 1165 490 C1275 436 1318 322 1346 190' fill='none' stroke='%23d8d7d1' stroke-width='8' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3C/svg%3E") center top/100% 100% no-repeat;opacity:0.78}
 .intro-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto}
 .story-heading{font-family:var(--head);font-size:clamp(4.2rem,8.8vw,9rem);line-height:0.86;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1180px;margin-bottom:1.8rem}
 .story-heading span{display:block;color:#9aa2a5}
 .intro-lead{max-width:720px;font-size:clamp(1.05rem,1.5vw,1.34rem);line-height:1.78;color:#343838;margin-bottom:3rem}
-.intro-collage{position:relative;min-height:620px}
+.intro-collage{position:relative;min-height:590px}
 .intro-photo{position:absolute;overflow:hidden;background:#e9eceb;box-shadow:0 28px 80px rgba(0,0,0,0.13)}
 .intro-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease,filter 0.35s ease;filter:saturate(1.04) contrast(1.03)}
 .intro-photo:hover img{transform:scale(1.06);filter:saturate(1.12) contrast(1.05)}
-.intro-photo-large{right:2%;top:0;width:min(52vw,760px);height:420px;border-radius:34px}
-.intro-photo-small{left:3%;top:235px;width:min(30vw,420px);height:300px;border-radius:28px;transform:rotate(-3deg)}
-.intro-photo-tall{right:10%;top:405px;width:min(25vw,350px);height:310px;border-radius:28px;transform:rotate(3deg)}
-.intro-card{position:absolute;left:36%;top:405px;z-index:4;width:min(42vw,560px);padding:1.35rem 1.45rem;border-radius:28px;background:rgba(255,255,255,0.78);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(0,0,0,0.1)}
-.intro-card h3{font-family:var(--head);font-size:clamp(2.2rem,4vw,4.1rem);line-height:0.9;letter-spacing:0.04em;text-transform:uppercase;color:#111;margin-bottom:0.8rem}
-.intro-card p{font-size:1rem;line-height:1.7;color:#333}
-.intro-tags{position:absolute;left:3%;top:0;z-index:3;max-width:420px;display:grid;gap:0.4rem;font-family:var(--head);font-size:clamp(2.2rem,4.1vw,4.5rem);line-height:0.93;text-transform:uppercase;letter-spacing:0.04em;color:#b7bfc2}
-.intro-tags span:first-child{color:#111}
+.intro-photo-large{right:4%;top:24px;width:min(36vw,540px);height:330px;border-radius:34px}
+.intro-photo-small{left:3%;top:180px;width:min(31vw,460px);height:300px;border-radius:28px;transform:rotate(-3deg)}
+.intro-photo-map{left:50%;bottom:0;width:min(42vw,640px);height:300px;border-radius:30px;transform:translateX(-50%) rotate(1deg);box-shadow:0 34px 90px rgba(0,0,0,0.12)}
+.intro-brand{position:absolute;left:50%;top:170px;z-index:4;transform:translateX(-50%);width:min(520px,42vw);padding:2rem 2.2rem;text-align:center;border-radius:34px;background:rgba(255,255,255,0.76);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 26px 80px rgba(0,0,0,0.12)}
+.intro-brand-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#7f878a;margin-bottom:0.75rem}
+.intro-brand h3{font-family:var(--head);font-size:clamp(2.7rem,5.2vw,5.5rem);line-height:0.85;letter-spacing:0.055em;text-transform:uppercase;color:#111}
+.intro-brand p{margin-top:1rem;font-size:1rem;line-height:1.7;color:#343838}
 
 /* TURE */
 .tours-section{padding:5.6rem 3rem 6.5rem;text-align:left;background:#fff;position:relative;overflow:hidden;scroll-margin-top:92px}
@@ -300,12 +299,11 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .dark-section-inner,.contact-inner{grid-template-columns:1fr}
   .intro-section{min-height:900px;padding:5.5rem 1.5rem 4.5rem}
   .story-heading{margin-bottom:1.2rem}
-  .intro-collage{min-height:700px}
-  .intro-tags{top:0;max-width:360px;font-size:3.2rem}
-  .intro-photo-large{right:0;top:150px;width:62vw;height:330px}
-  .intro-photo-small{left:0;top:280px;width:34vw;height:240px}
-  .intro-photo-tall{right:4%;top:500px;width:30vw;height:240px}
-  .intro-card{left:18%;top:500px;width:min(64vw,560px)}
+  .intro-collage{min-height:690px}
+  .intro-photo-large{right:0;top:20px;width:50vw;height:300px}
+  .intro-photo-small{left:0;top:135px;width:34vw;height:240px}
+  .intro-photo-map{left:50%;bottom:0;width:62vw;height:250px}
+  .intro-brand{top:300px;width:min(560px,58vw);padding:1.55rem}
   .tours-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
   .dark-section{padding:8rem 1.5rem 4.5rem}
   .dark-section-inner{gap:1.4rem}
@@ -344,13 +342,12 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .intro-section{min-height:0;padding:4.5rem 1.1rem 4rem}
   .story-heading{font-size:3.25rem;line-height:0.92;margin-bottom:1.2rem}
   .intro-lead{font-size:0.98rem;margin-bottom:2rem}
-  .intro-collage{min-height:900px}
-  .intro-tags{position:relative;left:auto;top:auto;max-width:none;margin-bottom:1.2rem;font-size:2.4rem}
-  .intro-photo-large{left:0;right:auto;top:150px;width:100%;height:300px;border-radius:24px}
-  .intro-photo-small{left:0;top:480px;width:48%;height:210px;border-radius:22px;transform:rotate(-2deg)}
-  .intro-photo-tall{right:0;top:500px;width:48%;height:260px;border-radius:22px;transform:rotate(2deg)}
-  .intro-card{left:0;right:0;top:790px;width:auto;padding:1.15rem;border-radius:22px}
-  .intro-card h3{font-size:2.25rem}
+  .intro-collage{min-height:780px}
+  .intro-photo-large{left:0;right:auto;top:0;width:100%;height:270px;border-radius:24px}
+  .intro-photo-small{left:0;top:300px;width:48%;height:190px;border-radius:22px;transform:rotate(-2deg)}
+  .intro-photo-map{left:auto;right:0;bottom:auto;top:320px;width:48%;height:210px;border-radius:22px;transform:rotate(2deg)}
+  .intro-brand{left:0;right:0;top:560px;width:auto;transform:none;padding:1.25rem;border-radius:24px}
+  .intro-brand h3{font-size:2.9rem}
   .tours-section{padding:3.7rem 1.1rem 4.6rem}
   .tours-section h2{font-size:3.25rem;margin-bottom:2.6rem}
   .tours-section h2::after{margin-top:1.1rem}
@@ -420,14 +417,14 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
     <div class="story-heading reveal">Na poti ni treba hiteti.<span>Razgled naj določi tempo.</span></div>
     <p class="intro-lead reveal">Julijske Alpe niso samo kulisa za fotografijo. So prostor, kjer se vožnja začne počasi, najde pravi ritem in te odpelje skozi ceste, ki jih sam težko odkriješ.</p>
     <div class="intro-collage">
+      <div class="intro-photo intro-photo-small reveal-left"><img src="assets/image-12-42d24c65c8.png" alt="Kolesarji pod Julijskimi Alpami"></div>
       <div class="intro-photo intro-photo-large reveal-right"><img src="assets/image-03-b38989071a.png" alt="Kolesarji na razgledni cesti"></div>
-      <div class="intro-photo intro-photo-small reveal-left"><img src="assets/image-12-42d24c65c8.png" alt="Alpski razgled"></div>
-      <div class="intro-photo intro-photo-tall reveal"><img src="assets/image-15-3692c00272.png" alt="Kolesarska pot"></div>
-      <div class="intro-card reveal">
-        <h3>Tura, ki sledi tvojemu dnevu</h3>
-        <p>Začnemo pri tvojem ritmu, potem izberemo traso, postanke in razglede. Brez hitenja, brez kompliciranja - samo dobra vožnja skozi Julijske Alpe.</p>
+      <div class="intro-photo intro-photo-map reveal"><img src="assets/julian-alps-riding-area-map.png" alt="Zemljevid območja Julian Alps cycling"></div>
+      <div class="intro-brand reveal">
+        <div class="intro-brand-kicker">Kdo smo in kaj delamo</div>
+        <h3>Julian Alps cycling</h3>
+        <p>Vodene kolesarske ture po Julijskih Alpah, sestavljene okoli mirnih cest, razgledov in ritma skupine.</p>
       </div>
-      <div class="intro-tags reveal-left"><span>Lahka vožnja</span><span>Razgledni vzponi</span><span>Tura po meri</span></div>
     </div>
   </div>
 </div>
