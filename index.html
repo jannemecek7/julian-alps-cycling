@@ -75,17 +75,17 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .story-heading{font-family:var(--head);font-size:clamp(4.2rem,8.8vw,9rem);line-height:0.86;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1180px;margin-bottom:1.8rem}
 .story-heading span{display:block;color:#9aa2a5}
 .intro-lead{max-width:720px;font-size:clamp(1.05rem,1.5vw,1.34rem);line-height:1.78;color:#343838;margin-bottom:3rem}
-.intro-collage{position:relative;min-height:540px}
+.intro-collage{position:relative;min-height:620px}
 .intro-photo{position:absolute;overflow:hidden;background:#e9eceb;box-shadow:0 28px 80px rgba(0,0,0,0.13)}
 .intro-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease,filter 0.35s ease;filter:saturate(1.04) contrast(1.03)}
 .intro-photo:hover img{transform:scale(1.06);filter:saturate(1.12) contrast(1.05)}
 .intro-photo-large{right:2%;top:0;width:min(52vw,760px);height:420px;border-radius:34px}
-.intro-photo-small{left:3%;top:190px;width:min(30vw,420px);height:300px;border-radius:28px;transform:rotate(-3deg)}
-.intro-photo-tall{right:10%;top:365px;width:min(25vw,350px);height:310px;border-radius:28px;transform:rotate(3deg)}
-.intro-card{position:absolute;left:28%;top:330px;width:min(42vw,560px);padding:1.35rem 1.45rem;border-radius:28px;background:rgba(255,255,255,0.68);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(0,0,0,0.1)}
+.intro-photo-small{left:3%;top:235px;width:min(30vw,420px);height:300px;border-radius:28px;transform:rotate(-3deg)}
+.intro-photo-tall{right:10%;top:405px;width:min(25vw,350px);height:310px;border-radius:28px;transform:rotate(3deg)}
+.intro-card{position:absolute;left:36%;top:405px;z-index:4;width:min(42vw,560px);padding:1.35rem 1.45rem;border-radius:28px;background:rgba(255,255,255,0.78);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(0,0,0,0.1)}
 .intro-card h3{font-family:var(--head);font-size:clamp(2.2rem,4vw,4.1rem);line-height:0.9;letter-spacing:0.04em;text-transform:uppercase;color:#111;margin-bottom:0.8rem}
 .intro-card p{font-size:1rem;line-height:1.7;color:#333}
-.intro-tags{position:absolute;left:3%;bottom:0;display:grid;gap:0.4rem;font-family:var(--head);font-size:clamp(2.2rem,4.6vw,5rem);line-height:0.93;text-transform:uppercase;letter-spacing:0.04em;color:#b7bfc2}
+.intro-tags{position:absolute;left:3%;top:0;z-index:3;max-width:420px;display:grid;gap:0.4rem;font-family:var(--head);font-size:clamp(2.2rem,4.1vw,4.5rem);line-height:0.93;text-transform:uppercase;letter-spacing:0.04em;color:#b7bfc2}
 .intro-tags span:first-child{color:#111}
 
 /* TURE */
@@ -300,11 +300,12 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .dark-section-inner,.contact-inner{grid-template-columns:1fr}
   .intro-section{min-height:900px;padding:5.5rem 1.5rem 4.5rem}
   .story-heading{margin-bottom:1.2rem}
-  .intro-collage{min-height:600px}
-  .intro-photo-large{right:0;width:62vw;height:360px}
-  .intro-photo-small{left:0;top:220px;width:36vw;height:260px}
-  .intro-photo-tall{right:4%;top:410px;width:30vw;height:260px}
-  .intro-card{left:22%;top:375px;width:min(58vw,560px)}
+  .intro-collage{min-height:700px}
+  .intro-tags{top:0;max-width:360px;font-size:3.2rem}
+  .intro-photo-large{right:0;top:150px;width:62vw;height:330px}
+  .intro-photo-small{left:0;top:280px;width:34vw;height:240px}
+  .intro-photo-tall{right:4%;top:500px;width:30vw;height:240px}
+  .intro-card{left:18%;top:500px;width:min(64vw,560px)}
   .tours-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
   .dark-section{padding:8rem 1.5rem 4.5rem}
   .dark-section-inner{gap:1.4rem}
@@ -343,13 +344,13 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .intro-section{min-height:0;padding:4.5rem 1.1rem 4rem}
   .story-heading{font-size:3.25rem;line-height:0.92;margin-bottom:1.2rem}
   .intro-lead{font-size:0.98rem;margin-bottom:2rem}
-  .intro-collage{min-height:820px}
-  .intro-photo-large{left:0;right:auto;top:0;width:100%;height:300px;border-radius:24px}
-  .intro-photo-small{left:0;top:330px;width:48%;height:210px;border-radius:22px;transform:rotate(-2deg)}
-  .intro-photo-tall{right:0;top:350px;width:48%;height:260px;border-radius:22px;transform:rotate(2deg)}
-  .intro-card{left:0;right:0;top:630px;width:auto;padding:1.15rem;border-radius:22px}
+  .intro-collage{min-height:900px}
+  .intro-tags{position:relative;left:auto;top:auto;max-width:none;margin-bottom:1.2rem;font-size:2.4rem}
+  .intro-photo-large{left:0;right:auto;top:150px;width:100%;height:300px;border-radius:24px}
+  .intro-photo-small{left:0;top:480px;width:48%;height:210px;border-radius:22px;transform:rotate(-2deg)}
+  .intro-photo-tall{right:0;top:500px;width:48%;height:260px;border-radius:22px;transform:rotate(2deg)}
+  .intro-card{left:0;right:0;top:790px;width:auto;padding:1.15rem;border-radius:22px}
   .intro-card h3{font-size:2.25rem}
-  .intro-tags{position:relative;left:auto;bottom:auto;margin-top:6.5rem;font-size:2.4rem}
   .tours-section{padding:3.7rem 1.1rem 4.6rem}
   .tours-section h2{font-size:3.25rem;margin-bottom:2.6rem}
   .tours-section h2::after{margin-top:1.1rem}
