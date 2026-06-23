@@ -16,7 +16,7 @@
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--body);background:#fff;color:var(--black);overflow-x:hidden;position:relative}
 body::before{content:'';position:absolute;top:88vh;left:0;width:100%;height:4300px;z-index:0;pointer-events:none;opacity:0.18;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 4300' preserveAspectRatio='none'%3E%3Cpath d='M1180 20 C930 250 980 430 730 590 C470 760 270 700 220 960 C160 1270 620 1240 710 1505 C795 1755 445 1910 520 2190 C590 2450 1030 2410 1115 2685 C1215 3010 700 3160 760 3500 C805 3770 1085 3840 980 4240' fill='none' stroke='%236b6633' stroke-width='7' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3Ccircle cx='1180' cy='20' r='13' fill='%236b6633'/%3E%3Ccircle cx='980' cy='4240' r='13' fill='%236b6633'/%3E%3C/svg%3E") center top/100% 100% no-repeat}
-nav,header,section,.intro-section,.local-section,.dark-section,.gal-section,.rev-section,.faq-section,.contact-section,.closing,footer{position:relative;z-index:1}
+nav,header,section,.intro-section,.dark-section,.gal-section,.rev-section,.faq-section,.contact-section,.closing,footer{position:relative;z-index:1}
 
 /* SCROLL ANIMATIONS */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(.22,.68,0,1.2),transform 0.7s cubic-bezier(.22,.68,0,1.2)}
@@ -111,44 +111,36 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .tura-btn-el::after{content:'+';font-family:var(--head);font-size:1.9rem;line-height:1}
 .tura-card:hover .tura-btn-el{transform:rotate(90deg);background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.6)}
 
-/* LOCAL KNOWLEDGE */
-.local-section{padding:5rem 2.8rem 6rem;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.18fr 0.86fr 0.64fr;gap:2.4rem;align-items:stretch}
-.local-photo{border-radius:32px;min-height:520px;background-size:cover;background-position:center;overflow:hidden;position:relative}
-.local-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.12))}
-.local-photo-main{background-image:linear-gradient(135deg,rgba(82,92,48,0.1),rgba(0,0,0,0.18)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 680'%3E%3Crect width='900' height='680' fill='%23dfe7dc'/%3E%3Cpath d='M0 476 C170 356 278 392 420 288 C570 178 700 190 900 78 L900 680 L0 680Z' fill='%23566538'/%3E%3Cpath d='M0 382 C150 320 252 332 398 230 C518 146 704 132 900 42 L900 218 C735 212 626 270 505 342 C325 450 150 448 0 544Z' fill='%2394a46d'/%3E%3Cpath d='M88 516 C248 392 412 410 580 292 C696 210 796 178 900 166' fill='none' stroke='%23f4f0df' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M0 604 L900 604 L900 680 L0 680Z' fill='%23383f28'/%3E%3C/svg%3E")}
-.local-photo-side{background-image:linear-gradient(135deg,rgba(20,50,74,0.08),rgba(0,0,0,0.1)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 680'%3E%3Crect width='520' height='680' fill='%238fc8dd'/%3E%3Cpath d='M0 310 C120 210 230 250 330 160 C405 94 466 80 520 64 L520 680 L0 680Z' fill='%235b7b4c'/%3E%3Cpath d='M0 452 C170 382 315 414 520 320 L520 680 L0 680Z' fill='%238aa05c'/%3E%3Ccircle cx='330' cy='492' r='58' fill='none' stroke='%23181818' stroke-width='14'/%3E%3Ccircle cx='222' cy='536' r='58' fill='none' stroke='%23181818' stroke-width='14'/%3E%3Cpath d='M222 536 L290 472 L330 492 M290 472 L268 420 M268 420 L332 420' fill='none' stroke='%23181818' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.local-copy{font-size:clamp(1.45rem,2vw,2rem);line-height:1.46;color:#111;padding-top:0.35rem}
-.local-note{grid-column:2/3;align-self:end;margin-top:2rem;background:rgba(239,245,247,0.92);border-radius:28px;padding:2rem;box-shadow:0 20px 55px rgba(39,53,45,0.12)}
-.local-note h3{font-family:var(--head);font-size:2.6rem;line-height:0.95;margin-bottom:1rem;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111}
-.local-note p{font-size:1rem;line-height:1.7;color:#222}
-
 /* DARK SECTION */
-.dark-section{background:var(--olive-dark);padding:5rem 2.5rem;position:relative;overflow:hidden}
-.dark-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1200px;margin:0 auto;align-items:start}
-.zakaj-left h2{font-family:var(--head);font-size:clamp(3rem,6vw,5.5rem);color:#fff;text-transform:uppercase;line-height:0.92;margin-bottom:2.5rem}
-.zakaj-items{display:flex;flex-direction:column}
-.zakaj-item{border-top:1px solid rgba(255,255,255,0.12);cursor:pointer;overflow:hidden}
-.zakaj-item:last-child{border-bottom:1px solid rgba(255,255,255,0.12)}
-.zakaj-item-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0.5rem;gap:1rem}
-.zakaj-icon{font-size:1.3rem;width:36px;text-align:center;flex-shrink:0}
-.zakaj-title{font-family:var(--head);font-size:1.3rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;flex:1;transition:color 0.2s}
-.zakaj-arrow{width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:rgba(255,255,255,0.5);transition:transform 0.3s,background 0.2s,border-color 0.2s;flex-shrink:0}
-.zakaj-item.open .zakaj-arrow{transform:rotate(180deg);background:var(--gold);border-color:var(--gold);color:#fff}
-.zakaj-item.open .zakaj-title{color:var(--gold)}
-.zakaj-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s;font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.75;font-weight:300;padding:0 0.5rem}
-.zakaj-body.open{max-height:120px;padding:0 0.5rem 1rem}
-.rez-right h2{font-family:var(--head);font-size:clamp(2.2rem,4.5vw,4rem);color:#fff;text-transform:uppercase;line-height:0.92;margin-bottom:2.5rem;text-align:right}
-.rez-steps-wrap{display:flex;flex-direction:column}
-.rez-step{display:flex;align-items:flex-start;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:padding-left 0.25s}
-.rez-step:first-child{border-top:1px solid rgba(255,255,255,0.1)}
-.rez-step:hover{padding-left:0.4rem}
-.rez-step-num{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.1rem;color:rgba(255,255,255,0.5);flex-shrink:0;transition:background 0.3s,border-color 0.3s,color 0.3s}
-.rez-step.active .rez-step-num{background:var(--gold);border-color:var(--gold);color:#fff}
-.rez-step-title{font-family:var(--head);font-size:1.1rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);transition:color 0.3s;margin-bottom:0.2rem}
-.rez-step.active .rez-step-title{color:#fff}
-.rez-step-desc{font-size:0.82rem;color:rgba(255,255,255,0);line-height:1.65;font-weight:300;max-height:0;overflow:hidden;transition:max-height 0.35s ease,color 0.3s}
-.rez-step.active .rez-step-desc{color:rgba(255,255,255,0.45);max-height:60px}
-.dark-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160'%3E%3Cpolygon points='0,160 180,50 300,110 460,15 600,80 740,5 880,70 1050,25 1200,60 1200,160' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") bottom/cover no-repeat;pointer-events:none}
+.dark-section{background:linear-gradient(180deg,#fff 0%,#eef3ef 10%,#26331f 34%,#11160f 100%);padding:11rem 2.5rem 6rem;position:relative;overflow:hidden;color:#fff}
+.dark-section::before{content:'';position:absolute;top:0;left:0;right:0;height:260px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.72) 28%,rgba(255,255,255,0) 100%);pointer-events:none}
+.dark-section::after{content:'';position:absolute;inset:22% -10% auto auto;width:48vw;height:48vw;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.09),rgba(255,255,255,0) 62%);pointer-events:none}
+.dark-section-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;max-width:1280px;margin:0 auto;align-items:start}
+.dark-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-bottom:0.8rem}
+.zakaj-left h2,.rez-right h2{font-family:var(--head);font-size:clamp(3rem,6vw,6.2rem);color:#fff;text-transform:uppercase;line-height:0.88;margin-bottom:2rem;letter-spacing:0.035em}
+.rez-right h2{text-align:left}
+.dark-lead{font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.7;color:rgba(255,255,255,0.72);max-width:560px;margin-bottom:2rem}
+.zakaj-items{display:grid;gap:0.75rem}
+.zakaj-item{border:1px solid rgba(255,255,255,0.15);border-radius:24px;background:rgba(255,255,255,0.075);backdrop-filter:blur(16px);cursor:pointer;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.12)}
+.zakaj-item-header{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 1.15rem;gap:1rem}
+.zakaj-icon{display:none}
+.zakaj-title{font-family:var(--head);font-size:1.35rem;letter-spacing:0.09em;text-transform:uppercase;color:#fff;flex:1;transition:color 0.2s}
+.zakaj-arrow{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.24);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:rgba(255,255,255,0.72);transition:transform 0.3s,background 0.2s,border-color 0.2s;flex-shrink:0}
+.zakaj-item.open .zakaj-arrow{transform:rotate(45deg);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.42)}
+.zakaj-item.open .zakaj-title{color:#fff}
+.zakaj-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s;font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.75;font-weight:300;padding:0 1.15rem}
+.zakaj-body.open{max-height:130px;padding:0 1.15rem 1.1rem}
+.rez-right{border:1px solid rgba(255,255,255,0.16);border-radius:32px;background:rgba(255,255,255,0.08);backdrop-filter:blur(18px);padding:2rem;box-shadow:0 26px 80px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.14)}
+.rez-steps-wrap{display:grid;gap:0}
+.rez-step{display:grid;grid-template-columns:48px 1fr;gap:1rem;padding:1.15rem 0;border-bottom:1px solid rgba(255,255,255,0.13);cursor:pointer;transition:opacity 0.25s}
+.rez-step:first-child{border-top:1px solid rgba(255,255,255,0.13)}
+.rez-step:hover{opacity:0.88}
+.rez-step-num{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.26);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.15rem;color:#fff;flex-shrink:0;background:rgba(255,255,255,0.08)}
+.rez-step.active .rez-step-num{background:#fff;border-color:#fff;color:#111}
+.rez-step-title{font-family:var(--head);font-size:1.2rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.35rem}
+.rez-step-desc{font-size:0.9rem;color:rgba(255,255,255,0.62);line-height:1.7;font-weight:300;max-height:none;overflow:visible}
+.rez-step.active .rez-step-desc{color:rgba(255,255,255,0.7);max-height:none}
+.rez-cta{text-align:left;margin-top:2rem}
 
 /* ========== GALERIJA — lightbox ========== */
 .gal-section{background:#fff;padding:4rem 2.5rem}
@@ -301,10 +293,11 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .story-heading{margin-bottom:3rem}
   .intro-img-wrap,.intro-img-wrap img{min-height:360px}
   .tours-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
-  .local-section{grid-template-columns:1fr;gap:1.35rem;padding:4rem 1.5rem 5rem}
-  .local-photo{min-height:360px}
-  .local-note{grid-column:auto;margin-top:1.25rem}
-  .rez-right h2{text-align:left}
+  .dark-section{padding:8rem 1.5rem 4.5rem}
+  .dark-section-inner{gap:1.4rem}
+  .rez-right{padding:1.4rem;border-radius:26px}
+  .modal-layout{grid-template-columns:1fr;min-height:0}
+  .modal-gallery{height:360px}
   .rev-grid{grid-template-columns:repeat(2,1fr)}
   .gal-grid{grid-template-columns:1fr 1fr}
   .form-row{grid-template-columns:1fr}
@@ -347,12 +340,15 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .tura-circle img{transform:scale(1.68)}
   .tura-card:hover .tura-circle img{transform:scale(1.76)}
   .tura-name{font-size:1.22rem}
-  .local-section{padding:3.6rem 1.1rem 4.2rem}
-  .local-photo{min-height:300px;border-radius:24px}
-  .local-copy{font-size:1.28rem}
-  .local-note{border-radius:22px;padding:1.35rem}
-  .local-note h3{font-size:2.05rem}
-  .local-note p{font-size:0.94rem}
+  .dark-section{padding:6rem 1.1rem 3.6rem}
+  .zakaj-left h2,.rez-right h2{font-size:3.25rem}
+  .dark-lead{font-size:1rem}
+  .zakaj-title,.rez-step-title{font-size:1.05rem}
+  .modal{border-radius:24px}
+  .modal-gallery{height:280px;grid-template-columns:1fr 1fr}
+  .modal-gallery img:first-child{grid-column:1/3;grid-row:auto}
+  .modal-body{padding:1.6rem}
+  .modal-title{font-size:3rem}
 }
 </style>
 </head>
@@ -403,40 +399,28 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   </div>
 </section>
 
-<!-- LOCAL KNOWLEDGE -->
-<section class="local-section">
-  <div class="local-photo local-photo-main reveal-left"></div>
-  <div class="local-middle reveal">
-    <div class="local-copy">Od leta 2005 raziskujemo mirne ceste, prelaze in skrite doline. Zato izlet ni samo trasa na zemljevidu, ampak premišljen ritem vožnje, razgledov in lokalnih postankov.</div>
-    <div class="local-note">
-      <h3>Lokalno znanje, alpski občutek</h3>
-      <p>Izberemo ceste z manj prometa, najboljše razglede in pravo težavnost za vašo skupino. Vi samo pridete pripravljeni na vožnjo.</p>
-    </div>
-  </div>
-  <div class="local-photo local-photo-side reveal-right"></div>
-</section>
-
 <!-- DARK SECTION -->
 <section class="dark-section">
   <div class="dark-section-inner">
     <div class="zakaj-left reveal-left">
-      <h2>ZAKAJ<br>IZBRATI<br>NAS!</h2>
+      <p class="dark-kicker">Premišljeno vodene ture</p>
+      <h2>Zakaj z nami</h2>
+      <p class="dark-lead">Turo sestavimo okoli ljudi, ne okoli urnika. Izberemo mirne ceste, pravi tempo in razglede, ki se odprejo takrat, ko vožnja dobi svoj ritem.</p>
       <div class="zakaj-items">
-        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">🗺</span><span class="zakaj-title">IZLETI ZA VSE RAVNI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Od sproščenih izletov za začetnike in družine do zahtevnih gorskih tur za izkušene kolesarje.</div></div>
-        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">📍</span><span class="zakaj-title">IZBRANE POTI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Vsaka trasa je skrbno izbrana — mimo najlepših razgledov in skozi mirna gorska naselja.</div></div>
-        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">🚴</span><span class="zakaj-title">IZKUŠENI VODNIKI</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Naši vodniki poznajo vsak ovinek, vsako lokalno zgodbo in vsak razgled.</div></div>
-        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">👥</span><span class="zakaj-title">MAJHNE SKUPINE</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Do 8 udeležencev — za osebno izkušnjo, varno vožnjo in pravo kolesarsko vzdušje.</div></div>
-        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-icon">⭐</span><span class="zakaj-title">DOŽIVETJA</span><span class="zakaj-arrow">&#8964;</span></div><div class="zakaj-body">Razgledi, odmori, okusi in trenutki, ki ostanejo v spominu dolgo po turi.</div></div>
+        <div class="zakaj-item open" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Pot po meri</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body open">Ne prodajamo ene trase za vse. Turo prilagodimo skupini, izkušnjam, vremenu in energiji dneva.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Lokalni občutek</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body">Poznamo mirnejše ceste, razgledne postanke in odseke, kjer Julijske Alpe zares pridejo do izraza.</div></div>
+        <div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Tempo brez pritiska</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body">Vodena vožnja pomeni, da je pot jasna, tempo pa ostane sproščen. Dober izlet ne potrebuje hitenja.</div></div>
       </div>
     </div>
     <div class="rez-right reveal-right">
-      <h2>KAKO<br>POTEKA<br>REZERVACIJA</h2>
+      <p class="dark-kicker">Od ideje do vožnje</p>
+      <h2>Rezervacija</h2>
       <div class="rez-steps-wrap">
-        <div class="rez-step active" onclick="setRezStep(this)"><div class="rez-step-num">1</div><div class="rez-step-text"><div class="rez-step-title">IZBERITE TURO IN TERMIN</div><div class="rez-step-desc">Preglejte ponudbo in izberite turo. Razpoložljive termine sporočimo na povpraševanje.</div></div></div>
-        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">2</div><div class="rez-step-text"><div class="rez-step-title">POŠLJITE POVPRAŠEVANJE</div><div class="rez-step-desc">Izpolnite kontaktni obrazec. Sporočite nam skupino, termin in izkušnje.</div></div></div>
-        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">3</div><div class="rez-step-text"><div class="rez-step-title">POTRDIMO IN KOLESARIMO!</div><div class="rez-step-desc">Po potrditvi dobite vse podrobnosti — lokacijo starta, opremo in nasvete.</div></div></div>
+        <div class="rez-step active" onclick="setRezStep(this)"><div class="rez-step-num">1</div><div class="rez-step-text"><div class="rez-step-title">Izberi občutek ture</div><div class="rez-step-desc">Povej, ali želiš lahek razgledni dan, vzpon ali daljše doživetje.</div></div></div>
+        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">2</div><div class="rez-step-text"><div class="rez-step-title">Pošlji povpraševanje</div><div class="rez-step-desc">Dodaš termin, število oseb in raven pripravljenosti. Odgovorimo z realnim predlogom.</div></div></div>
+        <div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">3</div><div class="rez-step-text"><div class="rez-step-title">Potrdimo podrobnosti</div><div class="rez-step-desc">Dogovorimo start, opremo, potek dneva in morebitne prilagoditve.</div></div></div>
       </div>
-      <div style="margin-top:2rem;text-align:right"><a href="#kontakt" class="btn-olive">POŠLJI POVPRAŠEVANJE</a></div>
+      <div class="rez-cta"><a href="#kontakt" class="btn-olive">POŠLJI POVPRAŠEVANJE</a></div>
     </div>
   </div>
 </section>
@@ -539,8 +523,8 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
 <!-- TOUR MODALI -->
 <div class="modal-overlay" id="modal-t1" onclick="closeOut(event,'t1')"><div class="modal"><button class="modal-close" onclick="closeModal('t1')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-04-33dbcd4305.png" alt="Večni razgledi"><img src="assets/image-12-42d24c65c8.png" alt="Alpska pot"><img src="assets/image-03-b38989071a.png" alt="Kolesarji v Julijskih Alpah"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 01</p><h3 class="modal-title">Večni razgledi</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">2 uri</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">1/5</div></div></div><p class="modal-desc">Lahkotna razgledna vožnja za prvi stik z Julijskimi Alpami. Tempo je sproščen, postanki so naravni, pot pa izbrana tako, da dobiš občutek prostora brez napora.</p><ul class="modal-highlights"><li>Mirne ceste in razgledni postanki.</li><li>Primerna za začetnike, pare in družine.</li><li>Dovolj časa za fotografije in kavo po poti.</li></ul><button class="modal-cta" onclick="closeModal('t1');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
 <div class="modal-overlay" id="modal-t2" onclick="closeOut(event,'t2')"><div class="modal"><button class="modal-close" onclick="closeModal('t2')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-06-6ce9a59a55.png" alt="Alpski vzpon"><img src="assets/image-13-ed08bd2ad2.png" alt="Gorski razgled"><img src="assets/image-14-21ffc4599b.png" alt="Kolesarski vzpon"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 02</p><h3 class="modal-title">Alpski vzpon</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">3 ure</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">3/5</div></div></div><p class="modal-desc">Tura za tiste, ki si želijo malo več ritma. Vzponi so dovolj izraziti, da začutiš alpski teren, a še vedno vodeni z občutkom za skupino.</p><ul class="modal-highlights"><li>Postopen vzpon z razglednim zaključkom.</li><li>Prilagodimo tempo glede na izkušnje.</li><li>Odlična izbira za aktivne rekreativce.</li></ul><button class="modal-cta" onclick="closeModal('t2');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
-<div class="modal-overlay" id="modal-t3" onclick="closeOut(event,'t3')"><div class="modal"><button class="modal-close" onclick="closeModal('t3')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-08-a3d0d9b26c.png" alt="Doline in vasice"><img src="assets/image-15-3692c00272.png" alt="Vas v dolini"><img src="assets/image-16-f33ba6a5c5.png" alt="Pot skozi dolino"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 03</p><h3 class="modal-title">Doline in vasice</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">4 ure</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">2/5</div></div></div><p class="modal-desc">Izlet, kjer je pot enako pomembna kot cilj. Peljemo se skozi manjše kraje, dolinske ceste in kotičke, ki jih z avtom pogosto zgrešiš.</p><ul class="modal-highlights"><li>Več lokalnega občutka in manj prometa.</li><li>Ravnotežje med vožnjo, razgledi in postanki.</li><li>Primerna tura za počasnejše raziskovanje.</li></ul><button class="modal-cta" onclick="closeModal('t3');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
-<div class="modal-overlay" id="modal-t4" onclick="closeOut(event,'t4')"><div class="modal"><button class="modal-close" onclick="closeModal('t4')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-10-d14ca99cb3.png" alt="Celodnevno doživetje"><img src="assets/image-17-588bf89ce7.png" alt="Alpska panorama"><img src="assets/image-18-6fa5c0939d.png" alt="Kolesarjenje po gorski cesti"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 04</p><h3 class="modal-title">Celodnevno doživetje</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">5 ur</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">4/5</div></div></div><p class="modal-desc">Najbolj polna tura: več kilometrov, več razgledov in več občutka, da si res zapeljal v alpski dan. Namenjena je skupinam, ki želijo konkretno doživetje.</p><ul class="modal-highlights"><li>Daljša trasa z več razgledi in postanki.</li><li>Za bolj pripravljene kolesarje ali e-bike skupine.</li><li>Možnost prilagoditve glede na vreme in ekipo.</li></ul><button class="modal-cta" onclick="closeModal('t4');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
+<div class="modal-overlay" id="modal-t3" onclick="closeOut(event,'t3')"><div class="modal"><button class="modal-close" onclick="closeModal('t3')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-08-a3d0d9b26c.png" alt="Doline in vasice"><img src="assets/image-15-3692c00272.png" alt="Vas v dolini"><img src="assets/image-12-42d24c65c8.png" alt="Pot skozi dolino"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 03</p><h3 class="modal-title">Doline in vasice</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">4 ure</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">2/5</div></div></div><p class="modal-desc">Izlet, kjer je pot enako pomembna kot cilj. Peljemo se skozi manjše kraje, dolinske ceste in kotičke, ki jih z avtom pogosto zgrešiš.</p><ul class="modal-highlights"><li>Več lokalnega občutka in manj prometa.</li><li>Ravnotežje med vožnjo, razgledi in postanki.</li><li>Primerna tura za počasnejše raziskovanje.</li></ul><button class="modal-cta" onclick="closeModal('t3');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
+<div class="modal-overlay" id="modal-t4" onclick="closeOut(event,'t4')"><div class="modal"><button class="modal-close" onclick="closeModal('t4')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-10-d14ca99cb3.png" alt="Celodnevno doživetje"><img src="assets/image-13-ed08bd2ad2.png" alt="Alpska panorama"><img src="assets/image-14-21ffc4599b.png" alt="Kolesarjenje po gorski cesti"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 04</p><h3 class="modal-title">Celodnevno doživetje</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">5 ur</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">4/5</div></div></div><p class="modal-desc">Najbolj polna tura: več kilometrov, več razgledov in več občutka, da si res zapeljal v alpski dan. Namenjena je skupinam, ki želijo konkretno doživetje.</p><ul class="modal-highlights"><li>Daljša trasa z več razgledi in postanki.</li><li>Za bolj pripravljene kolesarje ali e-bike skupine.</li><li>Možnost prilagoditve glede na vreme in ekipo.</li></ul><button class="modal-cta" onclick="closeModal('t4');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
 
 <script>
 // ===== HERO entrance =====
