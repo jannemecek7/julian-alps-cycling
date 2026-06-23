@@ -54,9 +54,9 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .hero h1{font-family:var(--head);font-size:clamp(4rem,7.7vw,8rem);color:#fff;line-height:0.86;text-transform:uppercase;margin-bottom:1.4rem;letter-spacing:0.035em;opacity:0;transform:translateY(30px);text-shadow:0 9px 36px rgba(0,0,0,0.38);transition:opacity 0.8s 0.4s ease,transform 0.8s 0.4s ease}
 .hero h1.in{opacity:1;transform:translateY(0)}
 .hero-copy{max-width:360px;color:rgba(255,255,255,0.82);font-size:1.04rem;line-height:1.75;text-shadow:0 2px 18px rgba(0,0,0,0.35)}
-.hero-socials{display:flex;gap:0.6rem}
+.hero-socials{position:absolute;right:clamp(1rem,2.8vw,3rem);bottom:3.4rem;z-index:3;display:flex;flex-direction:column;gap:0.75rem}
 .hero-socials a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.34);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);transition:transform 0.2s,background 0.2s,border-color 0.2s}
-.hero-socials a:hover{transform:translateY(-3px);background:rgba(255,255,255,0.24);border-color:rgba(255,255,255,0.5)}
+.hero-socials a:hover{transform:translateX(-3px);background:rgba(255,255,255,0.24);border-color:rgba(255,255,255,0.5)}
 .hero-socials svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .hero-socials .gmail svg{fill:rgba(255,255,255,0.08)}
 .hero-btns{position:absolute;left:50%;bottom:3.4rem;z-index:3;opacity:0;transform:translate(-50%,20px);transition:opacity 0.8s 0.75s ease,transform 0.8s 0.75s ease;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;padding:0.55rem;border-radius:999px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);backdrop-filter:blur(20px);box-shadow:0 22px 70px rgba(0,0,0,0.24),inset 0 1px 0 rgba(255,255,255,0.24)}
@@ -317,8 +317,8 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .hero-btns{left:1rem;right:1rem;bottom:1.5rem;transform:translateY(20px);padding:0.45rem;border-radius:28px}
   .hero-btns.in{transform:translateY(0)}
   .btn-olive,.btn-olive2{width:100%;padding:0.85rem 1.1rem;font-size:1.05rem}
-  .hero-socials{width:100%;justify-content:center}
-  .hero-socials a{width:48px;height:48px}
+  .hero-socials{right:1rem;bottom:9.4rem;gap:0.5rem}
+  .hero-socials a{width:46px;height:46px}
   nav{padding:0.65rem 1rem}
   .nav-logo{gap:0.35rem}
   .nav-logo img{height:38px}
@@ -369,11 +369,11 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   <div class="hero-btns" id="heroBtns">
     <a href="#kontakt" class="btn-olive">POVPRAŠAJ</a>
     <a href="#ture" class="btn-olive2">OGLEJ SI TURE</a>
-    <div class="hero-socials" aria-label="Kontakt">
-      <a href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
-      <a href="#kontakt" class="gmail" aria-label="Gmail"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M4.5 7.5 12 13l7.5-5.5"/><path d="M5 18 9.4 11.4M19 18l-4.4-6.6"/></svg></a>
-      <a href="#kontakt" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"/><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"/></svg></a>
-    </div>
+  </div>
+  <div class="hero-socials" aria-label="Kontakt">
+    <a href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+    <a href="#kontakt" class="gmail" aria-label="Gmail"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M4.5 7.5 12 13l7.5-5.5"/><path d="M5 18 9.4 11.4M19 18l-4.4-6.6"/></svg></a>
+    <a href="#kontakt" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"/><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"/></svg></a>
   </div>
 </header>
 
