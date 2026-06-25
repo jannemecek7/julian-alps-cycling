@@ -273,8 +273,31 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .closing-logo span{font-family:var(--head);font-size:0.9rem;letter-spacing:0.25em;color:rgba(255,255,255,0.3)}
 .closing h2{font-family:var(--head);font-size:clamp(5rem,14vw,12rem);color:#fff;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em}
 
-footer{background:var(--gray-dark);border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
-footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
+.site-footer{position:relative;z-index:1;overflow:hidden;background:#9aa9a7;color:#fff;padding:6.2rem 3rem 2rem}
+.site-footer::before{content:'Julian';position:absolute;left:34%;top:-12%;font-family:var(--head);font-size:34vw;line-height:0.8;letter-spacing:0.02em;color:rgba(255,255,255,0.09);pointer-events:none;transform:rotate(-7deg)}
+.footer-grid{position:relative;z-index:1;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;align-items:start}
+.footer-col h3{font-family:var(--body);font-size:1rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.35rem;color:#fff;text-shadow:0 1px 16px rgba(0,0,0,0.12)}
+.footer-links,.footer-contact{display:grid;gap:0.62rem}
+.footer-links a,.footer-contact a,.footer-legal button{width:max-content;background:none;border:0;padding:0;color:rgba(255,255,255,0.88);font-family:var(--body);font-size:0.95rem;text-decoration:none;cursor:pointer;transition:color 0.2s,transform 0.2s}
+.footer-links a:hover,.footer-contact a:hover,.footer-legal button:hover{color:#fff;transform:translateX(3px)}
+.footer-follow{display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;margin-top:0.35rem}
+.footer-follow span{font-family:var(--body);font-size:0.9rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+.footer-follow a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.34);transition:background 0.2s,transform 0.2s}
+.footer-follow a:hover{background:rgba(255,255,255,0.27);transform:translateY(-2px)}
+.footer-follow svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.footer-bottom{position:relative;z-index:1;max-width:1500px;margin:4.5rem auto 0;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,0.22);display:flex;justify-content:space-between;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.footer-bottom p{font-size:0.86rem;color:rgba(255,255,255,0.82)}
+.footer-legal{display:flex;gap:1rem;flex-wrap:wrap}
+.legal-modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(18,20,19,0.72);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1.2rem}
+.legal-modal-overlay.open{display:flex}
+.legal-modal{width:min(920px,100%);max-height:86vh;overflow:auto;background:rgba(255,255,255,0.96);color:#222;border-radius:30px;box-shadow:0 35px 100px rgba(0,0,0,0.36);padding:2.4rem;border:1px solid rgba(255,255,255,0.55)}
+.legal-modal h2{font-family:var(--head);font-size:clamp(2.8rem,6vw,5.4rem);line-height:0.9;text-transform:uppercase;margin-bottom:1rem;color:#111}
+.legal-modal h3{font-family:var(--head);font-size:1.65rem;font-weight:400;letter-spacing:0.04em;text-transform:uppercase;margin:1.35rem 0 0.35rem;color:#111}
+.legal-modal p,.legal-modal li{font-size:0.98rem;line-height:1.7;color:#3b3f3f}
+.legal-modal ul{padding-left:1.2rem;margin:0.5rem 0}
+.legal-close{float:right;width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,0,0,0.1);background:#f3f3f1;color:#111;font-size:1.2rem;cursor:pointer}
+.legal-panel{display:none}
+.legal-panel.active{display:block}
 
 /* MODALI */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(4,6,5,0.78);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:1rem}
@@ -327,6 +350,9 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .gal-item:nth-child(2),.gal-item:nth-child(4){transform:none}
   .contact-inner{gap:0}
   .contact-inner>div{padding:2rem}
+  .site-footer{padding:4rem 1.5rem 1.6rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2.2rem}
+  .footer-col:last-child{grid-column:1/3}
   .form-row{grid-template-columns:1fr}
   .faq-tabs{flex-wrap:wrap}
   .faq-tab{border-bottom:1px solid rgba(17,17,17,0.08)}
@@ -389,6 +415,12 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   .contact-inner{border-radius:28px}
   .contact-inner>div{padding:1.5rem}
   .contact-section h2{font-size:3.7rem}
+  .site-footer{padding:3.4rem 1.1rem 1.4rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-col:last-child{grid-column:auto}
+  .footer-bottom{margin-top:2.8rem;align-items:flex-start}
+  .footer-legal{gap:0.75rem}
+  .legal-modal{padding:1.4rem;border-radius:24px}
   .modal{border-radius:24px}
   .modal-gallery{height:280px;grid-template-columns:1fr 1fr}
   .modal-gallery img:first-child{grid-column:1/3;grid-row:auto}
@@ -573,7 +605,92 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.25)}
   <h2 class="reveal">SE VIDIMO,<br>KMALU.</h2>
 </div>
 
-<footer><p>© 2026 Julian Alps cycling</p><p>info@probike-tours.si</p></footer>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Julian Alps Cycling</h3>
+      <div class="footer-links">
+        <a href="#ture">01&nbsp;&nbsp;Ture</a>
+        <a href="#kontakt">02&nbsp;&nbsp;Povprašaj</a>
+        <a href="#faq">03&nbsp;&nbsp;Vprašanja</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Follow us on</h3>
+      <div class="footer-follow" aria-label="Follow us">
+        <a href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+        <a href="mailto:info@probike-tours.si" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M4.5 7.5 12 13l7.5-5.5"/></svg></a>
+        <a href="#kontakt" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"/><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <div class="footer-contact">
+        <a href="mailto:info@probike-tours.si">info@probike-tours.si</a>
+        <a href="#kontakt">Pošlji povpraševanje</a>
+        <a href="#ture">Oglej si ture</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Julian Alps Cycling. Vse pravice pridržane.</p>
+    <div class="footer-legal" aria-label="Pravne povezave">
+      <button type="button" onclick="openLegal('privacy')">Privacy Policy</button>
+      <button type="button" onclick="openLegal('terms')">Terms and Conditions</button>
+      <button type="button" onclick="openLegal('cookies')">Cookies</button>
+    </div>
+  </div>
+</footer>
+
+<div class="legal-modal-overlay" id="legalModal" onclick="closeLegalOutside(event)">
+  <div class="legal-modal" role="dialog" aria-modal="true" aria-label="Pravne informacije">
+    <button class="legal-close" type="button" onclick="closeLegal()" aria-label="Zapri">×</button>
+    <div class="legal-panel" id="legal-privacy">
+      <h2>Privacy Policy</h2>
+      <p>Zadnja posodobitev: 25. junij 2026. Ta politika zasebnosti pojasnjuje, kako Julian Alps Cycling obravnava osebne podatke, ki nam jih posredujete prek spletne strani, kontaktnega obrazca, e-pošte ali drugih komunikacijskih kanalov.</p>
+      <h3>Katere podatke zbiramo</h3>
+      <p>Ob povpraševanju lahko obdelujemo vaše ime, priimek, e-poštni naslov, telefonsko številko, izbrano turo, želeni termin, število oseb, vaše kolesarske izkušnje in vsebino sporočila.</p>
+      <h3>Zakaj jih uporabljamo</h3>
+      <ul>
+        <li>za pripravo odgovora na povpraševanje in predloga ture,</li>
+        <li>za dogovor glede termina, zahtevnosti, lokacije starta in izvedbe,</li>
+        <li>za komunikacijo pred, med in po rezervaciji,</li>
+        <li>za izpolnjevanje zakonskih obveznosti, če pride do potrjene storitve.</li>
+      </ul>
+      <h3>Hramba in deljenje podatkov</h3>
+      <p>Podatke hranimo samo toliko časa, kot je potrebno za namen komunikacije, izvedbe storitve ali zakonskih obveznosti. Podatkov ne prodajamo. Delimo jih le, kadar je to potrebno za izvedbo storitve, tehnično delovanje spletne strani ali kadar to zahteva zakon.</p>
+      <h3>Vaše pravice</h3>
+      <p>Imate pravico do dostopa, popravka, izbrisa, omejitve obdelave in ugovora. Za vprašanja nam pišite na <a href="mailto:info@probike-tours.si">info@probike-tours.si</a>.</p>
+    </div>
+    <div class="legal-panel" id="legal-terms">
+      <h2>Terms and Conditions</h2>
+      <p>Ti pogoji opisujejo osnovna pravila uporabe spletne strani Julian Alps Cycling in dogovarjanja za vodene kolesarske ture. Oddaja povpraševanja še ne pomeni potrjene rezervacije.</p>
+      <h3>Rezervacija in potrditev</h3>
+      <p>Tura je potrjena šele po pisni potrditvi termina, lokacije, cene, programa in morebitnih posebnih pogojev. Program ture lahko prilagodimo glede na vreme, promet, sposobnosti skupine in varnostne razmere.</p>
+      <h3>Odgovornost udeležencev</h3>
+      <ul>
+        <li>Udeleženec mora biti zdravstveno sposoben za izbrano kolesarsko aktivnost.</li>
+        <li>Obvezna je uporaba čelade in tehnično brezhibnega kolesa.</li>
+        <li>Udeleženec mora spoštovati cestnoprometne predpise in navodila vodnika.</li>
+        <li>Priporočamo ustrezno nezgodno in potovalno zavarovanje.</li>
+      </ul>
+      <h3>Cene, plačilo in odpoved</h3>
+      <p>Cene so odvisne od izbrane ture, števila oseb in dogovorjenih dodatnih storitev. Plačilo, odpovedni roki in morebitni stroški odpovedi se potrdijo pisno ob rezervaciji.</p>
+      <h3>Vreme in varnost</h3>
+      <p>V primeru slabega vremena ali drugih varnostnih razlogov lahko turo prestavimo, skrajšamo, prilagodimo ali odpovemo. Varnost ima prednost pred izvedbo prvotno dogovorjene trase.</p>
+    </div>
+    <div class="legal-panel" id="legal-cookies">
+      <h2>Cookies</h2>
+      <p>Ta spletna stran trenutno uporablja predvsem osnovne tehnične elemente, ki omogočajo prikaz strani in obrazcev. Če bodo kasneje dodana analitična orodja, oglaševalski piškotki ali vdelane zunanje storitve, bo treba uporabniku omogočiti ustrezno izbiro in soglasje.</p>
+      <h3>Nujni piškotki</h3>
+      <p>Nujni piškotki oziroma tehnična shramba so potrebni za osnovno delovanje spletne strani in jih ni mogoče izključiti, če so potrebni za varnost ali funkcionalnost.</p>
+      <h3>Zunanje storitve</h3>
+      <p>Stran lahko naloži zunanje vire, kot so spletne pisave ali povezave na družbena omrežja. Takšne storitve imajo lahko lastne politike zasebnosti in piškotkov.</p>
+      <h3>Upravljanje piškotkov</h3>
+      <p>Piškotke lahko upravljate ali izbrišete v nastavitvah svojega brskalnika. Če se na strani kasneje doda analitika ali oglaševanje, priporočamo dodatek za upravljanje soglasij.</p>
+    </div>
+  </div>
+</div>
 
 <!-- TOUR MODALI -->
 <div class="modal-overlay" id="modal-t1" onclick="closeOut(event,'t1')"><div class="modal"><button class="modal-close" onclick="closeModal('t1')">x</button><div class="modal-layout"><div class="modal-gallery"><img src="assets/image-04-33dbcd4305.png" alt="Večni razgledi"><img src="assets/image-12-42d24c65c8.png" alt="Alpska pot"><img src="assets/image-03-b38989071a.png" alt="Kolesarji v Julijskih Alpah"></div><div class="modal-body"><p class="modal-label">Julian Alps cycling / 01</p><h3 class="modal-title">Večni razgledi</h3><div class="modal-meta"><div class="meta-item"><div class="meta-lbl">Trajanje</div><div class="meta-val">2 uri</div></div><div class="meta-item"><div class="meta-lbl">Zahtevnost</div><div class="meta-val">1/5</div></div></div><p class="modal-desc">Lahkotna razgledna vožnja za prvi stik z Julijskimi Alpami. Tempo je sproščen, postanki so naravni, pot pa izbrana tako, da dobiš občutek prostora brez napora.</p><ul class="modal-highlights"><li>Mirne ceste in razgledni postanki.</li><li>Primerna za začetnike, pare in družine.</li><li>Dovolj časa za fotografije in kavo po poti.</li></ul><button class="modal-cta" onclick="closeModal('t1');document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">POVPRAŠAJ ZA TURO</button></div></div></div></div>
@@ -751,6 +868,25 @@ function submitForm(e){
   document.getElementById('contactForm').style.display='none';
   document.getElementById('formSuccess').style.display='block';
 }
+
+// ===== LEGAL MODALS =====
+function openLegal(type){
+  document.querySelectorAll('.legal-panel').forEach(function(panel){panel.classList.remove('active')});
+  var panel=document.getElementById('legal-'+type);
+  if(panel) panel.classList.add('active');
+  document.getElementById('legalModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLegal(){
+  document.getElementById('legalModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeLegalOutside(e){
+  if(e.target.id==='legalModal') closeLegal();
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeLegal();
+});
 </script>
 </body>
 </html>
