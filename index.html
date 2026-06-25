@@ -45,10 +45,9 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .hero{position:relative;height:100vh;min-height:720px;overflow:hidden;margin-top:0}
 .hero-bg-img{position:absolute;inset:0;background:url('assets/image-01-2e0dff7f46.jpg') center/cover no-repeat;transform:scale(1.08);will-change:transform}
 .hero-bg-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 52% 36%,rgba(255,255,255,0.04),rgba(0,0,0,0.32) 42%,rgba(0,0,0,0.68) 100%),linear-gradient(90deg,rgba(0,0,0,0.64),rgba(0,0,0,0.22) 48%,rgba(0,0,0,0.56))}
-.hero-logo-mark{position:absolute;top:6.5vh;left:50%;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.6rem;transform:translate(-50%,18px);opacity:0;transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s ease}
+.hero-logo-mark{position:absolute;top:6vh;left:50%;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.6rem;transform:translate(-50%,18px);opacity:0;transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s ease}
 .hero-logo-mark.in{opacity:1;transform:translate(-50%,0)}
-.hero-logo-mark img{width:clamp(46px,5vw,74px);height:auto;opacity:0.82;filter:drop-shadow(0 8px 28px rgba(0,0,0,0.38))}
-.hero-logo-mark span{font-family:var(--head);font-size:clamp(1.7rem,3vw,3rem);letter-spacing:0.22em;color:#fff;text-transform:uppercase;text-shadow:0 2px 24px rgba(0,0,0,0.42);white-space:nowrap}
+.hero-logo-mark img{width:clamp(150px,18vw,260px);height:auto;opacity:0.92;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.42))}
 .hero-content{position:absolute;top:52%;left:clamp(1.4rem,5vw,5.8rem);z-index:2;max-width:620px;transform:translateY(calc(-50% + 18px));}
 .hero-subtitle{font-size:0.84rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:rgba(255,255,255,0.82);margin-bottom:1rem;line-height:1.7;opacity:0;transform:translateY(20px);transition:opacity 0.8s 0.2s ease,transform 0.8s 0.2s ease}
 .hero-subtitle.in{opacity:1;transform:translateY(0)}
@@ -79,10 +78,10 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .intro-collage{position:relative;left:50%;width:100vw;min-height:820px;margin:2.2rem 0 0;transform:translateX(-50%)}
 .intro-photo{position:absolute;z-index:2;overflow:hidden;background:#e9eceb;box-shadow:0 28px 80px rgba(0,0,0,0.13)}
 .intro-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.03)}
-.intro-photo-map img{object-fit:contain;background:#f7f6f1;padding:0.45rem}
+.intro-photo-map img{object-fit:cover;background:transparent;padding:0}
 .intro-photo-large{right:2vw;top:52px;width:min(28vw,420px);height:250px;border-radius:30px}
 .intro-photo-small{left:3vw;top:282px;width:min(28vw,390px);height:255px;border-radius:28px;transform:rotate(-2deg)}
-.intro-photo-map{left:50%;top:560px;width:min(38vw,520px);height:220px;border-radius:28px;transform:translateX(-50%);box-shadow:0 34px 90px rgba(0,0,0,0.12)}
+.intro-photo-map{left:50%;top:540px;width:min(38vw,520px);aspect-ratio:1448/1086;height:auto;border-radius:28px;transform:translateX(-50%);box-shadow:0 34px 90px rgba(0,0,0,0.12)}
 .intro-brand{position:absolute;left:50%;top:220px;z-index:5;transform:translateX(-50%);width:min(500px,36vw);padding:1.85rem 2rem;text-align:center;border-radius:34px;background:rgba(255,255,255,0.88);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 26px 80px rgba(0,0,0,0.12)}
 .intro-brand-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#7f878a;margin-bottom:0.75rem}
 .intro-brand h3{font-family:var(--head);font-size:clamp(2.7rem,5.2vw,5.5rem);line-height:0.85;letter-spacing:0.055em;text-transform:uppercase;color:#111}
@@ -228,7 +227,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .rev-card{position:relative;min-height:330px;border:1px solid rgba(17,17,17,0.08);border-radius:30px;padding:1.4rem;background:#f4f4f2;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
 .rev-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.06));pointer-events:none}
 .rev-card:hover{transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,0.1)}
-.rev-quote{display:block;width:96px;height:96px;border-radius:50%;background:url('assets/image-02-20a15ea4e9.png') center/74% auto no-repeat rgba(255,255,255,0.72);filter:grayscale(1);margin-bottom:4rem}
+.rev-quote{display:block;width:116px;height:86px;background:url('assets/julian-alps-logo-black.png') center/contain no-repeat;opacity:0.18;filter:grayscale(1);margin-bottom:4rem}
 .rev-card:nth-child(2) .rev-quote{margin-left:auto;margin-right:auto}
 .rev-card:nth-child(3) .rev-quote{margin-left:auto}
 .rev-text{position:relative;z-index:1;font-size:1rem;color:#333;line-height:1.75;margin-bottom:1.2rem}
@@ -272,7 +271,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 /* CLOSING */
 .closing{background:var(--gray-dark);padding:5rem 2rem;text-align:center;overflow:hidden}
 .closing-logo{margin-bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem}
-.closing-logo img{height:48px;filter:brightness(0) invert(1);opacity:0.5}
+.closing-logo img{height:86px;filter:none;opacity:0.55}
 .closing-logo span{font-family:var(--head);font-size:0.9rem;letter-spacing:0.25em;color:rgba(255,255,255,0.3)}
 .closing h2{font-family:var(--head);font-size:clamp(5rem,14vw,12rem);color:#fff;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em}
 
@@ -335,7 +334,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .intro-collage{min-height:720px}
   .intro-photo-large{right:0;top:0;width:46vw;height:260px}
   .intro-photo-small{left:0;top:245px;width:34vw;height:230px}
-  .intro-photo-map{left:50%;top:auto;bottom:0;width:58vw;height:230px}
+  .intro-photo-map{left:50%;top:auto;bottom:0;width:58vw;height:auto;aspect-ratio:1448/1086}
   .intro-brand{top:250px;width:min(500px,52vw);padding:1.45rem}
   .intro-note{max-width:210px;font-size:0.78rem}
   .intro-note-1{left:0;top:20px}
@@ -364,8 +363,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 @media(max-width:520px){
   .hero{height:100svh;min-height:650px;margin-top:0}
   .hero-logo-mark{top:5.8vh}
-  .hero-logo-mark img{width:42px}
-  .hero-logo-mark span{font-size:1.35rem;letter-spacing:0.16em}
+  .hero-logo-mark img{width:150px}
   .hero-content{top:43%;left:1.1rem;right:1.1rem;max-width:none}
   .hero-subtitle{font-size:0.65rem}
   .hero h1{font-size:clamp(3.25rem,16vw,5.15rem);margin-bottom:1rem}
@@ -386,7 +384,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .intro-collage{min-height:1050px}
   .intro-photo-large{left:0;right:auto;top:0;width:100%;height:270px;border-radius:24px}
   .intro-photo-small{left:0;top:300px;width:48%;height:190px;border-radius:22px;transform:rotate(-2deg)}
-  .intro-photo-map{left:auto;right:0;bottom:auto;top:320px;width:48%;height:210px;border-radius:22px;transform:rotate(2deg)}
+  .intro-photo-map{left:auto;right:0;bottom:auto;top:320px;width:48%;height:auto;aspect-ratio:1448/1086;border-radius:22px;transform:rotate(2deg)}
   .intro-brand{left:0;right:0;top:560px;width:auto;transform:none;padding:1.25rem;border-radius:24px}
   .intro-brand h3{font-size:2.9rem}
   .intro-note{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none;max-width:none;margin-bottom:0.55rem}
@@ -437,7 +435,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 <body>
 
 <nav id="mainNav">
-  <a href="#" class="nav-logo"><img src="assets/image-02-20a15ea4e9.png" alt="Julian Alps cycling"><span class="nav-logo-text">JULIAN ALPS CYCLING</span></a>
+  <a href="#" class="nav-logo"><img src="assets/julian-alps-logo-white.png" alt="Julian Alps cycling"><span class="nav-logo-text">JULIAN ALPS CYCLING</span></a>
   <div class="nav-lang"><a href="#" class="active">SI</a><span>|</span><a href="#">EN</a><span>|</span><a href="#">DE</a></div>
 </nav>
 
@@ -445,7 +443,6 @@ nav .nav-logo{opacity:0;pointer-events:none}
   <div class="hero-bg-img" id="heroBg"></div>
   <div class="hero-logo-mark" id="heroLogo">
     <img src="assets/julian-alps-logo-white.png" alt="Julian Alps Cycling logo">
-    <span>Julian Alps cycling</span>
   </div>
   <div class="hero-content" id="heroContent">
     <p class="hero-subtitle" id="heroSub">VODENI KOLESARSKI IZLETI PO SLOVENIJI
@@ -608,7 +605,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 </section>
 
 <div class="closing">
-  <div class="closing-logo reveal"><img src="assets/image-02-20a15ea4e9.png" alt="Julian Alps cycling"><span>JULIAN ALPS CYCLING</span></div>
+  <div class="closing-logo reveal"><img src="assets/julian-alps-logo-white.png" alt="Julian Alps cycling"><span>JULIAN ALPS CYCLING</span></div>
   <h2 class="reveal">SE VIDIMO,<br>KMALU.</h2>
 </div>
 
