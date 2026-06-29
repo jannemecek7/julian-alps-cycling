@@ -67,6 +67,16 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .btn-olive2:hover{background:rgba(255,255,255,0.88);color:#161610;border-color:#fff;transform:translateY(-2px)}
 .contact-section .btn-olive2{color:var(--olive-text);border-color:#c8c2ad;background:transparent}
 .contact-section .btn-olive2:hover{background:var(--olive-text);color:#fff;border-color:var(--olive-text)}
+.floating-whatsapp{position:fixed;right:clamp(1rem,2.4vw,2rem);bottom:clamp(1rem,2.4vw,2rem);z-index:150;display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:#1b1f1d}
+.floating-whatsapp-bubble{position:relative;padding:0.88rem 1.2rem;border-radius:999px;background:rgba(255,255,255,0.94);box-shadow:0 18px 55px rgba(0,0,0,0.16);font-weight:700;font-size:1rem;white-space:nowrap;transform-origin:right center;animation:chatNudge 4.2s ease-in-out infinite}
+.floating-whatsapp-bubble::after{content:'';position:absolute;right:-8px;top:50%;width:16px;height:16px;background:rgba(255,255,255,0.94);transform:translateY(-50%) rotate(45deg)}
+.floating-whatsapp-icon{position:relative;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#35e66a;color:#fff;box-shadow:0 20px 65px rgba(43,210,95,0.42)}
+.floating-whatsapp-icon::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(53,230,106,0.45);animation:whatsappPulse 2.1s ease-out infinite}
+.floating-whatsapp-icon svg{position:relative;width:42px;height:42px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.floating-whatsapp-badge{position:absolute;right:-4px;top:-6px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e00000;color:#fff;font-weight:800;font-size:0.9rem;box-shadow:0 7px 18px rgba(224,0,0,0.35)}
+.floating-whatsapp:hover .floating-whatsapp-icon{transform:translateY(-2px) scale(1.03)}
+@keyframes whatsappPulse{0%{transform:scale(0.9);opacity:0.8}70%{transform:scale(1.32);opacity:0}100%{opacity:0}}
+@keyframes chatNudge{0%,76%,100%{transform:translateX(0)}82%{transform:translateX(-8px)}88%{transform:translateX(0)}94%{transform:translateX(-4px)}}
 
 /* INTRO */
 .intro-section{position:relative;min-height:1040px;padding:8.5rem 2.8rem 6.5rem;overflow:hidden;background:#fff}
@@ -424,6 +434,11 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .footer-bottom{margin-top:2.8rem;align-items:flex-start}
   .footer-legal{gap:0.75rem}
   .legal-modal{padding:1.4rem;border-radius:24px}
+  .floating-whatsapp{right:0.9rem;bottom:0.9rem;gap:0.55rem}
+  .floating-whatsapp-bubble{font-size:0.86rem;padding:0.72rem 0.9rem;max-width:190px}
+  .floating-whatsapp-icon{width:60px;height:60px}
+  .floating-whatsapp-icon svg{width:34px;height:34px}
+  .floating-whatsapp-badge{width:24px;height:24px;font-size:0.8rem}
   .modal{border-radius:24px}
   .modal-gallery{height:280px;grid-template-columns:1fr 1fr}
   .modal-gallery img:first-child{grid-column:1/3;grid-row:auto}
@@ -645,6 +660,14 @@ nav .nav-logo{opacity:0;pointer-events:none}
     </div>
   </div>
 </footer>
+
+<a class="floating-whatsapp" href="#kontakt" aria-label="Pišite nam prek WhatsApp">
+  <span class="floating-whatsapp-bubble">Vprašanja? Pišite nam!</span>
+  <span class="floating-whatsapp-icon">
+    <span class="floating-whatsapp-badge">1</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"/><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"/></svg>
+  </span>
+</a>
 
 <div class="legal-modal-overlay" id="legalModal" onclick="closeLegalOutside(event)">
   <div class="legal-modal" role="dialog" aria-modal="true" aria-label="Pravne informacije">
