@@ -354,15 +354,31 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .contact-inner>div{padding:3rem}
 .contact-section h2{font-family:var(--head);font-size:clamp(4rem,9vw,9rem);line-height:0.84;text-transform:uppercase;margin-bottom:1.2rem;color:#fff}
 .contact-section .sub{font-size:1rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.6rem;color:rgba(255,255,255,0.7);line-height:1.6}
-.contact-form{display:grid;gap:0.85rem;margin-top:0}
-.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:1rem 1.1rem;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);font-family:var(--body);font-size:0.95rem;color:#fff;outline:none;transition:border-color 0.2s,background 0.2s;border-radius:18px}
-.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.52)}
+.contact-main-copy{text-transform:none;letter-spacing:0.01em;font-weight:400;max-width:34rem}
+.contact-note{margin-top:1.2rem;padding:1rem 1.1rem;border-radius:22px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.74);font-size:0.96rem;line-height:1.55}
+.contact-form{display:grid;gap:1rem;margin-top:0}
+.form-section{display:grid;gap:0.78rem;padding:1rem;border-radius:24px;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.1)}
+.form-section-title{font-family:var(--head);font-size:1.3rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.92);line-height:1}
+.form-field-label{display:block;margin-bottom:0.45rem;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.58)}
+.contact-form label{display:block}
+.contact-form input,.contact-form textarea{width:100%;padding:1rem 1.1rem;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);font-family:var(--body);font-size:0.95rem;color:#fff;outline:none;transition:border-color 0.2s,background 0.2s;border-radius:18px}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.48)}
 .contact-form input:focus,.contact-form textarea:focus{border-color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.13)}
-.contact-form textarea{height:150px;resize:vertical}
-.contact-form select{color:#888}
+.contact-form textarea{height:116px;resize:vertical}
+.contact-form input[type=number]{appearance:textfield}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
-.form-success{display:none;padding:2rem 0}
-.form-success p{font-family:var(--head);font-size:1.8rem;color:var(--olive-btn)}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem}
+.choice-pill{position:relative;display:block;cursor:pointer}
+.choice-pill input{position:absolute;opacity:0;pointer-events:none}
+.choice-pill span{display:flex;align-items:center;min-height:48px;padding:0.78rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);font-size:0.83rem;font-weight:750;color:rgba(255,255,255,0.78);line-height:1.22;transition:background 0.2s,color 0.2s,border-color 0.2s,box-shadow 0.2s}
+.choice-pill input:checked+span{background:rgba(255,255,255,0.92);border-color:#fff;color:#111;box-shadow:0 14px 36px rgba(0,0,0,0.16)}
+.form-helper{font-size:0.82rem;line-height:1.5;color:rgba(255,255,255,0.54)}
+.bike-heights-wrap{display:none}
+.bike-heights-wrap.show{display:block}
+.form-error{display:none;padding:0.85rem 1rem;border-radius:18px;background:rgba(145,70,53,0.24);border:1px solid rgba(255,255,255,0.14);color:#fff;font-size:0.9rem;line-height:1.45}
+.form-error.show{display:block}
+.form-success{display:none;padding:0.4rem 0}
+.form-success p{font-family:var(--body);font-size:0.92rem;color:rgba(255,255,255,0.68)}
 
 /* CLOSING */
 .closing{background:var(--gray-dark);padding:5rem 2rem;text-align:center;overflow:hidden}
@@ -545,6 +561,8 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .contact-inner{border-radius:28px}
   .contact-inner>div{padding:1.5rem}
   .contact-section h2{font-size:3.7rem}
+  .form-row,.choice-grid{grid-template-columns:1fr}
+  .form-section{padding:0.85rem;border-radius:20px}
   .site-footer{padding:3.4rem 1.1rem 1.4rem}
   .footer-grid{grid-template-columns:1fr;gap:2rem}
   .footer-col:last-child{grid-column:auto}
@@ -779,19 +797,76 @@ nav .nav-logo{opacity:0;pointer-events:none}
 <section class="contact-section" id="kontakt">
   <div class="contact-inner">
     <div class="reveal-left">
-      <h2>pišite nam!</h2>
-      <p class="sub">Z VESELJEM VAM POMAGAMO PRI IZBIRI PRAVE TURE.</p>
-      <p class="sub">POŠLJITE NAM POVPRAŠEVANJE IN SKUPAJ BOMO PRIPRAVILI KOLESARSKO IZKUŠNJO, PRIMERNO ZA VAS.</p>
+      <h2 data-i18n-sl="SESTAVIMO PRAVO TURO ZA VAS" data-i18n-en="LET US SHAPE THE RIGHT RIDE FOR YOU">SESTAVIMO PRAVO TURO ZA VAS</h2>
+      <p class="sub contact-main-copy" data-i18n-sl="Izpolnite nekaj kratkih korakov. Na podlagi odgovorov vam pripravimo predlog ture, ki ustreza vašemu tempu, skupini in željam." data-i18n-en="Answer a few short questions. Based on your answers, we prepare a ride proposal that fits your pace, group and wishes.">Izpolnite nekaj kratkih korakov. Na podlagi odgovorov vam pripravimo predlog ture, ki ustreza vašemu tempu, skupini in željam.</p>
+      <p class="contact-note" data-i18n-sl="Prijave za vodene ture so odprte od 1. avgusta do 31. oktobra. Izvedba ture je odvisna od vremena, razmer na cestah in razpoložljivosti termina." data-i18n-en="Guided tour enquiries are open from 1 August to 31 October. Tour delivery depends on the weather, road conditions and date availability.">Prijave za vodene ture so odprte od 1. avgusta do 31. oktobra. Izvedba ture je odvisna od vremena, razmer na cestah in razpoložljivosti termina.</p>
     </div>
     <div class="reveal-right">
-      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
-        <div class="form-row"><input type="text" placeholder="Ime in priimek" required><input type="email" placeholder="E-pošta" required></div>
-        <input type="tel" placeholder="Telefon (neobvezno)">
-        <select id="tourSelect"><option value="">Katera tura vas zanima?</option><option value="upper-sava">Upper Sava Valley</option><option value="radovna-bled">Radovna Valley &amp; Bled Gateway</option><option value="alpine-kings">Alpine Kings &amp; Queens</option><option value="julian-gravel">Julian Gravel Escape</option><option value="undecided">Nisem še odločen/a</option></select>
-        <textarea placeholder="Sporočilo — kdaj, koliko vas bo, izkušnje..."></textarea>
-        <button type="submit" class="btn-olive" style="width:100%">POŠLJI POVPRAŠEVANJE →</button>
+      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)" novalidate>
+        <div class="form-error" id="contactError" data-i18n-sl="Prosimo, izpolnite vsa obvezna polja, da vam lahko pripravimo čim boljši predlog ture." data-i18n-en="Please fill in all required fields so we can prepare the best possible tour proposal for you.">Prosimo, izpolnite vsa obvezna polja, da vam lahko pripravimo čim boljši predlog ture.</div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Osebni podatki" data-i18n-en="Personal details">Osebni podatki</div>
+          <div class="form-row">
+            <label><span class="form-field-label" data-i18n-sl="Ime in priimek *" data-i18n-en="Name and surname *">Ime in priimek *</span><input id="contactName" type="text" data-placeholder-sl="Ime in priimek" data-placeholder-en="Name and surname" placeholder="Ime in priimek" required></label>
+            <label><span class="form-field-label" data-i18n-sl="E-pošta *" data-i18n-en="Email *">E-pošta *</span><input id="contactEmail" type="email" data-placeholder-sl="E-pošta" data-placeholder-en="Email" placeholder="E-pošta" required></label>
+          </div>
+          <label><span class="form-field-label" data-i18n-sl="Telefon" data-i18n-en="Phone">Telefon</span><input id="contactPhone" type="tel" data-placeholder-sl="Telefon (neobvezno)" data-placeholder-en="Phone (optional)" placeholder="Telefon (neobvezno)"></label>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Termin in skupina" data-i18n-en="Date and group">Termin in skupina</div>
+          <label><span class="form-field-label" data-i18n-sl="Kdaj bi želeli na turo? *" data-i18n-en="When would you like to ride? *">Kdaj bi želeli na turo? *</span><input id="contactDate" type="text" data-placeholder-sl="npr. 15. avgust, konec julija, dopoldan..." data-placeholder-en="e.g. 15 August, late July, morning..." placeholder="npr. 15. avgust, konec julija, dopoldan..." required></label>
+          <div class="form-row">
+            <label><span class="form-field-label" data-i18n-sl="Koliko vas bo? *" data-i18n-en="How many riders? *">Koliko vas bo? *</span><input id="contactPeople" type="number" min="1" data-placeholder-sl="Število oseb" data-placeholder-en="Number of people" placeholder="Število oseb" required></label>
+            <label><span class="form-field-label" data-i18n-sl="Otroci v skupini" data-i18n-en="Children in the group">Otroci v skupini</span><input id="contactChildren" type="text" data-placeholder-sl="Če so v skupini otroci, napišite njihovo starost." data-placeholder-en="If there are children in the group, write their age." placeholder="Če so v skupini otroci, napišite njihovo starost."></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Kakšen občutek ture želite? *" data-i18n-en="What kind of ride feeling would you like? *">Kakšen občutek ture želite? *</div>
+          <div class="choice-grid">
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="scenic" data-sl="Lahkotno in razgledno" data-en="Easy and scenic"><span data-i18n-sl="Lahkotno in razgledno" data-i18n-en="Easy and scenic">Lahkotno in razgledno</span></label>
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="family" data-sl="Družinsko" data-en="Family friendly"><span data-i18n-sl="Družinsko" data-i18n-en="Family friendly">Družinsko</span></label>
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="climb" data-sl="Malo vzpona" data-en="A little climbing"><span data-i18n-sl="Malo vzpona" data-i18n-en="A little climbing">Malo vzpona</span></label>
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="long" data-sl="Daljša cestna tura" data-en="Longer road ride"><span data-i18n-sl="Daljša cestna tura" data-i18n-en="Longer road ride">Daljša cestna tura</span></label>
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="gravel" data-sl="Gravel / makadam" data-en="Gravel"><span data-i18n-sl="Gravel / makadam" data-i18n-en="Gravel">Gravel / makadam</span></label>
+            <label class="choice-pill"><input type="radio" name="tourFeeling" value="unsure" data-sl="Nismo prepričani" data-en="Not sure"><span data-i18n-sl="Nismo prepričani" data-i18n-en="Not sure">Nismo prepričani</span></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Kakšne so vaše izkušnje? *" data-i18n-en="What is your cycling experience? *">Kakšne so vaše izkušnje? *</div>
+          <div class="choice-grid">
+            <label class="choice-pill"><input type="radio" name="experience" value="beginner" data-sl="Začetnik" data-en="Beginner"><span data-i18n-sl="Začetnik" data-i18n-en="Beginner">Začetnik</span></label>
+            <label class="choice-pill"><input type="radio" name="experience" value="recreational" data-sl="Rekreativec" data-en="Recreational rider"><span data-i18n-sl="Rekreativec" data-i18n-en="Recreational rider">Rekreativec</span></label>
+            <label class="choice-pill"><input type="radio" name="experience" value="regular" data-sl="Redno kolesarim" data-en="I ride regularly"><span data-i18n-sl="Redno kolesarim" data-i18n-en="I ride regularly">Redno kolesarim</span></label>
+            <label class="choice-pill"><input type="radio" name="experience" value="experienced" data-sl="Izkušen kolesar" data-en="Experienced cyclist"><span data-i18n-sl="Izkušen kolesar" data-i18n-en="Experienced cyclist">Izkušen kolesar</span></label>
+            <label class="choice-pill"><input type="radio" name="experience" value="mixed" data-sl="Mešana skupina" data-en="Mixed group"><span data-i18n-sl="Mešana skupina" data-i18n-en="Mixed group">Mešana skupina</span></label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Potrebujete kolo za izposojo? *" data-i18n-en="Do you need rental bikes? *">Potrebujete kolo za izposojo? *</div>
+          <div class="choice-grid">
+            <label class="choice-pill"><input type="radio" name="bikeRental" value="no" data-sl="Ne, imamo svoja kolesa" data-en="No, we have our own bikes"><span data-i18n-sl="Ne, imamo svoja kolesa" data-i18n-en="No, we have our own bikes">Ne, imamo svoja kolesa</span></label>
+            <label class="choice-pill"><input type="radio" name="bikeRental" value="yes" data-sl="Da, potrebujemo kolesa" data-en="Yes, we need bikes"><span data-i18n-sl="Da, potrebujemo kolesa" data-i18n-en="Yes, we need bikes">Da, potrebujemo kolesa</span></label>
+            <label class="choice-pill"><input type="radio" name="bikeRental" value="unsure" data-sl="Nismo še prepričani" data-en="Not sure yet"><span data-i18n-sl="Nismo še prepričani" data-i18n-en="Not sure yet">Nismo še prepričani</span></label>
+          </div>
+          <div class="bike-heights-wrap" id="bikeHeightsWrap">
+            <label><span class="form-field-label" data-i18n-sl="Telesna višina udeležencev" data-i18n-en="Participants' body height">Telesna višina udeležencev</span><textarea id="contactHeights" data-placeholder-sl="npr. oseba 1: 180 cm, oseba 2: 165 cm, otrok: 145 cm..." data-placeholder-en="e.g. person 1: 180 cm, person 2: 165 cm, child: 145 cm..." placeholder="npr. oseba 1: 180 cm, oseba 2: 165 cm, otrok: 145 cm..."></textarea></label>
+            <p class="form-helper" data-i18n-sl="Podatek potrebujemo zato, da lahko lažje pripravimo primerno velikost kolesa za posameznega udeleženca." data-i18n-en="We need this information so we can prepare the right bike size for each participant.">Podatek potrebujemo zato, da lahko lažje pripravimo primerno velikost kolesa za posameznega udeleženca.</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title" data-i18n-sl="Dodatno sporočilo" data-i18n-en="Additional message">Dodatno sporočilo</div>
+          <textarea id="contactMessage" data-placeholder-sl="Napišite karkoli, kar nam pomaga: starost otrok, želje glede tempa, posebne želje, vprašanja ali informacije o skupini." data-placeholder-en="Write anything that helps us: children’s ages, pace wishes, special requests, questions or group information." placeholder="Napišite karkoli, kar nam pomaga: starost otrok, želje glede tempa, posebne želje, vprašanja ali informacije o skupini."></textarea>
+        </div>
+
+        <button type="submit" class="btn-olive" data-i18n-sl="POŠLJI POVPRAŠEVANJE" data-i18n-en="SEND ENQUIRY">POŠLJI POVPRAŠEVANJE</button>
       </form>
-      <div class="form-success" id="formSuccess"><p>✓ Hvala! Javimo se kmalu.</p></div>
+      <div class="form-success" id="formSuccess"><p data-i18n-sl="Odpiramo vaš e-mail program." data-i18n-en="Your email program is opening.">Odpiramo vaš e-mail program.</p></div>
     </div>
   </div>
 </section>
@@ -1112,6 +1187,8 @@ function applyLanguage(lang){
   document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-lang-switch')===lang)});
   staticTranslations.forEach(function(item){setContent(item.selector,item[lang],!!item.html)});
   placeholderTranslations.forEach(function(item){var el=document.querySelector(item.selector);if(el)el.setAttribute('placeholder',item[lang])});
+  document.querySelectorAll('[data-i18n-sl]').forEach(function(el){var value=el.getAttribute('data-i18n-'+lang);if(value!==null)el.textContent=value});
+  document.querySelectorAll('[data-placeholder-sl]').forEach(function(el){var value=el.getAttribute('data-placeholder-'+lang);if(value!==null)el.setAttribute('placeholder',value)});
   var select=document.getElementById('tourSelect');
   if(select){Array.from(select.options).forEach(function(opt,i){if(selectTranslations[lang][i])opt.textContent=selectTranslations[lang][i]})}
   applyTextDictionary(lang);
@@ -1124,7 +1201,9 @@ function applyLanguage(lang){
 }
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();applyLanguage(a.getAttribute('data-lang-switch'))})});
+  document.querySelectorAll('input[name="bikeRental"]').forEach(function(input){input.addEventListener('change',toggleBikeHeights)});
   applyLanguage(localStorage.getItem('jac-lang')||'sl');
+  toggleBikeHeights();
 });
 
 var activeTourCategoryId='upper-sava';
@@ -1273,10 +1352,71 @@ function toggleFaq(btn){
 }
 
 // ===== FORM =====
+function contactValue(id){var el=document.getElementById(id);return el?el.value.trim():''}
+function selectedChoice(name){var el=document.querySelector('input[name="'+name+'"]:checked');return el?el.getAttribute('data-'+currentLang)||el.getAttribute('data-sl')||el.value:''}
+function toggleBikeHeights(){
+  var selected=document.querySelector('input[name="bikeRental"]:checked');
+  var wrap=document.getElementById('bikeHeightsWrap');
+  if(wrap)wrap.classList.toggle('show',!!selected&&selected.value==='yes');
+}
 function submitForm(e){
   e.preventDefault();
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('formSuccess').style.display='block';
+  var error=document.getElementById('contactError');
+  var requiredMissing=!contactValue('contactName')||!contactValue('contactEmail')||!contactValue('contactDate')||!contactValue('contactPeople')||!selectedChoice('tourFeeling')||!selectedChoice('experience')||!selectedChoice('bikeRental');
+  if(requiredMissing){if(error)error.classList.add('show');return}
+  if(error)error.classList.remove('show');
+  var notProvided=currentLang==='en'?'not specified':'ni navedeno';
+  var bikeChoice=document.querySelector('input[name="bikeRental"]:checked');
+  var heightsValue=bikeChoice&&bikeChoice.value==='yes'?(contactValue('contactHeights')||notProvided):notProvided;
+  var subject=currentLang==='en'?'Guided cycling tour enquiry':'Povpraševanje za vodeno kolesarsko turo';
+  var bodyLines=currentLang==='en'?[
+    'Hello,',
+    '',
+    'I am interested in a guided cycling tour.',
+    '',
+    'Name and surname: '+contactValue('contactName'),
+    'Email: '+contactValue('contactEmail'),
+    'Phone: '+(contactValue('contactPhone')||notProvided),
+    '',
+    'Preferred date/time: '+contactValue('contactDate'),
+    'Number of people: '+contactValue('contactPeople'),
+    'Children in the group: '+(contactValue('contactChildren')||notProvided),
+    '',
+    'Desired ride feeling: '+selectedChoice('tourFeeling'),
+    'Cycling experience: '+selectedChoice('experience'),
+    'Bike rental: '+selectedChoice('bikeRental'),
+    'Participants body height: '+heightsValue,
+    '',
+    'Additional message:',
+    contactValue('contactMessage')||notProvided,
+    '',
+    'Kind regards.'
+  ]:[
+    'Pozdravljeni,',
+    '',
+    'zanima me vodena kolesarska tura.',
+    '',
+    'Ime in priimek: '+contactValue('contactName'),
+    'E-pošta: '+contactValue('contactEmail'),
+    'Telefon: '+(contactValue('contactPhone')||notProvided),
+    '',
+    'Želeni termin: '+contactValue('contactDate'),
+    'Število oseb: '+contactValue('contactPeople'),
+    'Otroci v skupini: '+(contactValue('contactChildren')||notProvided),
+    '',
+    'Želeni občutek ture: '+selectedChoice('tourFeeling'),
+    'Kolesarske izkušnje: '+selectedChoice('experience'),
+    'Najem kolesa: '+selectedChoice('bikeRental'),
+    'Telesna višina udeležencev: '+heightsValue,
+    '',
+    'Dodatno sporočilo:',
+    contactValue('contactMessage')||notProvided,
+    '',
+    'Lep pozdrav.'
+  ];
+  window.location.href='mailto:info@probike-tours.si?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyLines.join('\n'));
+  var success=document.getElementById('formSuccess');
+  if(success)success.style.display='block';
 }
 
 // ===== LEGAL MODALS =====
