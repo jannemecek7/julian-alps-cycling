@@ -79,12 +79,12 @@ nav .nav-logo{opacity:0;pointer-events:none}
 @keyframes chatNudge{0%,76%,100%{transform:translateX(0)}82%{transform:translateX(-8px)}88%{transform:translateX(0)}94%{transform:translateX(-4px)}}
 
 /* INTRO */
-.intro-section{position:relative;min-height:1040px;padding:8.5rem 2.8rem 6.5rem;overflow:hidden;background:#fff}
+.intro-section{position:relative;min-height:920px;padding:4.8rem 2.8rem 5.5rem;overflow:hidden;background:#fff}
 .intro-section::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 980' preserveAspectRatio='none'%3E%3Cpath d='M210 785 C380 650 360 470 570 430 C820 382 920 610 1165 490 C1275 436 1318 322 1346 190' fill='none' stroke='%23d8d7d1' stroke-width='8' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3C/svg%3E") center top/100% 100% no-repeat;opacity:0.78}
 .intro-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto}
-.story-heading{font-family:var(--head);font-size:clamp(4.2rem,8.8vw,9rem);line-height:0.86;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1180px;margin-bottom:1.8rem}
-.story-heading span{display:block;color:#9aa2a5}
-.intro-lead{max-width:720px;font-size:clamp(1.05rem,1.5vw,1.34rem);line-height:1.78;color:#343838;margin-bottom:3rem}
+.story-heading{font-family:var(--head);font-size:clamp(3.4rem,7.1vw,7.25rem);line-height:0.88;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1120px;margin-bottom:2rem}
+.story-heading span{display:block;color:#9aa2a5;margin-left:clamp(2rem,11vw,11rem)}
+.intro-lead{display:none}
 .intro-clarity-card{max-width:1160px;margin:0 0 2.7rem;padding:1.25rem 1.35rem;border-radius:26px;background:rgba(237,243,245,0.72);border:1px solid rgba(17,17,17,0.08);box-shadow:0 20px 64px rgba(0,0,0,0.07);backdrop-filter:blur(16px);display:grid;grid-template-columns:0.46fr 1fr;gap:1.2rem;align-items:center}
 .intro-clarity-card strong{font-family:var(--head);font-size:clamp(1.9rem,3.2vw,3.2rem);line-height:0.9;letter-spacing:0.06em;text-transform:uppercase;color:#111;font-weight:400}
 .intro-clarity-card p{font-size:1rem;line-height:1.65;color:#343838;margin:0}
@@ -448,7 +448,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .hero{min-height:680px}
   .hero-content{top:52%;right:1.5rem;max-width:680px}
   .dark-section-inner,.contact-inner{grid-template-columns:1fr}
-  .intro-section{min-height:900px;padding:5.5rem 1.5rem 4.5rem}
+  .intro-section{min-height:840px;padding:4rem 1.5rem 4.2rem}
   .story-heading{margin-bottom:1.2rem}
   .intro-collage{min-height:720px}
   .intro-photo-large{right:0;top:0;width:46vw;height:260px}
@@ -506,9 +506,10 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .nav-logo img{height:38px}
   .nav-logo-text{display:none}
   .nav-lang{gap:0.28rem;font-size:0.68rem;letter-spacing:0.07em}
-  .intro-section{min-height:0;padding:4.5rem 1.1rem 4rem}
-  .story-heading{font-size:3.25rem;line-height:0.92;margin-bottom:1.2rem}
-  .intro-lead{font-size:0.98rem;margin-bottom:2rem}
+  .intro-section{min-height:0;padding:3.4rem 1.1rem 3.8rem}
+  .story-heading{font-size:3.05rem;line-height:0.92;margin-bottom:1.2rem}
+  .story-heading span{margin-left:1.1rem}
+  .intro-lead{display:none}
   .intro-clarity-card{grid-template-columns:1fr;margin-bottom:2rem;padding:1rem;border-radius:22px}
   .intro-clarity-card p{font-size:0.93rem}
   .intro-collage{min-height:1050px}
@@ -620,7 +621,6 @@ nav .nav-logo{opacity:0;pointer-events:none}
 <div class="intro-section">
   <div class="intro-inner">
     <div class="story-heading reveal">Uživanje na kolesu brez omejitev.<span>Razgledi, določajo tempo.</span></div>
-    <p class="intro-lead reveal">Vodeni kolesarski izleti po Zgornjesavski dolini, Julijskih Alpah in širši Gorenjski. Ture sestavimo glede na tvoj dan, izkušnje in tempo – od lahkih razglednih voženj do daljših alpskih izletov.</p>
     <div class="intro-clarity-card reveal">
       <strong>Na kratko</strong>
       <p>Vodene cestne in gravel ture s startom v <em>Kranjski Gori ali Mojstrani</em>. Ture prilagodimo različnim nivojem, po potrebi uredimo <em>najem koles</em>, izvajamo pa jih v kolesarski sezoni od pomladi do jeseni.</p>
