@@ -361,9 +361,16 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .form-section-title{font-family:var(--head);font-size:1.3rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.92);line-height:1}
 .form-field-label{display:block;margin-bottom:0.45rem;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.58)}
 .contact-form label{display:block}
-.contact-form input,.contact-form textarea{width:100%;padding:1rem 1.1rem;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);font-family:var(--body);font-size:0.95rem;color:#fff;outline:none;transition:border-color 0.2s,background 0.2s;border-radius:18px}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:1rem 1.1rem;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);font-family:var(--body);font-size:0.95rem;color:#fff;outline:none;transition:border-color 0.2s,background 0.2s;border-radius:18px}
 .contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.48)}
-.contact-form input:focus,.contact-form textarea:focus{border-color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.13)}
+.contact-form select{appearance:none;color:#fff;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,0.8) 50%),linear-gradient(135deg,rgba(255,255,255,0.8) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.contact-form select option{color:#111}
+.inline-helper{display:block;margin-top:0.42rem}
+.conditional-wrap,.guided-questions{display:none}
+.conditional-wrap.show,.guided-questions.show{display:grid;gap:0.78rem}
+.guided-questions{border-top:1px solid rgba(255,255,255,0.1);padding-top:0.85rem}
+.choice-grid-two{grid-template-columns:1fr 1fr}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:rgba(255,255,255,0.55);background-color:rgba(255,255,255,0.13)}
 .contact-form textarea{height:116px;resize:vertical}
 .contact-form input[type=number]{appearance:textfield}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
@@ -797,9 +804,8 @@ nav .nav-logo{opacity:0;pointer-events:none}
 <section class="contact-section" id="kontakt">
   <div class="contact-inner">
     <div class="reveal-left">
-      <h2 data-i18n-sl="SESTAVIMO PRAVO TURO ZA VAS" data-i18n-en="LET US SHAPE THE RIGHT RIDE FOR YOU">SESTAVIMO PRAVO TURO ZA VAS</h2>
-      <p class="sub contact-main-copy" data-i18n-sl="Izpolnite nekaj kratkih korakov. Na podlagi odgovorov vam pripravimo predlog ture, ki ustreza vašemu tempu, skupini in željam." data-i18n-en="Answer a few short questions. Based on your answers, we prepare a ride proposal that fits your pace, group and wishes.">Izpolnite nekaj kratkih korakov. Na podlagi odgovorov vam pripravimo predlog ture, ki ustreza vašemu tempu, skupini in željam.</p>
-      <p class="contact-note" data-i18n-sl="Prijave za vodene ture so odprte od 1. avgusta do 31. oktobra. Izvedba ture je odvisna od vremena, razmer na cestah in razpoložljivosti termina." data-i18n-en="Guided tour enquiries are open from 1 August to 31 October. Tour delivery depends on the weather, road conditions and date availability.">Prijave za vodene ture so odprte od 1. avgusta do 31. oktobra. Izvedba ture je odvisna od vremena, razmer na cestah in razpoložljivosti termina.</p>
+      <h2 data-i18n-sl="PIŠITE NAM!" data-i18n-en="WRITE TO US!">PIŠITE NAM!</h2>
+      <p class="sub contact-main-copy" data-i18n-sl="Izpolnite nekaj kratkih informacij. Če že veste, katera tura vas zanima, jo lahko izberete neposredno. Če še niste prepričani, vam bomo na podlagi odgovorov pomagali izbrati pravo turo." data-i18n-en="Fill in a few short details. If you already know which tour interests you, you can choose it directly. If you are not sure yet, we will use your answers to help you choose the right ride.">Izpolnite nekaj kratkih informacij. Če že veste, katera tura vas zanima, jo lahko izberete neposredno. Če še niste prepričani, vam bomo na podlagi odgovorov pomagali izbrati pravo turo.</p>
     </div>
     <div class="reveal-right">
       <form class="contact-form" id="contactForm" onsubmit="submitForm(event)" novalidate>
@@ -816,33 +822,54 @@ nav .nav-logo{opacity:0;pointer-events:none}
 
         <div class="form-section">
           <div class="form-section-title" data-i18n-sl="Termin in skupina" data-i18n-en="Date and group">Termin in skupina</div>
-          <label><span class="form-field-label" data-i18n-sl="Kdaj bi želeli na turo? *" data-i18n-en="When would you like to ride? *">Kdaj bi želeli na turo? *</span><input id="contactDate" type="text" data-placeholder-sl="npr. 15. avgust, konec julija, dopoldan..." data-placeholder-en="e.g. 15 August, late July, morning..." placeholder="npr. 15. avgust, konec julija, dopoldan..." required></label>
+          <label><span class="form-field-label" data-i18n-sl="Kdaj bi želeli na turo? *" data-i18n-en="When would you like to ride? *">Kdaj bi želeli na turo? *</span><input id="contactDate" type="date" required></label>
           <div class="form-row">
-            <label><span class="form-field-label" data-i18n-sl="Koliko vas bo? *" data-i18n-en="How many riders? *">Koliko vas bo? *</span><input id="contactPeople" type="number" min="1" data-placeholder-sl="Število oseb" data-placeholder-en="Number of people" placeholder="Število oseb" required></label>
-            <label><span class="form-field-label" data-i18n-sl="Otroci v skupini" data-i18n-en="Children in the group">Otroci v skupini</span><input id="contactChildren" type="text" data-placeholder-sl="Če so v skupini otroci, napišite njihovo starost." data-placeholder-en="If there are children in the group, write their age." placeholder="Če so v skupini otroci, napišite njihovo starost."></label>
+            <label><span class="form-field-label" data-i18n-sl="Odrasli v skupini *" data-i18n-en="Adults in the group *">Odrasli v skupini *</span><input id="contactAdults" type="number" min="1" value="1" required></label>
+            <label><span class="form-field-label" data-i18n-sl="Otroci v skupini" data-i18n-en="Children in the group">Otroci v skupini</span><input id="contactChildren" type="number" min="0" value="0"><span class="form-helper inline-helper" data-i18n-sl="Otroci so udeleženci do 15. leta." data-i18n-en="Children are participants up to 15 years old.">Otroci so udeleženci do 15. leta.</span></label>
           </div>
         </div>
 
         <div class="form-section">
-          <div class="form-section-title" data-i18n-sl="Kakšen občutek ture želite? *" data-i18n-en="What kind of ride feeling would you like? *">Kakšen občutek ture želite? *</div>
-          <div class="choice-grid">
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="scenic" data-sl="Lahkotno in razgledno" data-en="Easy and scenic"><span data-i18n-sl="Lahkotno in razgledno" data-i18n-en="Easy and scenic">Lahkotno in razgledno</span></label>
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="family" data-sl="Družinsko" data-en="Family friendly"><span data-i18n-sl="Družinsko" data-i18n-en="Family friendly">Družinsko</span></label>
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="climb" data-sl="Malo vzpona" data-en="A little climbing"><span data-i18n-sl="Malo vzpona" data-i18n-en="A little climbing">Malo vzpona</span></label>
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="long" data-sl="Daljša cestna tura" data-en="Longer road ride"><span data-i18n-sl="Daljša cestna tura" data-i18n-en="Longer road ride">Daljša cestna tura</span></label>
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="gravel" data-sl="Gravel / makadam" data-en="Gravel"><span data-i18n-sl="Gravel / makadam" data-i18n-en="Gravel">Gravel / makadam</span></label>
-            <label class="choice-pill"><input type="radio" name="tourFeeling" value="unsure" data-sl="Nismo prepričani" data-en="Not sure"><span data-i18n-sl="Nismo prepričani" data-i18n-en="Not sure">Nismo prepričani</span></label>
+          <div class="form-section-title" data-i18n-sl="Izbira ture" data-i18n-en="Tour choice">Izbira ture</div>
+          <div class="form-field-label" data-i18n-sl="Že veste, katera tura vas zanima? *" data-i18n-en="Do you already know which tour interests you? *">Že veste, katera tura vas zanima? *</div>
+          <div class="choice-grid choice-grid-two">
+            <label class="choice-pill"><input type="radio" name="tourChoiceMode" value="direct" data-sl="Da, želim izbrati turo" data-en="Yes, I want to choose a tour"><span data-i18n-sl="Da, želim izbrati turo" data-i18n-en="Yes, I want to choose a tour">Da, želim izbrati turo</span></label>
+            <label class="choice-pill"><input type="radio" name="tourChoiceMode" value="help" data-sl="Ne vem še, pomagajte mi izbrati" data-en="I am not sure yet, help me choose"><span data-i18n-sl="Ne vem še, pomagajte mi izbrati" data-i18n-en="I am not sure yet, help me choose">Ne vem še, pomagajte mi izbrati</span></label>
           </div>
-        </div>
-
-        <div class="form-section">
-          <div class="form-section-title" data-i18n-sl="Kakšne so vaše izkušnje? *" data-i18n-en="What is your cycling experience? *">Kakšne so vaše izkušnje? *</div>
-          <div class="choice-grid">
-            <label class="choice-pill"><input type="radio" name="experience" value="beginner" data-sl="Začetnik" data-en="Beginner"><span data-i18n-sl="Začetnik" data-i18n-en="Beginner">Začetnik</span></label>
-            <label class="choice-pill"><input type="radio" name="experience" value="recreational" data-sl="Rekreativec" data-en="Recreational rider"><span data-i18n-sl="Rekreativec" data-i18n-en="Recreational rider">Rekreativec</span></label>
-            <label class="choice-pill"><input type="radio" name="experience" value="regular" data-sl="Redno kolesarim" data-en="I ride regularly"><span data-i18n-sl="Redno kolesarim" data-i18n-en="I ride regularly">Redno kolesarim</span></label>
-            <label class="choice-pill"><input type="radio" name="experience" value="experienced" data-sl="Izkušen kolesar" data-en="Experienced cyclist"><span data-i18n-sl="Izkušen kolesar" data-i18n-en="Experienced cyclist">Izkušen kolesar</span></label>
-            <label class="choice-pill"><input type="radio" name="experience" value="mixed" data-sl="Mešana skupina" data-en="Mixed group"><span data-i18n-sl="Mešana skupina" data-i18n-en="Mixed group">Mešana skupina</span></label>
+          <div class="conditional-wrap" id="directTourWrap">
+            <label><span class="form-field-label" data-i18n-sl="Izbrana tura *" data-i18n-en="Selected tour *">Izbrana tura *</span>
+              <select id="selectedTour">
+                <option value="" data-i18n-sl="Izberite turo" data-i18n-en="Choose a tour">Izberite turo</option>
+                <option value="Zgornjesavska dolina" data-i18n-sl="Zgornjesavska dolina" data-i18n-en="Upper Sava Valley">Zgornjesavska dolina</option>
+                <option value="Dolina Radovne in Bled" data-i18n-sl="Dolina Radovne in Bled" data-i18n-en="Radovna Valley and Bled">Dolina Radovne in Bled</option>
+                <option value="Alpske klasike" data-i18n-sl="Alpske klasike" data-i18n-en="Alpine Classics">Alpske klasike</option>
+                <option value="Julijski gravel" data-i18n-sl="Julijski gravel" data-i18n-en="Julian Gravel">Julijski gravel</option>
+                <option value="Nisem še čisto prepričan/a" data-i18n-sl="Nisem še čisto prepričan/a" data-i18n-en="I am not completely sure yet">Nisem še čisto prepričan/a</option>
+              </select>
+            </label>
+          </div>
+          <div class="guided-questions" id="guidedQuestionsWrap">
+            <div>
+              <div class="form-field-label" data-i18n-sl="Kakšen občutek ture želite? *" data-i18n-en="What kind of ride feeling would you like? *">Kakšen občutek ture želite? *</div>
+              <div class="choice-grid">
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="scenic" data-sl="Lahkotno in razgledno" data-en="Easy and scenic"><span data-i18n-sl="Lahkotno in razgledno" data-i18n-en="Easy and scenic">Lahkotno in razgledno</span></label>
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="family" data-sl="Družinsko" data-en="Family friendly"><span data-i18n-sl="Družinsko" data-i18n-en="Family friendly">Družinsko</span></label>
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="climb" data-sl="Malo vzpona" data-en="A little climbing"><span data-i18n-sl="Malo vzpona" data-i18n-en="A little climbing">Malo vzpona</span></label>
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="long" data-sl="Daljša cestna tura" data-en="Longer road ride"><span data-i18n-sl="Daljša cestna tura" data-i18n-en="Longer road ride">Daljša cestna tura</span></label>
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="gravel" data-sl="Gravel / makadam" data-en="Gravel"><span data-i18n-sl="Gravel / makadam" data-i18n-en="Gravel">Gravel / makadam</span></label>
+                <label class="choice-pill"><input type="radio" name="tourFeeling" value="unsure" data-sl="Nismo prepričani" data-en="Not sure"><span data-i18n-sl="Nismo prepričani" data-i18n-en="Not sure">Nismo prepričani</span></label>
+              </div>
+            </div>
+            <div>
+              <div class="form-field-label" data-i18n-sl="Kakšne so vaše izkušnje? *" data-i18n-en="What is your cycling experience? *">Kakšne so vaše izkušnje? *</div>
+              <div class="choice-grid">
+                <label class="choice-pill"><input type="radio" name="experience" value="beginner" data-sl="Začetnik" data-en="Beginner"><span data-i18n-sl="Začetnik" data-i18n-en="Beginner">Začetnik</span></label>
+                <label class="choice-pill"><input type="radio" name="experience" value="recreational" data-sl="Rekreativec" data-en="Recreational rider"><span data-i18n-sl="Rekreativec" data-i18n-en="Recreational rider">Rekreativec</span></label>
+                <label class="choice-pill"><input type="radio" name="experience" value="regular" data-sl="Redno kolesarim" data-en="I ride regularly"><span data-i18n-sl="Redno kolesarim" data-i18n-en="I ride regularly">Redno kolesarim</span></label>
+                <label class="choice-pill"><input type="radio" name="experience" value="experienced" data-sl="Izkušen kolesar" data-en="Experienced cyclist"><span data-i18n-sl="Izkušen kolesar" data-i18n-en="Experienced cyclist">Izkušen kolesar</span></label>
+                <label class="choice-pill"><input type="radio" name="experience" value="mixed" data-sl="Mešana skupina" data-en="Mixed group"><span data-i18n-sl="Mešana skupina" data-i18n-en="Mixed group">Mešana skupina</span></label>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1202,8 +1229,10 @@ function applyLanguage(lang){
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();applyLanguage(a.getAttribute('data-lang-switch'))})});
   document.querySelectorAll('input[name="bikeRental"]').forEach(function(input){input.addEventListener('change',toggleBikeHeights)});
+  document.querySelectorAll('input[name="tourChoiceMode"]').forEach(function(input){input.addEventListener('change',toggleTourChoiceMode)});
   applyLanguage(localStorage.getItem('jac-lang')||'sl');
   toggleBikeHeights();
+  toggleTourChoiceMode();
 });
 
 var activeTourCategoryId='upper-sava';
@@ -1354,66 +1383,89 @@ function toggleFaq(btn){
 // ===== FORM =====
 function contactValue(id){var el=document.getElementById(id);return el?el.value.trim():''}
 function selectedChoice(name){var el=document.querySelector('input[name="'+name+'"]:checked');return el?el.getAttribute('data-'+currentLang)||el.getAttribute('data-sl')||el.value:''}
+function selectedMode(){var el=document.querySelector('input[name="tourChoiceMode"]:checked');return el?el.value:''}
+function selectedTourLabel(){var select=document.getElementById('selectedTour');if(!select||!select.value)return '';var option=select.options[select.selectedIndex];return option?option.getAttribute('data-i18n-'+currentLang)||option.textContent:select.value}
 function toggleBikeHeights(){
   var selected=document.querySelector('input[name="bikeRental"]:checked');
   var wrap=document.getElementById('bikeHeightsWrap');
   if(wrap)wrap.classList.toggle('show',!!selected&&selected.value==='yes');
 }
+function toggleTourChoiceMode(){
+  var mode=selectedMode();
+  var direct=document.getElementById('directTourWrap');
+  var guided=document.getElementById('guidedQuestionsWrap');
+  if(direct)direct.classList.toggle('show',mode==='direct');
+  if(guided)guided.classList.toggle('show',mode==='help');
+}
 function submitForm(e){
   e.preventDefault();
   var error=document.getElementById('contactError');
-  var requiredMissing=!contactValue('contactName')||!contactValue('contactEmail')||!contactValue('contactDate')||!contactValue('contactPeople')||!selectedChoice('tourFeeling')||!selectedChoice('experience')||!selectedChoice('bikeRental');
+  var mode=selectedMode();
+  var requiredMissing=!contactValue('contactName')||!contactValue('contactEmail')||!contactValue('contactDate')||!contactValue('contactAdults')||Number(contactValue('contactAdults'))<1||!mode||!selectedChoice('bikeRental');
+  if(mode==='direct'&&!selectedTourLabel())requiredMissing=true;
+  if(mode==='help'&&(!selectedChoice('tourFeeling')||!selectedChoice('experience')))requiredMissing=true;
   if(requiredMissing){if(error)error.classList.add('show');return}
   if(error)error.classList.remove('show');
   var notProvided=currentLang==='en'?'not specified':'ni navedeno';
   var bikeChoice=document.querySelector('input[name="bikeRental"]:checked');
   var heightsValue=bikeChoice&&bikeChoice.value==='yes'?(contactValue('contactHeights')||notProvided):notProvided;
   var subject=currentLang==='en'?'Guided cycling tour enquiry':'Povpraševanje za vodeno kolesarsko turo';
-  var bodyLines=currentLang==='en'?[
-    'Hello,',
-    '',
-    'I am interested in a guided cycling tour.',
-    '',
-    'Name and surname: '+contactValue('contactName'),
-    'Email: '+contactValue('contactEmail'),
-    'Phone: '+(contactValue('contactPhone')||notProvided),
-    '',
-    'Preferred date/time: '+contactValue('contactDate'),
-    'Number of people: '+contactValue('contactPeople'),
-    'Children in the group: '+(contactValue('contactChildren')||notProvided),
-    '',
-    'Desired ride feeling: '+selectedChoice('tourFeeling'),
-    'Cycling experience: '+selectedChoice('experience'),
-    'Bike rental: '+selectedChoice('bikeRental'),
-    'Participants body height: '+heightsValue,
-    '',
-    'Additional message:',
-    contactValue('contactMessage')||notProvided,
-    '',
-    'Kind regards.'
-  ]:[
-    'Pozdravljeni,',
-    '',
-    'zanima me vodena kolesarska tura.',
-    '',
-    'Ime in priimek: '+contactValue('contactName'),
-    'E-pošta: '+contactValue('contactEmail'),
-    'Telefon: '+(contactValue('contactPhone')||notProvided),
-    '',
-    'Želeni termin: '+contactValue('contactDate'),
-    'Število oseb: '+contactValue('contactPeople'),
-    'Otroci v skupini: '+(contactValue('contactChildren')||notProvided),
-    '',
-    'Želeni občutek ture: '+selectedChoice('tourFeeling'),
-    'Kolesarske izkušnje: '+selectedChoice('experience'),
-    'Najem kolesa: '+selectedChoice('bikeRental'),
-    'Telesna višina udeležencev: '+heightsValue,
-    '',
-    'Dodatno sporočilo:',
-    contactValue('contactMessage')||notProvided,
-    '',
-    'Lep pozdrav.'
-  ];
+  var bodyLines;
+  if(currentLang==='en'){
+    bodyLines=mode==='direct' ? [
+      'Hello,','','I am interested in a guided cycling tour.','',
+      'Name and surname: '+contactValue('contactName'),
+      'Email: '+contactValue('contactEmail'),
+      'Phone: '+(contactValue('contactPhone')||notProvided),'',
+      'Preferred date: '+contactValue('contactDate'),
+      'Adults in the group: '+contactValue('contactAdults'),
+      'Children in the group: '+(contactValue('contactChildren')||'0'),'',
+      'Selected tour: '+selectedTourLabel(),'',
+      'Bike rental: '+selectedChoice('bikeRental'),
+      'Participants body height: '+heightsValue,'',
+      'Additional message:',contactValue('contactMessage')||notProvided,'','Kind regards.'
+    ] : [
+      'Hello,','','I am interested in a guided cycling tour, but I am not sure yet which option would suit us best.','',
+      'Name and surname: '+contactValue('contactName'),
+      'Email: '+contactValue('contactEmail'),
+      'Phone: '+(contactValue('contactPhone')||notProvided),'',
+      'Preferred date: '+contactValue('contactDate'),
+      'Adults in the group: '+contactValue('contactAdults'),
+      'Children in the group: '+(contactValue('contactChildren')||'0'),'',
+      'Desired ride feeling: '+selectedChoice('tourFeeling'),
+      'Cycling experience: '+selectedChoice('experience'),'',
+      'Bike rental: '+selectedChoice('bikeRental'),
+      'Participants body height: '+heightsValue,'',
+      'Additional message:',contactValue('contactMessage')||notProvided,'','Kind regards.'
+    ];
+  }else{
+    bodyLines=mode==='direct' ? [
+      'Pozdravljeni,','','zanima me vodena kolesarska tura.','',
+      'Ime in priimek: '+contactValue('contactName'),
+      'E-pošta: '+contactValue('contactEmail'),
+      'Telefon: '+(contactValue('contactPhone')||notProvided),'',
+      'Želeni datum: '+contactValue('contactDate'),
+      'Odrasli v skupini: '+contactValue('contactAdults'),
+      'Otroci v skupini: '+(contactValue('contactChildren')||'0'),'',
+      'Izbrana tura: '+selectedTourLabel(),'',
+      'Najem kolesa: '+selectedChoice('bikeRental'),
+      'Telesna višina udeležencev: '+heightsValue,'',
+      'Dodatno sporočilo:',contactValue('contactMessage')||notProvided,'','Lep pozdrav.'
+    ] : [
+      'Pozdravljeni,','','zanima me vodena kolesarska tura, vendar še nisem prepričan/a, katera tura bi bila najprimernejša.','',
+      'Ime in priimek: '+contactValue('contactName'),
+      'E-pošta: '+contactValue('contactEmail'),
+      'Telefon: '+(contactValue('contactPhone')||notProvided),'',
+      'Želeni datum: '+contactValue('contactDate'),
+      'Odrasli v skupini: '+contactValue('contactAdults'),
+      'Otroci v skupini: '+(contactValue('contactChildren')||'0'),'',
+      'Želeni občutek ture: '+selectedChoice('tourFeeling'),
+      'Kolesarske izkušnje: '+selectedChoice('experience'),'',
+      'Najem kolesa: '+selectedChoice('bikeRental'),
+      'Telesna višina udeležencev: '+heightsValue,'',
+      'Dodatno sporočilo:',contactValue('contactMessage')||notProvided,'','Lep pozdrav.'
+    ];
+  }
   window.location.href='mailto:info@probike-tours.si?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyLines.join('\n'));
   var success=document.getElementById('formSuccess');
   if(success)success.style.display='block';
