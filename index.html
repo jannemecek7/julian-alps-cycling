@@ -40,6 +40,22 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .nav-lang a{color:rgba(255,255,255,0.62);text-decoration:none;transition:color 0.2s}
 .nav-lang a.active,.nav-lang a:hover{color:#fff}
 .nav-lang span{color:rgba(255,255,255,0.32)}
+.mobile-menu-toggle,.mobile-menu-overlay{display:none}
+.mobile-menu-toggle{border:1px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.08);color:#fff;border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(14px)}
+.mobile-menu-toggle span,.mobile-menu-toggle::before,.mobile-menu-toggle::after{content:'';display:block;width:18px;height:2px;border-radius:999px;background:currentColor;position:absolute;left:50%;top:50%;margin-left:-9px;margin-top:-1px;transition:transform 0.22s,opacity 0.22s}
+.mobile-menu-toggle span{position:absolute}
+.mobile-menu-toggle::before{transform:translateY(-6px)}
+.mobile-menu-toggle::after{transform:translateY(6px)}
+.mobile-menu-open .mobile-menu-toggle span{opacity:0}
+.mobile-menu-open .mobile-menu-toggle::before{transform:rotate(45deg)}
+.mobile-menu-open .mobile-menu-toggle::after{transform:rotate(-45deg)}
+.mobile-menu-overlay{position:fixed;inset:0;z-index:98;background:rgba(12,15,13,0.86);backdrop-filter:blur(22px);padding:6rem 1.15rem 1.25rem;color:#fff}
+.mobile-menu-overlay.open{display:block}
+.mobile-menu-panel{min-height:100%;display:flex;flex-direction:column;justify-content:space-between;border-radius:30px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);padding:1.15rem;box-shadow:0 32px 100px rgba(0,0,0,0.36)}
+.mobile-menu-links{display:grid;gap:0.5rem}
+.mobile-menu-links a{font-family:var(--head);font-size:2.05rem;line-height:0.95;letter-spacing:0.055em;text-transform:uppercase;text-decoration:none;color:#fff;padding:0.72rem 0.8rem;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08)}
+.mobile-menu-cta{margin-top:1.1rem;width:100%;border-radius:999px;text-align:center}
+body.modal-open .floating-whatsapp{display:none}
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:720px;overflow:hidden;margin-top:0}
@@ -100,6 +116,8 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .intro-brand-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#7f878a;margin-bottom:0.75rem}
 .intro-brand h3{font-family:var(--head);font-size:clamp(2.7rem,5.2vw,5.5rem);line-height:0.85;letter-spacing:0.055em;text-transform:uppercase;color:#111}
 .intro-brand p{margin-top:1rem;font-size:1rem;line-height:1.7;color:#343838}
+.intro-flip-back,.intro-map-btn{display:none}
+.intro-notes-mobile{display:contents}
 .intro-note{position:absolute;z-index:6;max-width:250px;padding:0.9rem 1rem;border-radius:18px;background:rgba(255,255,255,0.68);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,0.08);font-size:0.82rem;line-height:1.55;color:#343838}
 .intro-note strong{display:block;font-family:var(--head);font-size:1.15rem;line-height:0.95;text-transform:uppercase;letter-spacing:0.08em;color:#111;margin-bottom:0.35rem}
 .intro-note-1{left:10vw;top:54px}
@@ -122,6 +140,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .route-finder h3{font-family:var(--head);font-size:clamp(2.8rem,5vw,5.2rem);line-height:0.88;letter-spacing:0.04em;text-transform:uppercase;color:#111;margin:0 0 1rem}
 .route-finder-intro p{font-size:1rem;line-height:1.7;color:#444b4b;max-width:520px}
 .route-finder-illustration{width:min(100%,520px);margin:1.35rem 0 0;display:block;opacity:0.58;filter:saturate(0.9) contrast(0.98);mix-blend-mode:multiply;pointer-events:none}
+.calc-open-btn{display:none}
 .route-finder-panel{border-radius:24px;background:rgba(255,255,255,0.68);border:1px solid rgba(17,17,17,0.07);padding:1rem;display:grid;gap:1rem}
 .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
 .calc-control{border-radius:20px;background:rgba(255,255,255,0.72);border:1px solid rgba(17,17,17,0.08);padding:0.9rem}
@@ -154,6 +173,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .bike-rental h3{font-family:var(--head);font-size:clamp(2.4rem,4.6vw,4.6rem);line-height:0.88;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 0.8rem;color:#fff}
 .bike-rental-intro p{position:relative;z-index:1;font-size:0.98rem;line-height:1.62;color:rgba(255,255,255,0.78);max-width:440px}
 .bike-rental-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.bike-rental-cards{display:contents}
 .bike-rental-card{border-radius:22px;background:linear-gradient(180deg,rgba(237,243,245,0.78),rgba(255,255,255,0.92));border:1px solid rgba(17,17,17,0.08);padding:1rem;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}
 .bike-rental-card strong{font-family:var(--head);font-size:1.65rem;line-height:0.92;letter-spacing:0.045em;text-transform:uppercase;color:#111;font-weight:400}
 .bike-rental-price{font-size:0.82rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:#7e898c;margin-top:1rem}
@@ -432,6 +452,8 @@ nav .nav-logo{opacity:0;pointer-events:none}
 .legal-modal.contact-modal p,.legal-modal.contact-modal li{color:rgba(255,255,255,0.7)}
 .legal-modal.contact-modal .contact-modal-intro{color:rgba(255,255,255,0.72)}
 .legal-modal.contact-modal .legal-close{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.18);color:#fff}
+.intro-map-modal{width:min(92vw,980px);padding:1rem;border-radius:30px;background:#f6f3ea}
+.intro-map-modal img{width:100%;height:auto;display:block;border-radius:22px}
 .legal-panel{display:none}
 .legal-panel.active{display:block}
 
@@ -606,15 +628,144 @@ nav .nav-logo{opacity:0;pointer-events:none}
   .modal-gallery img:first-child{grid-column:1/3;grid-row:auto}
   .modal-body{padding:1.6rem}
   .modal-title{font-size:3rem}
+
+  body::before{display:none}
+  nav{height:62px;padding:0.55rem 0.8rem;justify-content:center}
+  nav .nav-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+  .nav-logo img{height:34px}
+  .mobile-menu-toggle{display:flex;position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);z-index:101}
+  .nav-lang{position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);font-size:0.66rem}
+  .mobile-menu-open{overflow:hidden}
+  .hero{min-height:620px}
+  .hero-bg-img{background-position:center;transform:scale(1.03)}
+  .hero-logo-mark,.hero-socials,.hero-copy{display:none}
+  .hero-content{top:49%;left:0.9rem;right:0.9rem;text-align:center;display:flex;flex-direction:column;align-items:center;transform:translateY(calc(-50% + 18px))}
+  .hero h1{order:1;font-size:clamp(3.8rem,17vw,5.7rem);line-height:0.84;margin:0 auto 1rem;max-width:360px;letter-spacing:0.035em}
+  .hero-subtitle{order:2;margin:0 auto;font-size:0.62rem;letter-spacing:0.23em;max-width:280px}
+  .hero-btns{left:50%;right:auto;bottom:13vh;transform:translate(-50%,20px);background:transparent;border:0;box-shadow:none;backdrop-filter:none;padding:0}
+  .hero-btns.in{transform:translate(-50%,0)}
+  .hero-btns .btn-olive{display:none}
+  .hero-btns .btn-olive2{width:auto;min-width:168px;padding:0.82rem 1.15rem;background:rgba(255,255,255,0.86);color:#111;border-color:rgba(255,255,255,0.6);box-shadow:0 16px 44px rgba(0,0,0,0.2)}
+
+  .intro-section{padding:2.8rem 0 2.7rem}
+  .intro-section::before{opacity:0.38;background-size:220% 100%;background-position:center top}
+  .intro-inner{padding:0 0 0 1rem}
+  .story-heading{font-size:3.1rem;line-height:0.9;max-width:330px;margin:0 1rem 1rem 0}
+  .intro-clarity-card{margin:0 1rem 1rem 0;padding:0.95rem;border-radius:22px;grid-template-columns:1fr}
+  .intro-clarity-card strong{font-size:2.4rem;color:#9aa2a5}
+  .intro-clarity-card p{font-size:0.9rem;line-height:1.55}
+  .intro-collage{left:auto;width:auto;min-height:0;margin:0;transform:none;display:flex;flex-direction:column;gap:0.9rem}
+  .intro-photo-large{position:relative;order:1;left:auto;right:auto;top:auto;width:calc(100% - 1rem);height:250px;border-radius:25px}
+  .intro-photo-small,.intro-photo-map{display:none}
+  .intro-brand{position:relative;order:2;left:auto;right:auto;top:auto;width:calc(100% - 1rem);height:260px;transform:none!important;padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;perspective:1100px}
+  .intro-flip-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .intro-brand.is-flipped .intro-flip-inner{transform:rotateY(180deg)}
+  .intro-flip-face{position:absolute;inset:0;padding:1.25rem;border-radius:28px;background:rgba(255,255,255,0.88);border:1px solid rgba(17,17,17,0.08);box-shadow:0 22px 60px rgba(0,0,0,0.1);backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;backface-visibility:hidden}
+  .intro-flip-back{display:flex;transform:rotateY(180deg)}
+  .intro-map-btn{display:inline-flex;margin-top:1rem;border:0;border-radius:999px;background:#111;color:#fff;font-family:var(--head);font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.78rem 1rem}
+  .intro-brand h3{font-size:3.2rem}
+  .intro-brand p{font-size:0.95rem;line-height:1.55}
+  .intro-notes-mobile{order:3;display:flex;gap:0.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.1rem 1rem 0.5rem 0;-webkit-overflow-scrolling:touch}
+  .intro-notes-mobile::-webkit-scrollbar,.tours-grid::-webkit-scrollbar,.bike-rental-cards::-webkit-scrollbar,.gal-grid::-webkit-scrollbar{display:none}
+  .intro-note{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none!important;flex:0 0 78%;max-width:none;min-height:126px;margin:0;scroll-snap-align:start;background:rgba(255,255,255,0.78)}
+  .intro-note-1{margin-top:0}
+
+  .tours-section{padding:3rem 0 2.7rem;scroll-margin-top:64px}
+  .tours-section h2{font-size:3.15rem;margin:0 1rem 1.35rem}
+  .tours-section h2::after{font-size:0.66rem;margin-top:0.8rem}
+  .tours-grid{display:flex;gap:0.85rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 1rem 0.75rem;margin:0;max-width:none;-webkit-overflow-scrolling:touch}
+  .tura-card{flex:0 0 82%;height:286px;scroll-snap-align:start;border-radius:22px}
+  .tura-circle img,.tura-card:hover .tura-circle img{transform:scale(1.28)}
+  .tura-info{left:12px;right:12px;bottom:12px;padding:0.9rem;border-radius:18px}
+  .tura-name{font-size:1.45rem}
+  .tura-desc{font-size:0.78rem;line-height:1.35;margin-top:0.62rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .tura-btn-el{width:38px;height:38px;right:0.75rem;top:0.75rem}
+
+  .route-finder{display:block;margin:2rem 1rem 0;padding:1rem;border-radius:26px;background:#111;color:#fff}
+  .route-finder-intro{min-height:0;padding:0}
+  .route-finder-kicker,.route-finder-illustration{display:none}
+  .route-finder h3{font-size:0;margin:0 0 0.8rem}
+  .route-finder h3::after{content:'NE VEŠ, KATERA TURA JE PRAVA?';font-family:var(--head);font-size:2.7rem;line-height:0.9;letter-spacing:0.04em;color:#fff}
+  body[data-lang="en"] .route-finder h3::after{content:'NOT SURE WHICH RIDE IS RIGHT?'}
+  .route-finder-intro p{font-size:0.94rem;color:rgba(255,255,255,0.74);line-height:1.55}
+  .calc-open-btn{display:inline-flex;margin-top:1rem;border:1px solid rgba(255,255,255,0.28);border-radius:999px;background:rgba(255,255,255,0.12);color:#fff;font-family:var(--head);font-size:1.05rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1rem}
+  .route-finder-panel{display:none;margin-top:1rem;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12)}
+  .route-finder.mobile-calc-open .route-finder-panel{display:grid}
+  .calc-control{background:rgba(255,255,255,0.9)}
+  .calc-result{grid-template-columns:1fr}
+
+  .bike-rental{display:block;margin:1rem 1rem 0;padding:0.85rem;border-radius:26px}
+  .bike-rental-intro{min-height:190px;border-radius:22px}
+  .bike-rental h3{font-size:3.15rem}
+  .bike-rental-list{display:block}
+  .bike-rental-cards{display:flex;gap:0.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.85rem 0 0.8rem;-webkit-overflow-scrolling:touch}
+  .bike-rental-card{flex:0 0 76%;min-height:122px;scroll-snap-align:start}
+  .bike-rental-card strong{font-size:1.45rem}
+  .bike-rental-note{display:flex;flex-direction:row;align-items:center;border-radius:18px;padding:0.78rem 0.85rem;margin-bottom:0.65rem}
+  .bike-rental-highlight{border-radius:20px;padding:0.9rem;display:block}
+  .bike-rental-highlight strong{font-size:1.55rem;margin-bottom:0.5rem;display:block}
+  .bike-rental-highlight p{font-size:0.88rem;line-height:1.45}
+
+  .dark-section{padding:4rem 1rem 3rem}
+  .dark-section::before{height:150px}
+  .dark-section-inner{display:block}
+  .zakaj-left h2{font-size:3.15rem}
+  .dark-lead{font-size:0.92rem;line-height:1.55}
+  .zakaj-item{padding:0.9rem 0}
+  .zakaj-body.open{padding-top:0.45rem}
+  .rez-right{display:none}
+
+  .gal-section{padding:3.2rem 0 2.4rem}
+  .gal-section h2{font-size:3.15rem;margin:0 1rem 1.2rem}
+  .gal-grid{display:flex;gap:0.82rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 1rem 0.8rem;margin:0;max-width:none;-webkit-overflow-scrolling:touch}
+  .gal-item,.gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(4),.gal-item:nth-child(5),.gal-item:nth-child(6),.gal-item:nth-child(7){flex:0 0 84%;height:245px;scroll-snap-align:start;border-radius:24px;grid-column:auto;grid-row:auto;transform:none}
+  .rev-section{display:none}
+
+  .faq-section{padding:3rem 1rem}
+  .faq-section h2{font-size:3rem;margin-bottom:1rem}
+  .faq-tabs{overflow-x:auto;justify-content:flex-start;padding:0.25rem}
+  .faq-tab{white-space:nowrap}
+  .faq-panels{padding:0.2rem 0.9rem}
+  .faq-q{padding:1rem 0;font-size:0.98rem}
+
+  .contact-section{padding:3rem 0.9rem}
+  .contact-inner{grid-template-columns:1fr;gap:0.8rem;padding:1.1rem;border-radius:26px}
+  .contact-inner>div{padding:0}
+  .contact-section h2{font-size:3.25rem;margin-bottom:0.65rem}
+  .contact-section .sub{font-size:0.82rem;line-height:1.45}
+  .contact-questionnaire-btn{width:100%;border-radius:22px;padding:0.9rem 1rem}
+
+  .floating-whatsapp{right:0.75rem;bottom:0.75rem;gap:0.45rem}
+  .floating-whatsapp-bubble{font-size:0.72rem;padding:0.55rem 0.72rem;max-width:128px;white-space:normal;line-height:1.15;animation:none}
+  .floating-whatsapp-icon{width:50px;height:50px}
+  .floating-whatsapp-icon::before{display:none}
+  .floating-whatsapp-icon svg{width:28px;height:28px}
+  .floating-whatsapp-badge{width:19px;height:19px;font-size:0.68rem}
 }
 </style>
 </head>
 <body>
 
 <nav id="mainNav">
+  <button class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()" aria-label="Odpri meni"><span></span></button>
   <a href="#" class="nav-logo"><img src="assets/julian-alps-logo-white.png" alt="Julian Alps cycling"><span class="nav-logo-text">JULIAN ALPS CYCLING</span></a>
   <div class="nav-lang"><a href="#" class="active" data-lang-switch="sl">SI</a><span>|</span><a href="#" data-lang-switch="en">EN</a><span>|</span><a href="#" data-lang-switch="de">DE</a></div>
 </nav>
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-links">
+      <a href="#nakratko" onclick="closeMobileMenu()">Na kratko</a>
+      <a href="#ture" onclick="closeMobileMenu()">Ture</a>
+      <a href="#najdi-turo" onclick="closeMobileMenu()">Najdi svojo turo</a>
+      <a href="#najem-koles" onclick="closeMobileMenu()">Najem koles</a>
+      <a href="#zakaj" onclick="closeMobileMenu()">Zakaj z nami</a>
+      <a href="#galerija" onclick="closeMobileMenu()">Galerija</a>
+      <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+      <a href="#kontakt" onclick="closeMobileMenu()">Povpraševanje</a>
+    </div>
+    <a class="btn-olive mobile-menu-cta" href="#kontakt" onclick="closeMobileMenu();setTimeout(openContactModal,260)">POŠLJI POVPRAŠEVANJE</a>
+  </div>
+</div>
 
 <header class="hero" id="hero">
   <div class="hero-bg-img" id="heroBg"></div>
@@ -637,7 +788,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 </header>
 
 <!-- INTRO -->
-<div class="intro-section">
+<div class="intro-section" id="nakratko">
   <div class="intro-inner">
     <div class="story-heading reveal">Uživanje na kolesu brez omejitev.</div>
     <div class="intro-clarity-card reveal">
@@ -648,15 +799,32 @@ nav .nav-logo{opacity:0;pointer-events:none}
       <div class="intro-photo intro-photo-small reveal-left"><img src="assets/julian-lake-reflection.jpg" alt="Jezero in odsev Julijskih Alp"></div>
       <div class="intro-photo intro-photo-large reveal-right"><img src="assets/julian-mountain-road.jpg" alt="Gorska cesta med Julijskimi Alpami"></div>
       <div class="intro-photo intro-photo-map reveal"><img src="assets/julian-alps-riding-area-map.png" alt="Zemljevid območja Julian Alps cycling"></div>
-      <div class="intro-brand reveal">
-        <div class="intro-brand-kicker">Kdo smo in kaj delamo</div>
-        <h3>Julian Alps cycling</h3>
-        <p>Vodeni kolesarski izleti.</p>
+      <div class="intro-brand reveal" onclick="toggleIntroCard(this)" role="button" tabindex="0" aria-label="Obrni kartico Kdo smo in kaj delamo">
+        <div class="intro-flip-inner">
+          <div class="intro-flip-face intro-flip-front">
+            <div class="intro-brand-kicker">Kdo smo in kaj delamo</div>
+            <h3>Julian Alps cycling</h3>
+            <p>Vodeni kolesarski izleti.</p>
+          </div>
+          <div class="intro-flip-face intro-flip-back">
+            <div class="intro-brand-kicker">Na kratko</div>
+            <p>Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles.</p>
+            <button class="intro-map-btn" type="button" onclick="openIntroMap(event)">OGLEJ SI NAŠ ZEMLJEVID</button>
+          </div>
+        </div>
       </div>
-      <div class="intro-note intro-note-1 reveal-left"><strong>Lokalne poti</strong>Vozimo po cestah, ki jih poznamo iz domačega okolja – mirnejše, razgledne in primerne za dober kolesarski dan.</div>
-      <div class="intro-note intro-note-2 reveal-right"><strong>Pravi tempo</strong>Tura ni dirka! Tempo prilagodimo skupini, ne obratno.</div>
-      <div class="intro-note intro-note-3 reveal"><strong>Po vaši meri</strong>Od kratke razgledne vožnje do celodnevnega alpskega izleta – pot sestavimo glede na želje in pripravljenost.</div>
+      <div class="intro-notes-mobile">
+        <div class="intro-note intro-note-1 reveal-left"><strong>Lokalne poti</strong>Vozimo po cestah, ki jih poznamo iz domačega okolja – mirnejše, razgledne in primerne za dober kolesarski dan.</div>
+        <div class="intro-note intro-note-2 reveal-right"><strong>Pravi tempo</strong>Tura ni dirka! Tempo prilagodimo skupini, ne obratno.</div>
+        <div class="intro-note intro-note-3 reveal"><strong>Po vaši meri</strong>Od kratke razgledne vožnje do celodnevnega alpskega izleta – pot sestavimo glede na želje in pripravljenost.</div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="legal-modal-overlay map-modal-overlay" id="introMapModal" onclick="closeIntroMapOutside(event)">
+  <div class="legal-modal intro-map-modal" role="dialog" aria-modal="true" aria-label="Zemljevid območja voženj">
+    <button class="legal-close" type="button" onclick="closeIntroMap()" aria-label="Zapri">×</button>
+    <img src="assets/julian-alps-riding-area-map.png" alt="Zemljevid območja Julian Alps Cycling">
   </div>
 </div>
 
@@ -670,12 +838,13 @@ nav .nav-logo{opacity:0;pointer-events:none}
     <div class="tura-card reveal delay-4" onclick="openTourCategory('julian-gravel')"><div class="tura-circle"><img class="tour-img-gravel" src="assets/julian-gravel-escape.jpg" alt="Julijski gravel"></div><button class="tura-btn-el" aria-label="Več o kategoriji Julian Gravel Escape">VEČ O TURI</button><div class="tura-info"><div class="tura-name">Julijski Gravel</div><div class="tura-meta"><span>18-40 km</span><span>200-650 m+</span></div><p class="tura-desc">Skrite gozdne ceste, makadam in bolj pustolovski ritem.</p></div></div>
   </div>
 
-  <div class="route-finder reveal" id="routeFinder">
+  <div class="route-finder reveal" id="najdi-turo">
     <div class="route-finder-intro">
       <div>
         <h3>Najdi svojo turo</h3>
         <img class="route-finder-illustration" src="assets/route-finder-illustration-clean.png" alt="Kolesar pred izbiro poti v Julijskih Alpah">
         <p>Izberi kilometre, višince in občutek vožnje.</p>
+        <button class="calc-open-btn" type="button" onclick="toggleMobileCalculator()">POMAGAJ MI IZBRATI</button>
       </div>
     </div>
     <div class="route-finder-panel">
@@ -716,9 +885,11 @@ nav .nav-logo{opacity:0;pointer-events:none}
       <p>Če nimate svojega kolesa, vam lahko ob turi uredimo tudi najem.</p>
     </div>
     <div class="bike-rental-list">
-      <div class="bike-rental-card"><strong>Prednjevzmetena gorska kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
-      <div class="bike-rental-card"><strong>Električna prednjevzmetena kolesa</strong><div class="bike-rental-price">46 EUR</div></div>
-      <div class="bike-rental-card"><strong>Cestna in gravel kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
+      <div class="bike-rental-cards">
+        <div class="bike-rental-card"><strong>Prednjevzmetena gorska kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
+        <div class="bike-rental-card"><strong>Električna prednjevzmetena kolesa</strong><div class="bike-rental-price">46 EUR</div></div>
+        <div class="bike-rental-card"><strong>Cestna in gravel kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
+      </div>
       <div class="bike-rental-note"><span>Dodatki</span><strong>Čelada 6 EUR</strong></div>
       <div class="bike-rental-highlight"><strong>Pomembno pri rezervaciji</strong><p>V povpraševanju nam samo sporočite, da potrebujete kolo ali čelado, ker nimate svoje opreme. Prosimo, dodajte tudi telesno višino posameznih udeležencev, da lažje pripravimo primerno velikost kolesa.</p></div>
     </div>
@@ -726,7 +897,7 @@ nav .nav-logo{opacity:0;pointer-events:none}
 </section>
 
 <!-- DARK SECTION -->
-<section class="dark-section">
+<section class="dark-section" id="zakaj">
   <img class="section-watermark-logo" src="assets/julian-alps-logo-black.png" alt="" aria-hidden="true">
   <div class="dark-section-inner">
     <div class="zakaj-left reveal-left">
@@ -1146,6 +1317,7 @@ function openLightboxFromImages(images, idx) {
   buildDots();
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
+  setModalState(true);
 }
 
 function openLightbox(idx) {
@@ -1162,6 +1334,7 @@ function openRouteLightbox(idx) {
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
+  setModalState(false);
 }
 
 function goToLb(idx) {
@@ -1195,6 +1368,61 @@ document.getElementById('lightbox').addEventListener('touchend',function(e){
   if(Math.abs(dx)>50){dx<0?lbNext():lbPrev();}
   lbTouchX=null;
 });
+
+function setModalState(open){
+  if(open){
+    document.body.classList.add('modal-open');
+    return;
+  }
+  setTimeout(function(){
+    var stillOpen=document.querySelector('.modal-overlay.open,.legal-modal-overlay.open,.lightbox.open');
+    document.body.classList.toggle('modal-open',!!stillOpen);
+  },0);
+}
+
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  if(!menu)return;
+  var open=!menu.classList.contains('open');
+  menu.classList.toggle('open',open);
+  document.body.classList.toggle('mobile-menu-open',open);
+}
+
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  if(menu)menu.classList.remove('open');
+  document.body.classList.remove('mobile-menu-open');
+}
+
+function toggleIntroCard(card){
+  if(window.innerWidth>520)return;
+  card.classList.toggle('is-flipped');
+}
+
+function openIntroMap(e){
+  if(e)e.stopPropagation();
+  var modal=document.getElementById('introMapModal');
+  if(!modal)return;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  setModalState(true);
+}
+
+function closeIntroMap(){
+  var modal=document.getElementById('introMapModal');
+  if(modal)modal.classList.remove('open');
+  document.body.style.overflow='';
+  setModalState(false);
+}
+
+function closeIntroMapOutside(e){
+  if(e.target.id==='introMapModal')closeIntroMap();
+}
+
+function toggleMobileCalculator(){
+  var finder=document.getElementById('najdi-turo');
+  if(finder)finder.classList.toggle('mobile-calc-open');
+}
 
 // ===== TOUR CATEGORIES =====
 var tourCategories={
@@ -1241,6 +1469,7 @@ function applyLanguage(lang){
   if(lang==='de')return;
   currentLang=lang;
   document.documentElement.lang=lang;
+  document.body.setAttribute('data-lang',lang);
   localStorage.setItem('jac-lang',lang);
   document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-lang-switch')===lang)});
   staticTranslations.forEach(function(item){setContent(item.selector,item[lang],!!item.html)});
@@ -1268,8 +1497,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
 var activeTourCategoryId='upper-sava';
 var activeTourIndex=0;
-function openTourCategory(id){activeTourCategoryId=id;activeTourIndex=0;renderTourCategory();document.getElementById('tourCategoryModal').classList.add('open');document.body.style.overflow='hidden'}
-function closeTourCategoryModal(){document.getElementById('tourCategoryModal').classList.remove('open');document.body.style.overflow=''}
+function openTourCategory(id){activeTourCategoryId=id;activeTourIndex=0;renderTourCategory();document.getElementById('tourCategoryModal').classList.add('open');document.body.style.overflow='hidden';setModalState(true)}
+function closeTourCategoryModal(){document.getElementById('tourCategoryModal').classList.remove('open');document.body.style.overflow='';setModalState(false)}
 function closeTourCategoryOutside(e){if(e.target.id==='tourCategoryModal')closeTourCategoryModal()}
 function selectTourOption(index){activeTourIndex=index;renderTourCategory()}
 function renderTourCategory(){
@@ -1308,11 +1537,13 @@ function openContactModal(){
   if(!modal)return;
   modal.classList.add('open');
   document.body.style.overflow='hidden';
+  setModalState(true);
 }
 function closeContactModal(){
   var modal=document.getElementById('contactModal');
   if(modal)modal.classList.remove('open');
   document.body.style.overflow='';
+  setModalState(false);
 }
 function closeContactOutside(e){
   if(e.target.id==='contactModal')closeContactModal();
@@ -1391,6 +1622,7 @@ function openCalculatedTour(){
   renderTourCategory();
   document.getElementById('tourCategoryModal').classList.add('open');
   document.body.style.overflow='hidden';
+  setModalState(true);
 }
 function enquireCalculatedTour(){
   var result=document.getElementById('calcResult');
@@ -1528,10 +1760,12 @@ function openLegal(type){
   if(panel) panel.classList.add('active');
   document.getElementById('legalModal').classList.add('open');
   document.body.style.overflow='hidden';
+  setModalState(true);
 }
 function closeLegal(){
   document.getElementById('legalModal').classList.remove('open');
   document.body.style.overflow='';
+  setModalState(false);
 }
 function closeLegalOutside(e){
   if(e.target.id==='legalModal') closeLegal();
@@ -1540,6 +1774,10 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
     closeLegal();
     closeContactModal();
+    closeTourCategoryModal();
+    closeLightbox();
+    closeIntroMap();
+    closeMobileMenu();
   }
 });
 </script>
