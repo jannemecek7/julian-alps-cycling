@@ -764,13 +764,13 @@ body.modal-open .floating-whatsapp{display:none}
 <div class="mobile-menu-overlay" id="mobileMenu">
   <div class="mobile-menu-panel">
     <div class="mobile-menu-links">
-      <a href="#nakratko" onclick="closeMobileMenu()">Kdo smo, kaj delamo</a>
-      <a href="#ture" onclick="closeMobileMenu()">Ture</a>
-      <a href="#najem-koles" onclick="closeMobileMenu()">Najem koles</a>
-      <a href="#galerija" onclick="closeMobileMenu()">Galerija</a>
+      <a href="#nakratko" onclick="closeMobileMenu()" data-i18n-sl="Kdo smo, kaj delamo" data-i18n-en="Who we are, what we do">Kdo smo, kaj delamo</a>
+      <a href="#ture" onclick="closeMobileMenu()" data-i18n-sl="Ture" data-i18n-en="Tours">Ture</a>
+      <a href="#najem-koles" onclick="closeMobileMenu()" data-i18n-sl="Najem koles" data-i18n-en="Bike rental">Najem koles</a>
+      <a href="#galerija" onclick="closeMobileMenu()" data-i18n-sl="Galerija" data-i18n-en="Gallery">Galerija</a>
       <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
     </div>
-    <a class="btn-olive mobile-menu-cta" href="#kontakt" onclick="closeMobileMenu();setTimeout(openContactModal,260)">POŠLJI POVPRAŠEVANJE</a>
+    <a class="btn-olive mobile-menu-cta" href="#kontakt" onclick="closeMobileMenu();setTimeout(openContactModal,260)" data-i18n-sl="POŠLJI POVPRAŠEVANJE" data-i18n-en="SEND ENQUIRY">POŠLJI POVPRAŠEVANJE</a>
   </div>
 </div>
 
@@ -780,7 +780,7 @@ body.modal-open .floating-whatsapp{display:none}
     <img src="assets/julian-alps-logo-white.png" alt="Julian Alps Cycling logo">
   </div>
   <div class="hero-content" id="heroContent">
-    <p class="hero-subtitle" id="heroSub">VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE</p>
+    <p class="hero-subtitle" id="heroSub" data-i18n-sl="VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE" data-i18n-en="GUIDED ROAD AND GRAVEL TOURS | KRANJSKA GORA · MOJSTRANA · JULIAN ALPS">VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE</p>
     <h1 id="heroH1">KOLESARSKI IZLETI.<br>DOŽIVETJA, KI OSTANEJO.</h1>
   </div>
   <div class="hero-btns" id="heroBtns">
@@ -809,14 +809,14 @@ body.modal-open .floating-whatsapp{display:none}
       <div class="intro-brand reveal" onclick="toggleIntroCard(this)" role="button" tabindex="0" aria-label="Obrni kartico Kdo smo in kaj delamo">
         <div class="intro-flip-inner">
           <div class="intro-flip-face intro-flip-front">
-            <div class="intro-brand-kicker">Kdo smo in kaj delamo</div>
+            <div class="intro-brand-kicker" data-i18n-sl="Kdo smo in kaj delamo" data-i18n-en="Who we are and what we do">Kdo smo in kaj delamo</div>
             <h3>Julian Alps cycling</h3>
-            <p>Vodeni kolesarski izleti.</p>
+            <p data-i18n-sl="Vodeni kolesarski izleti." data-i18n-en="Guided cycling tours.">Vodeni kolesarski izleti.</p>
           </div>
           <div class="intro-flip-face intro-flip-back">
-            <div class="intro-brand-kicker">Na kratko</div>
-            <p>Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles.</p>
-            <button class="intro-map-btn" type="button" onclick="openIntroMap(event)">OGLEJ SI NAŠ ZEMLJEVID</button>
+            <div class="intro-brand-kicker" data-i18n-sl="Na kratko" data-i18n-en="In short">Na kratko</div>
+            <p data-i18n-sl="Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles." data-i18n-en="Guided road and gravel tours starting in Kranjska Gora or Mojstrana. We adapt rides to your group, pace and experience. If needed, we can also arrange bike rental.">Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles.</p>
+            <button class="intro-map-btn" type="button" onclick="openIntroMap(event)" data-i18n-sl="OGLEJ SI NAŠ ZEMLJEVID" data-i18n-en="VIEW OUR MAP">OGLEJ SI NAŠ ZEMLJEVID</button>
           </div>
         </div>
       </div>
@@ -851,7 +851,7 @@ body.modal-open .floating-whatsapp{display:none}
         <h3>Najdi svojo turo</h3>
         <img class="route-finder-illustration" src="assets/route-finder-illustration-clean.png" alt="Kolesar pred izbiro poti v Julijskih Alpah">
         <p>Izberi kilometre, višince in občutek vožnje.</p>
-        <button class="calc-open-btn" type="button" onclick="toggleMobileCalculator()">POMAGAJ MI IZBRATI</button>
+        <button class="calc-open-btn" type="button" onclick="toggleMobileCalculator()" data-i18n-sl="POMAGAJ MI IZBRATI" data-i18n-en="HELP ME CHOOSE">POMAGAJ MI IZBRATI</button>
       </div>
     </div>
     <div class="route-finder-panel">
@@ -898,8 +898,7 @@ body.modal-open .floating-whatsapp{display:none}
         <div class="bike-rental-card"><strong>Cestna in gravel kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
       </div>
       <div class="bike-rental-note"><span>Dodatki</span><strong>Čelada 6 EUR</strong></div>
-      <div class="bike-rental-highlight"><strong>Pomembno pri rezervaciji</strong><p>
-        </p></div>
+      <div class="bike-rental-highlight"><strong data-i18n-sl="Pomembno pri rezervaciji" data-i18n-en="Important when booking">Pomembno pri rezervaciji</strong><p data-i18n-sl="V povpraševanju nam sporočite, da POTREBUJETE KOLO ali ČELADO, ker nimate svoje opreme ter dodajte telesno višino posameznih udeležencev, da pripravimo primerno velikost kolesa." data-i18n-en="In your enquiry, let us know if you NEED A BIKE or HELMET because you do not have your own equipment, and add each participant’s body height so we can prepare the right bike size.">V povpraševanju nam sporočite, da POTREBUJETE KOLO ali ČELADO, ker nimate svoje opreme ter dodajte telesno višino posameznih udeležencev, da pripravimo primerno velikost kolesa.</p></div>
     </div>
   </div>
 </section>
