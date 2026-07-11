@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+
+<html lang="sl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Julian Alps cycling</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#1a1a18;--white:#ffffff;
+  --olive-dark:#2d2d1e;--olive-btn:#6b6633;--olive-btn2:#7a7545;
+  --olive-text:#3a3818;--gold:#c8971a;--gray-dark:#2a2a28;
+  --head:'Bebas Neue',sans-serif;--body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--body);background:#fff;color:var(--black);overflow-x:hidden;position:relative}
+body::before{content:'';position:absolute;top:88vh;left:0;width:100%;height:4300px;z-index:0;pointer-events:none;opacity:0.18;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 4300' preserveAspectRatio='none'%3E%3Cpath d='M1180 20 C930 250 980 430 730 590 C470 760 270 700 220 960 C160 1270 620 1240 710 1505 C795 1755 445 1910 520 2190 C590 2450 1030 2410 1115 2685 C1215 3010 700 3160 760 3500 C805 3770 1085 3840 980 4240' fill='none' stroke='%236b6633' stroke-width='7' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3Ccircle cx='1180' cy='20' r='13' fill='%236b6633'/%3E%3Ccircle cx='980' cy='4240' r='13' fill='%236b6633'/%3E%3C/svg%3E") center top/100% 100% no-repeat}
+nav,header,section,.intro-section,.dark-section,.gal-section,.rev-section,.faq-section,.contact-section,.closing,footer{position:relative;z-index:1}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(.22,.68,0,1.2),transform 0.7s cubic-bezier(.22,.68,0,1.2)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:0.08s}.delay-2{transition-delay:0.18s}
+.delay-3{transition-delay:0.28s}.delay-4{transition-delay:0.38s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.05rem 2rem;background:transparent;border-bottom:0;transition:background 0.3s,box-shadow 0.3s,backdrop-filter 0.3s}
+nav.scrolled{background:rgba(10,14,10,0.42);box-shadow:0 2px 20px rgba(0,0,0,0.12);backdrop-filter:blur(18px)}
+.nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none}
+nav .nav-logo{opacity:0;pointer-events:none}
+.nav-logo img{height:46px;transition:transform 0.3s}
+.nav-logo:hover img{transform:scale(1.04)}
+.nav-logo-text{font-family:var(--head);font-size:1.3rem;letter-spacing:0.12em;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,0.42)}
+.nav-lang{display:flex;gap:0.5rem;font-size:0.8rem;font-weight:600;letter-spacing:0.1em}
+.nav-lang a{color:rgba(255,255,255,0.62);text-decoration:none;transition:color 0.2s}
+.nav-lang a.active,.nav-lang a:hover{color:#fff}
+.nav-lang span{color:rgba(255,255,255,0.32)}
+.mobile-menu-toggle,.mobile-menu-overlay{display:none}
+.mobile-menu-toggle{border:1px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.08);color:#fff;border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(14px)}
+.mobile-menu-toggle span,.mobile-menu-toggle::before,.mobile-menu-toggle::after{content:'';display:block;width:18px;height:2px;border-radius:999px;background:currentColor;position:absolute;left:50%;top:50%;margin-left:-9px;margin-top:-1px;transition:transform 0.22s,opacity 0.22s}
+.mobile-menu-toggle span{position:absolute}
+.mobile-menu-toggle::before{transform:translateY(-6px)}
+.mobile-menu-toggle::after{transform:translateY(6px)}
+.mobile-menu-open .mobile-menu-toggle span{opacity:0}
+.mobile-menu-open .mobile-menu-toggle::before{transform:rotate(45deg)}
+.mobile-menu-open .mobile-menu-toggle::after{transform:rotate(-45deg)}
+.mobile-menu-overlay{position:fixed;inset:0;z-index:98;background:rgba(12,15,13,0.86);backdrop-filter:blur(22px);padding:6rem 1.15rem 1.25rem;color:#fff}
+.mobile-menu-overlay.open{display:block}
+.mobile-menu-panel{min-height:100%;display:flex;flex-direction:column;justify-content:space-between;border-radius:30px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);padding:1.15rem;box-shadow:0 32px 100px rgba(0,0,0,0.36)}
+.mobile-menu-links{display:grid;gap:0.5rem}
+.mobile-menu-links a{font-family:var(--head);font-size:2.05rem;line-height:0.95;letter-spacing:0.055em;text-transform:uppercase;text-decoration:none;color:#fff;padding:0.72rem 0.8rem;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08)}
+.mobile-menu-cta{margin-top:1.1rem;width:100%;border-radius:999px;text-align:center}
+body.modal-open .floating-whatsapp{display:none}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden;margin-top:0}
+.hero-bg-img{position:absolute;inset:0;background:url('assets/image-01-2e0dff7f46.jpg') center/cover no-repeat;transform:scale(1.08);will-change:transform}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 52% 36%,rgba(255,255,255,0.04),rgba(0,0,0,0.32) 42%,rgba(0,0,0,0.68) 100%),linear-gradient(90deg,rgba(0,0,0,0.64),rgba(0,0,0,0.22) 48%,rgba(0,0,0,0.56))}
+.hero-logo-mark{position:absolute;top:1vh;left:50%;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.6rem;transform:translate(-50%,18px);opacity:0;transition:opacity 0.8s 0.1s ease,transform 0.8s 0.1s ease}
+.hero-logo-mark.in{opacity:1;transform:translate(-50%,0)}
+.hero-logo-mark img{width:clamp(150px,18vw,260px);height:auto;opacity:0.92;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.42))}
+.hero-content{position:absolute;top:52%;left:clamp(1.4rem,5vw,5.8rem);z-index:2;max-width:620px;transform:translateY(calc(-50% + 18px));}
+.hero-subtitle{font-size:0.84rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:rgba(255,255,255,0.82);margin-bottom:1rem;line-height:1.7;opacity:0;transform:translateY(20px);transition:opacity 0.8s 0.2s ease,transform 0.8s 0.2s ease}
+.hero-subtitle.in{opacity:1;transform:translateY(0)}
+.hero h1{font-family:var(--head);font-size:clamp(4rem,7.7vw,8rem);color:#fff;line-height:0.86;text-transform:uppercase;margin-bottom:1.4rem;letter-spacing:0.035em;opacity:0;transform:translateY(30px);text-shadow:0 9px 36px rgba(0,0,0,0.38);transition:opacity 0.8s 0.4s ease,transform 0.8s 0.4s ease}
+.hero h1.in{opacity:1;transform:translateY(0)}
+.hero-copy{max-width:360px;color:rgba(255,255,255,0.82);font-size:1.04rem;line-height:1.75;text-shadow:0 2px 18px rgba(0,0,0,0.35)}
+.hero-socials{position:absolute;right:clamp(1rem,2.8vw,3rem);bottom:3.4rem;z-index:3;display:flex;flex-direction:column;gap:0.75rem}
+.hero-socials a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.34);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);transition:transform 0.2s,background 0.2s,border-color 0.2s}
+.hero-socials a:hover{transform:translateX(-3px);background:rgba(255,255,255,0.24);border-color:rgba(255,255,255,0.5)}
+.hero-socials svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.hero-socials .gmail svg{fill:rgba(255,255,255,0.08)}
+.hero-btns{position:absolute;left:50%;bottom:3.4rem;z-index:3;opacity:0;transform:translate(-50%,20px);transition:opacity 0.8s 0.75s ease,transform 0.8s 0.75s ease;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;padding:0.55rem;border-radius:999px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);backdrop-filter:blur(20px);box-shadow:0 22px 70px rgba(0,0,0,0.24),inset 0 1px 0 rgba(255,255,255,0.24)}
+.hero-btns.in{opacity:1;transform:translate(-50%,0)}
+.btn-olive{background:rgba(255,255,255,0.86);color:#161610;padding:0.95rem 2.1rem;font-family:var(--head);font-size:1.14rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.62);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75);transition:background 0.2s,transform 0.15s,color 0.2s,border-color 0.2s}
+.btn-olive:hover{background:#fff;color:#161610;border-color:#fff;transform:translateY(-2px)}
+.btn-olive2{background:rgba(255,255,255,0.08);color:#fff;padding:0.95rem 2.1rem;font-family:var(--head);font-size:1.14rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.36);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.18);transition:background 0.2s,transform 0.15s,color 0.2s,border-color 0.2s}
+.btn-olive2:hover{background:rgba(255,255,255,0.88);color:#161610;border-color:#fff;transform:translateY(-2px)}
+.contact-section .btn-olive2{color:var(--olive-text);border-color:#c8c2ad;background:transparent}
+.contact-section .btn-olive2:hover{background:var(--olive-text);color:#fff;border-color:var(--olive-text)}
+.floating-whatsapp{position:fixed;right:clamp(1rem,2.4vw,2rem);bottom:clamp(1rem,2.4vw,2rem);z-index:150;display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:#1b1f1d}
+.floating-whatsapp-bubble{position:relative;padding:0.78rem 1.08rem;border-radius:999px;background:rgba(255,255,255,0.82);border:1px solid rgba(45,61,49,0.16);backdrop-filter:blur(16px);box-shadow:0 16px 42px rgba(0,0,0,0.12);font-weight:700;font-size:0.95rem;white-space:nowrap;transform-origin:right center;animation:chatNudge 5.8s ease-in-out infinite}
+.floating-whatsapp-bubble::after{content:'';position:absolute;right:-7px;top:50%;width:14px;height:14px;background:rgba(255,255,255,0.82);border-right:1px solid rgba(45,61,49,0.13);border-top:1px solid rgba(45,61,49,0.13);transform:translateY(-50%) rotate(45deg)}
+.floating-whatsapp-icon{position:relative;width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#5f745f,#2f5d3a);color:#fff;border:1px solid rgba(255,255,255,0.34);box-shadow:0 18px 54px rgba(47,93,58,0.28),inset 0 1px 0 rgba(255,255,255,0.28)}
+.floating-whatsapp-icon::before{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(95,116,95,0.28);animation:whatsappPulse 3.2s ease-out infinite}
+.floating-whatsapp-icon svg{position:relative;width:36px;height:36px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.floating-whatsapp-badge{position:absolute;right:-3px;top:-5px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#b84632;color:#fff;font-weight:800;font-size:0.78rem;box-shadow:0 7px 18px rgba(184,70,50,0.28)}
+.floating-whatsapp:hover .floating-whatsapp-icon{transform:translateY(-2px) scale(1.03)}
+@keyframes whatsappPulse{0%{transform:scale(0.9);opacity:0.8}70%{transform:scale(1.32);opacity:0}100%{opacity:0}}
+@keyframes chatNudge{0%,76%,100%{transform:translateX(0)}82%{transform:translateX(-8px)}88%{transform:translateX(0)}94%{transform:translateX(-4px)}}
+
+/* INTRO */
+.intro-section{position:relative;min-height:920px;padding:4.8rem 2.8rem 5.5rem;overflow:hidden;background:#fff}
+.intro-section::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 980' preserveAspectRatio='none'%3E%3Cpath d='M210 785 C380 650 360 470 570 430 C820 382 920 610 1165 490 C1275 436 1318 322 1346 190' fill='none' stroke='%23d8d7d1' stroke-width='8' stroke-linecap='round' stroke-dasharray='18 24'/%3E%3C/svg%3E") center top/100% 100% no-repeat;opacity:0.78}
+.intro-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto}
+.story-heading{font-family:var(--head);font-size:clamp(3.4rem,7.1vw,7.25rem);line-height:0.88;font-weight:400;letter-spacing:0.035em;text-transform:uppercase;color:#111;max-width:1120px;margin-bottom:2rem}
+.story-heading span{display:block;color:#9aa2a5;margin-left:clamp(2rem,11vw,11rem)}
+.intro-lead{display:none}
+.intro-clarity-card{max-width:1160px;margin:0 0 2.7rem;padding:1.25rem 1.35rem;border-radius:26px;background:rgba(237,243,245,0.72);border:1px solid rgba(17,17,17,0.08);box-shadow:0 20px 64px rgba(0,0,0,0.07);backdrop-filter:blur(16px);display:grid;grid-template-columns:0.46fr 1fr;gap:1.2rem;align-items:center}
+.intro-clarity-card strong{font-family:var(--head);font-size:clamp(1.9rem,3.2vw,3.2rem);line-height:0.9;letter-spacing:0.06em;text-transform:uppercase;color:#9aa2a5;font-weight:400}
+.intro-clarity-card p{font-size:1rem;line-height:1.65;color:#343838;margin:0}
+.intro-clarity-card em{font-style:normal;font-weight:700;color:#111}
+.intro-collage{position:relative;left:50%;width:100vw;min-height:820px;margin:2.2rem 0 0;transform:translateX(-50%)}
+.intro-photo{position:absolute;z-index:2;overflow:hidden;background:#e9eceb;box-shadow:0 28px 80px rgba(0,0,0,0.13)}
+.intro-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.03)}
+.intro-photo-map img{object-fit:cover;background:transparent;padding:0}
+.intro-photo-large{right:2vw;top:52px;width:min(28vw,420px);height:250px;border-radius:30px}
+.intro-photo-small{left:3vw;top:282px;width:min(28vw,390px);height:255px;border-radius:28px;transform:rotate(-2deg)}
+.intro-photo-map{left:50%;top:540px;width:min(38vw,520px);aspect-ratio:1448/1086;height:auto;border-radius:28px;transform:translateX(-50%);box-shadow:0 34px 90px rgba(0,0,0,0.12)}
+.intro-brand{position:absolute;left:50%;top:220px;z-index:5;transform:translateX(-50%);width:min(500px,36vw);padding:1.85rem 2rem;text-align:center;border-radius:34px;background:rgba(255,255,255,0.88);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(18px);box-shadow:0 26px 80px rgba(0,0,0,0.12)}
+.intro-brand-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#7f878a;margin-bottom:0.75rem}
+.intro-brand h3{font-family:var(--head);font-size:clamp(2.7rem,5.2vw,5.5rem);line-height:0.85;letter-spacing:0.055em;text-transform:uppercase;color:#111}
+.intro-brand p{margin-top:1rem;font-size:1rem;line-height:1.7;color:#343838}
+.intro-flip-back,.intro-map-btn{display:none}
+.intro-notes-mobile{display:contents}
+.intro-note{position:absolute;z-index:6;max-width:250px;padding:0.9rem 1rem;border-radius:18px;background:rgba(255,255,255,0.68);border:1px solid rgba(17,17,17,0.08);backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,0.08);font-size:0.82rem;line-height:1.55;color:#343838}
+.intro-note strong{display:block;font-family:var(--head);font-size:1.15rem;line-height:0.95;text-transform:uppercase;letter-spacing:0.08em;color:#111;margin-bottom:0.35rem}
+.intro-note-1{left:10vw;top:54px}
+.intro-note-2{right:9vw;top:372px}
+.intro-note-3{left:4vw;top:585px}
+.intro-brand.reveal.visible{transform:translateX(-50%)}
+.intro-photo-map.reveal.visible{transform:translateX(-50%)}
+.intro-photo-small.reveal-left.visible{transform:rotate(-2deg)}
+
+/* TURE */
+.tours-section{padding:5.6rem 3rem 6.5rem;text-align:left;background:#fff;position:relative;overflow:hidden;scroll-margin-top:92px}
+.tours-section::before{display:none}
+.tours-section h2{font-family:var(--head);font-size:clamp(3.8rem,8vw,8rem);font-weight:400;line-height:0.9;text-transform:uppercase;letter-spacing:0.035em;margin:0 auto 4rem;display:block;max-width:1500px;background:transparent;padding:0;color:#111}
+.tours-section h2::after{content:'PONUDBA IZLETOV PRI NAS';display:block;width:max-content;margin-top:1.65rem;padding:0.48rem 0.85rem;border-radius:0;background:#edf3f5;font-family:var(--body);font-size:0.78rem;line-height:1;font-weight:800;color:#111;letter-spacing:0.12em;text-transform:uppercase}
+.tours-grid{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:2rem;max-width:1500px;margin:0 auto}
+
+.route-finder{max-width:1500px;margin:4.2rem auto 0;padding:1.2rem;border-radius:30px;background:linear-gradient(135deg,rgba(237,243,245,0.86),rgba(255,255,255,0.82));border:1px solid rgba(17,17,17,0.08);box-shadow:0 24px 80px rgba(0,0,0,0.08);backdrop-filter:blur(18px);display:grid;grid-template-columns:0.85fr 1.15fr;gap:1.2rem;align-items:stretch}
+.route-finder-intro{padding:1rem 1.1rem;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+.route-finder-kicker{font-size:0.72rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#7e898c;margin-bottom:0.75rem}
+.route-finder h3{font-family:var(--head);font-size:clamp(2.8rem,5vw,5.2rem);line-height:0.88;letter-spacing:0.04em;text-transform:uppercase;color:#111;margin:0 0 1rem}
+.route-finder-intro p{font-size:1rem;line-height:1.7;color:#444b4b;max-width:520px}
+.route-finder-illustration{width:min(100%,520px);margin:1.35rem 0 0;display:block;opacity:0.58;filter:saturate(0.9) contrast(0.98);mix-blend-mode:multiply;pointer-events:none}
+.calc-open-btn{display:none}
+.route-finder-panel{border-radius:24px;background:rgba(255,255,255,0.68);border:1px solid rgba(17,17,17,0.07);padding:1rem;display:grid;gap:1rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+.calc-control{border-radius:20px;background:rgba(255,255,255,0.72);border:1px solid rgba(17,17,17,0.08);padding:0.9rem}
+.calc-label{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.9rem;font-size:0.72rem;font-weight:900;letter-spacing:0.13em;text-transform:uppercase;color:#7e898c}
+.calc-value{font-family:var(--head);font-size:1.55rem;letter-spacing:0.06em;color:#111;white-space:nowrap}
+.calc-control input[type=range]{width:100%;accent-color:#111;cursor:pointer}
+.calc-types{display:flex;flex-wrap:wrap;gap:0.55rem}
+.calc-type{appearance:none;border:1px solid rgba(17,17,17,0.1);border-radius:999px;background:rgba(255,255,255,0.8);padding:0.72rem 0.9rem;font-size:0.75rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#5e6768;cursor:pointer;transition:background 0.2s,color 0.2s,transform 0.2s,border-color 0.2s}
+.calc-type:hover{transform:translateY(-2px);border-color:rgba(17,17,17,0.25)}
+.calc-type.active{background:#111;color:#fff;border-color:#111}
+.calc-action{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.calc-submit{border:0;border-radius:999px;background:#111;color:#fff;font-family:var(--head);font-size:1.15rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 1.25rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 16px 36px rgba(0,0,0,0.16)}
+.calc-submit:hover{transform:translateY(-2px);box-shadow:0 22px 46px rgba(0,0,0,0.2)}
+.calc-hint{font-size:0.86rem;color:#7e898c;line-height:1.5}
+.calc-result{display:none;grid-template-columns:120px 1fr;gap:1rem;align-items:center;border-radius:24px;background:#111;color:#fff;padding:0.85rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)}
+.calc-result.show{display:grid;animation:calcReveal 0.28s ease both}
+@keyframes calcReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.calc-result img{width:120px;height:105px;object-fit:cover;border-radius:18px;display:block}
+.calc-result-kicker{font-size:0.68rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-bottom:0.25rem}
+.calc-result-title{font-family:var(--head);font-size:2rem;line-height:0.9;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.35rem}
+.calc-result-meta{display:flex;gap:0.6rem;flex-wrap:wrap;font-size:0.72rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.55rem}
+.calc-result-actions{display:flex;gap:0.5rem;flex-wrap:wrap}
+.calc-mini-btn{border:1px solid rgba(255,255,255,0.24);border-radius:999px;background:rgba(255,255,255,0.09);color:#fff;font-family:var(--head);font-size:0.96rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 0.78rem;cursor:pointer}
+.calc-mini-btn:hover{background:rgba(255,255,255,0.18)}
+
+.bike-rental{max-width:1500px;margin:1.4rem auto 0;padding:1.15rem;border-radius:30px;background:rgba(255,255,255,0.74);border:1px solid rgba(17,17,17,0.08);box-shadow:0 22px 70px rgba(0,0,0,0.07);backdrop-filter:blur(18px);display:grid;grid-template-columns:0.75fr 1.25fr;gap:1rem;align-items:stretch}
+.bike-rental-intro{border-radius:24px;background:#111;color:#fff;padding:1.35rem;display:flex;flex-direction:column;justify-content:space-between;min-height:210px;overflow:hidden;position:relative}
+.bike-rental-intro::after{content:'';position:absolute;right:-50px;bottom:-70px;width:230px;height:230px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.bike-rental-kicker{font-size:0.72rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.58);margin-bottom:0.75rem}
+.bike-rental h3{font-family:var(--head);font-size:clamp(2.4rem,4.6vw,4.6rem);line-height:0.88;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 0.8rem;color:#fff}
+.bike-rental-intro p{position:relative;z-index:1;font-size:0.98rem;line-height:1.62;color:rgba(255,255,255,0.78);max-width:440px}
+.bike-rental-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.bike-rental-cards{display:contents}
+.bike-rental-card{border-radius:22px;background:linear-gradient(180deg,rgba(237,243,245,0.78),rgba(255,255,255,0.92));border:1px solid rgba(17,17,17,0.08);padding:1rem;min-height:145px;display:flex;flex-direction:column;justify-content:space-between}
+.bike-rental-card strong{font-family:var(--head);font-size:1.65rem;line-height:0.92;letter-spacing:0.045em;text-transform:uppercase;color:#111;font-weight:400}
+.bike-rental-price{font-size:0.82rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:#7e898c;margin-top:1rem}
+.bike-rental-note{grid-column:1/-1;border-radius:22px;background:#edf3f5;border:1px solid rgba(17,17,17,0.08);padding:1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between}
+.bike-rental-note span{font-size:0.76rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:#7e898c;white-space:nowrap}
+.bike-rental-note strong{font-size:1rem;line-height:1.45;color:#111}
+.bike-rental-highlight{grid-column:1/-1;border-radius:24px;background:#111;color:#fff;padding:1.05rem 1.15rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 18px 42px rgba(0,0,0,0.16)}
+.bike-rental-highlight strong{font-family:var(--head);font-size:1.75rem;line-height:0.95;letter-spacing:0.06em;text-transform:uppercase;font-weight:400}
+.bike-rental-highlight p{font-size:0.96rem;line-height:1.55;color:rgba(255,255,255,0.78);max-width:620px}
+
+.tura-card{position:relative;height:430px;text-align:left;cursor:pointer;padding:0;overflow:hidden;background:#111;border:0;border-radius:25px;box-shadow:0 24px 70px rgba(21,28,24,0.1);transition:transform 0.28s ease,box-shadow 0.28s ease}
+.tura-card::before,.tura-card::after{display:none}
+.tura-card:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(21,28,24,0.2)}
+.tura-circle{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:25px;overflow:hidden;margin:0;background:#182016;border:0;box-shadow:none;transition:none}
+.tura-circle::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.05) 20%,rgba(0,0,0,0.22) 48%,rgba(0,0,0,0.78) 100%);z-index:1;pointer-events:none}
+.tura-circle::after{content:'Julian Alps';position:absolute;left:14px;top:14px;bottom:auto;z-index:2;padding:0.42rem 0.72rem;border-radius:999px;background:rgba(0,0,0,0.78);backdrop-filter:blur(14px);color:#fff;font-size:0.78rem;font-weight:800;letter-spacing:0}
+.tura-card:hover .tura-circle{transform:none;box-shadow:none}
+.tura-circle img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.48);filter:saturate(1.1) contrast(1.04);transition:transform 0.55s ease,filter 0.35s ease}
+.tura-card:hover .tura-circle img{transform:scale(1.57);filter:saturate(1.18) contrast(1.08)}
+
+.tura-circle img.tour-img-alpine{transform:scale(1.04);object-position:42% 56%}
+.tura-card:hover .tura-circle img.tour-img-alpine{transform:scale(1.1)}
+.tura-circle img.tour-img-gravel{transform:scale(1.04);object-position:52% 58%}
+.tura-card:hover .tura-circle img.tour-img-gravel{transform:scale(1.1)}
+.tura-info{position:absolute;left:18px;right:18px;bottom:18px;z-index:3;padding:1.15rem 1.15rem 1rem;border-radius:22px;background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.28);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.22)}
+.tura-name{font-family:var(--head);font-size:clamp(1.55rem,2.05vw,2.25rem);line-height:0.92;font-weight:400;letter-spacing:0.045em;text-transform:uppercase;color:#fff;margin:0 0 0.9rem;text-shadow:0 4px 22px rgba(0,0,0,0.36)}
+.tura-meta{display:flex;align-items:center;gap:0.55rem;flex-wrap:wrap;color:rgba(255,255,255,0.84);font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+.tura-meta span{display:inline-flex;align-items:center;gap:0.35rem}
+.tura-meta span::before{content:'';width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.76)}
+.tura-desc{margin-top:0.85rem;color:rgba(255,255,255,0.78);font-size:0.9rem;line-height:1.55;font-weight:400}
+.tura-btn-el{position:absolute;right:1rem;top:1rem;z-index:4;width:42px;height:42px;background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.34);border-radius:50%;font-size:0;cursor:pointer;backdrop-filter:blur(14px);transition:transform 0.2s,background 0.2s,border-color 0.2s}
+.tura-btn-el::after{content:'+';font-family:var(--head);font-size:1.9rem;line-height:1}
+.tura-card:hover .tura-btn-el{transform:rotate(90deg);background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.6)}
+.tour-category-modal{max-width:1240px;width:min(94vw,1240px);max-height:88vh;overflow:auto}
+.route-category-desc{font-size:1rem;line-height:1.75;color:#4d5454;margin:0 0 1.2rem;max-width:900px}
+.route-category-help{margin:1rem 0 1.25rem;padding:0.85rem 1rem;border-radius:18px;background:#edf3f5;color:#2f3636;font-size:0.92rem;line-height:1.55}
+.route-category-meta{margin-bottom:1rem}
+.route-options-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:0.75rem;margin:1rem 0 1.4rem}
+.route-option-card{border:1px solid rgba(17,17,17,0.08);border-radius:18px;background:rgba(255,255,255,0.72);padding:0.9rem;text-align:left;cursor:pointer;backdrop-filter:blur(14px);box-shadow:0 12px 36px rgba(0,0,0,0.06);transition:transform 0.22s ease,border-color 0.22s ease,background 0.22s ease}
+.route-option-card:hover{transform:translateY(-3px);border-color:rgba(17,17,17,0.2)}
+.route-option-card.active{background:#111;color:#fff;border-color:#111}
+.route-option-card strong{display:block;font-family:var(--head);font-size:1.25rem;line-height:1;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.45rem}
+.route-option-card span{display:block;font-size:0.72rem;line-height:1.45;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#7e898c}
+.route-option-card.active span{color:rgba(255,255,255,0.7)}
+.route-detail-panel{display:grid;grid-template-columns:1fr 0.9fr;gap:1.4rem;align-items:stretch;padding:1rem;border-radius:28px;background:linear-gradient(135deg,rgba(237,243,245,0.88),rgba(255,255,255,0.88));border:1px solid rgba(17,17,17,0.08);box-shadow:0 20px 70px rgba(0,0,0,0.08)}
+.route-detail-copy{padding:1rem}
+.route-detail-title{font-family:var(--head);font-size:clamp(2.4rem,4vw,4.7rem);line-height:0.88;letter-spacing:0.04em;text-transform:uppercase;color:#111;margin:0.35rem 0 1rem}
+.route-detail-desc{font-size:1rem;line-height:1.75;color:#343838;margin-bottom:1.25rem}
+.route-detail-meta{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:0.7rem;margin:1.1rem 0 1.4rem}
+.route-detail-meta .meta-item{background:rgba(255,255,255,0.72);border:1px solid rgba(17,17,17,0.08);border-radius:16px;padding:0.8rem 0.9rem}
+.route-detail-meta .meta-lbl{font-size:0.68rem;color:#7e898c;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem}
+.route-detail-meta .meta-val{font-size:0.95rem;color:#111;font-weight:700;line-height:1.45}
+.route-mini-gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:1.05fr 0.95fr;gap:0.65rem;height:clamp(300px,31vw,430px);width:100%;align-self:center;padding:0.55rem;border-radius:24px;background:rgba(255,255,255,0.56);border:1px solid rgba(17,17,17,0.08);box-shadow:0 18px 52px rgba(0,0,0,0.08);overflow:hidden}
+.route-mini-shot{appearance:none;border:0;padding:0;margin:0;border-radius:18px;background:rgba(240,243,241,0.92);overflow:hidden;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,0.10);transition:transform 0.22s ease,box-shadow 0.22s ease}
+.route-mini-shot:first-child{grid-column:1/-1}
+.route-mini-gallery.count-3 .route-mini-shot:nth-child(2){grid-column:1/4}
+.route-mini-gallery.count-3 .route-mini-shot:nth-child(3){grid-column:4/7}
+.route-mini-gallery.count-4 .route-mini-shot:nth-child(2){grid-column:1/3}
+.route-mini-gallery.count-4 .route-mini-shot:nth-child(3){grid-column:3/5}
+.route-mini-gallery.count-4 .route-mini-shot:nth-child(4){grid-column:5/7}
+.route-mini-shot:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,0.14)}
+.route-mini-shot img{width:100%;height:100%;min-width:0;object-fit:contain;object-position:center;border-radius:0;display:block;filter:saturate(1.06) contrast(1.03)}
+
+/* DARK SECTION */
+.dark-section{background:linear-gradient(180deg,#fff 0%,#f1f2f2 10%,#6f7472 34%,#2d302f 100%);padding:11rem 2.5rem 8rem;position:relative;overflow:hidden;color:#fff}
+.dark-section::before{content:'';position:absolute;top:0;left:0;right:0;height:260px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.72) 28%,rgba(255,255,255,0) 100%);pointer-events:none}
+.dark-section::after{content:'';position:absolute;inset:22% -10% auto auto;width:48vw;height:48vw;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.09),rgba(255,255,255,0) 62%);pointer-events:none}
+.section-watermark-logo{position:absolute;left:50%;top:17%;z-index:0;width:min(58vw,820px);opacity:0.055;transform:translateX(-50%) rotate(-4deg);filter:grayscale(1);pointer-events:none}
+.dark-section-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;max-width:1280px;margin:0 auto;align-items:start}
+.dark-kicker{font-size:0.78rem;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-bottom:0.8rem}
+.zakaj-left h2,.rez-right h2{font-family:var(--head);font-size:clamp(3rem,6vw,6.2rem);color:#fff;text-transform:uppercase;line-height:0.88;margin-bottom:2rem;letter-spacing:0.035em}
+.rez-right h2{text-align:left}
+.dark-lead{font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.7;color:rgba(255,255,255,0.72);max-width:560px;margin-bottom:2rem}
+.zakaj-items{display:grid;gap:0.75rem}
+.zakaj-item{border:1px solid rgba(255,255,255,0.15);border-radius:24px;background:rgba(255,255,255,0.075);backdrop-filter:blur(16px);cursor:pointer;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.12)}
+.zakaj-item-header{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 1.15rem;gap:1rem}
+.zakaj-icon{display:none}
+.zakaj-title{font-family:var(--head);font-size:1.35rem;letter-spacing:0.09em;text-transform:uppercase;color:#fff;flex:1;transition:color 0.2s}
+.zakaj-arrow{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.24);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:rgba(255,255,255,0.72);transition:transform 0.3s,background 0.2s,border-color 0.2s;flex-shrink:0}
+.zakaj-item.open .zakaj-arrow{transform:rotate(45deg);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.42)}
+.zakaj-item.open .zakaj-title{color:#fff}
+.zakaj-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s;font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.75;font-weight:300;padding:0 1.15rem}
+.zakaj-body.open{max-height:130px;padding:0 1.15rem 1.1rem}
+.rez-right{border:1px solid rgba(255,255,255,0.16);border-radius:32px;background:rgba(255,255,255,0.08);backdrop-filter:blur(18px);padding:2rem;box-shadow:0 26px 80px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.14)}
+.rez-steps-wrap{display:grid;gap:0}
+.rez-step{display:grid;grid-template-columns:48px 1fr;gap:1rem;padding:1.15rem 0;border-bottom:1px solid rgba(255,255,255,0.13);cursor:pointer;transition:opacity 0.25s}
+.rez-step:first-child{border-top:1px solid rgba(255,255,255,0.13)}
+.rez-step:hover{opacity:0.88}
+.rez-step-num{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.26);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.15rem;color:#fff;flex-shrink:0;background:rgba(255,255,255,0.08)}
+.rez-step.active .rez-step-num{background:#fff;border-color:#fff;color:#111}
+.rez-step-title{font-family:var(--head);font-size:1.2rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.35rem}
+.rez-step-desc{font-size:0.9rem;color:rgba(255,255,255,0.62);line-height:1.7;font-weight:300;max-height:none;overflow:visible}
+.rez-step.active .rez-step-desc{color:rgba(255,255,255,0.7);max-height:none}
+.rez-cta{text-align:left;margin-top:2rem}
+
+/* ========== GALERIJA — lightbox ========== */
+.gal-section{background:linear-gradient(180deg,#2d302f 0%,#f7f7f6 18%,#fff 100%);padding:7rem 1rem 5rem;overflow:hidden}
+.gal-section h2{font-family:var(--head);font-size:clamp(3.4rem,8vw,8rem);line-height:0.88;text-transform:uppercase;letter-spacing:0.04em;text-align:left;margin:0 auto 2.4rem;max-width:1500px;color:#111}
+.gal-grid{display:grid;grid-template-columns:1.18fr 0.95fr 1.05fr;grid-template-rows:300px 300px 260px;gap:10px;max-width:none;margin:0 auto}
+.gal-item{overflow:hidden;cursor:zoom-in;position:relative;border-radius:26px;background:#222;box-shadow:0 28px 80px rgba(0,0,0,0.16)}
+.gal-item:nth-child(1){grid-row:1/3;border-radius:34px 18px 34px 18px}
+.gal-item:nth-child(2){transform:translateY(+18px)}
+.gal-item:nth-child(3){border-radius:18px 34px 18px 34px}
+.gal-item:nth-child(4){transform:translateY(18px);border-radius:34px 18px 34px 18px}
+.gal-item:nth-child(5){border-radius:18px 34px 18px 34px}
+.gal-item:nth-child(6){border-radius:26px 18px 34px 18px}
+.gal-item:nth-child(7){grid-column:2/4;border-radius:18px 34px 18px 34px}
+.gal-item::before{content:attr(data-num);position:absolute;left:1.2rem;bottom:0.7rem;z-index:2;font-family:var(--head);font-size:clamp(3rem,7vw,7rem);line-height:0.8;color:rgba(255,255,255,0.18);letter-spacing:0.02em}
+.gal-item::after{content:'+';position:absolute;right:1rem;top:1rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.34);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--head);font-size:1.8rem;opacity:1;backdrop-filter:blur(12px);transition:transform 0.25s,background 0.25s}
+.gal-item:hover::after{transform:rotate(90deg);background:rgba(255,255,255,0.28)}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.04) brightness(0.82);transition:transform 0.75s ease,filter 0.35s ease}
+.gal-item:hover img{transform:scale(1.08);filter:saturate(1.12) contrast(1.06) brightness(0.92)}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,0.95);
+  align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.lightbox.open{display:flex}
+.lightbox-img-wrap{
+  position:relative;max-width:90vw;max-height:80vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-img-wrap img{
+  max-width:90vw;max-height:78vh;
+  object-fit:contain;display:block;
+  border-radius:2px;
+  transform:scale(0.92);opacity:0;
+  transition:transform 0.35s ease,opacity 0.35s ease;
+}
+.lightbox.open .lightbox-img-wrap img{transform:scale(1);opacity:1}
+.lb-close{
+  position:fixed;top:1.2rem;right:1.5rem;
+  background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:42px;height:42px;border-radius:50%;font-size:1.2rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;z-index:10;
+}
+.lb-close:hover{background:rgba(255,255,255,0.25)}
+.lb-prev,.lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:50px;height:50px;border-radius:50%;font-size:1.4rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;z-index:10;
+}
+.lb-prev{left:1.5rem}.lb-next{right:1.5rem}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.25)}
+.lb-counter{
+  font-family:var(--head);font-size:1rem;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.4);margin-top:1rem;
+}
+.lb-dots{display:flex;gap:0.5rem;margin-top:0.8rem}
+.lb-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.25);border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.2s;padding:0;
+}
+.lb-dot.active{background:#fff;transform:scale(1.3)}
+
+/* EKIPA */
+.rev-section{background:#fff;padding:5rem 2.5rem 5rem;overflow:hidden}
+.rev-section h2{font-family:var(--head);font-size:clamp(3.4rem,7vw,7rem);text-transform:uppercase;letter-spacing:0.04em;text-align:center;margin-bottom:2.6rem;color:#111}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;max-width:1180px;margin:0 auto}
+.rev-card{position:relative;min-height:330px;border:1px solid rgba(17,17,17,0.08);border-radius:30px;padding:1.4rem;background:#f4f4f2;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
+.rev-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.06));pointer-events:none}
+.rev-card:hover{transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,0.1)}
+.rev-quote{display:block;width:116px;height:86px;background:url('assets/julian-alps-logo-black.png') center/contain no-repeat;opacity:0.18;filter:grayscale(1);margin-bottom:4rem}
+.rev-card:nth-child(2) .rev-quote{margin-left:auto;margin-right:auto}
+.rev-card:nth-child(3) .rev-quote{margin-left:auto}
+.rev-text{position:relative;z-index:1;font-size:1rem;color:#333;line-height:1.75;margin-bottom:1.2rem}
+.rev-author{position:relative;z-index:1;font-family:var(--head);font-size:1.6rem;line-height:0.95;color:#111;text-transform:uppercase;letter-spacing:0.08em;font-style:normal}
+
+/* FAQ */
+.faq-section{background:#f5f5f3;padding:5rem 2.5rem 6rem}
+.faq-section h2{font-family:var(--head);font-size:clamp(3rem,6vw,6rem);text-transform:uppercase;letter-spacing:0.04em;text-align:left;max-width:1100px;margin:0 auto 2rem;color:#111}
+.faq-tabs{display:flex;justify-content:center;gap:0.55rem;max-width:1100px;margin:0 auto 2rem;overflow:visible;flex-wrap:wrap}
+.faq-tab{flex:0 1 auto;padding:0.85rem 1.05rem;font-family:var(--head);font-size:0.95rem;letter-spacing:0.1em;text-transform:uppercase;background:rgba(255,255,255,0.7);border:1px solid rgba(17,17,17,0.08);border-radius:999px;cursor:pointer;color:#777;transition:background 0.25s,color 0.25s,transform 0.2s}
+.faq-tab:last-child{border-right:none}
+.faq-tab.active{background:#2f3332;color:#fff}
+.faq-tab:hover:not(.active){background:#fff;color:var(--black);transform:translateY(-2px)}
+.faq-panels{max-width:1100px;margin:0 auto;border-radius:30px;background:#fff;padding:0.6rem 1.4rem;box-shadow:0 24px 70px rgba(0,0,0,0.07)}
+.faq-panel{display:none}.faq-panel.active{display:block}
+.faq-item{border-bottom:1px solid #ececea}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;font-family:var(--head);font-size:1.25rem;font-weight:400;color:var(--black);text-align:left;gap:1rem;text-transform:uppercase;letter-spacing:0.06em}
+.faq-q:hover{color:#2f3332}
+.faq-q-arrow{width:22px;height:22px;border-radius:50%;border:1.5px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#aaa;flex-shrink:0;transition:transform 0.25s,background 0.2s,border-color 0.2s,color 0.2s}
+.faq-item.open .faq-q-arrow{transform:rotate(45deg);background:#2f3332;border-color:#2f3332;color:#fff}
+.faq-item.open .faq-q{color:#2f3332}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;font-size:0.88rem;color:#555;line-height:1.8;font-weight:300}
+.faq-a.open{max-height:200px;padding-bottom:1rem}
+
+/* KONTAKT */
+.contact-section{background:linear-gradient(180deg,#f5f5f3 0%,#d9dcda 100%);padding:4rem 1rem 5rem;border-top:0;overflow:hidden}
+.contact-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:1.2rem;align-items:center;border-radius:38px;background:#2f3332;color:#fff;box-shadow:0 34px 90px rgba(0,0,0,0.18);overflow:hidden}
+.contact-inner>div{padding:3rem}
+.contact-section h2{font-family:var(--head);font-size:clamp(4rem,9vw,9rem);line-height:0.84;text-transform:uppercase;margin-bottom:1.2rem;color:#fff}
+.contact-section .sub{font-size:1rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.6rem;color:rgba(255,255,255,0.7);line-height:1.6}
+.contact-main-copy{max-width:34rem}
+.contact-cta-panel{height:100%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.045)}
+.contact-questionnaire-btn{width:min(420px,100%);border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.08);color:#fff;border-radius:999px;padding:1rem 1.35rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;box-shadow:0 20px 60px rgba(0,0,0,0.16);transition:transform 0.25s,background 0.25s,border-color 0.25s}
+.contact-questionnaire-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.42)}
+.contact-questionnaire-btn span{font-family:var(--head);font-size:1.35rem;letter-spacing:0.11em;text-transform:uppercase;line-height:1}
+.contact-questionnaire-btn small{font-family:var(--body);font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.62);line-height:1.35;text-align:right}
+.contact-note{margin-top:1.2rem;padding:1rem 1.1rem;border-radius:22px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.74);font-size:0.96rem;line-height:1.55}
+.contact-form{display:grid;gap:1rem;margin-top:0}
+.form-section{display:grid;gap:0.78rem;padding:1rem;border-radius:24px;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.1)}
+.form-section-title{font-family:var(--head);font-size:1.3rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.92);line-height:1}
+.form-field-label{display:block;margin-bottom:0.45rem;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.58)}
+.contact-form label{display:block}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:1rem 1.1rem;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);font-family:var(--body);font-size:0.95rem;color:#fff;outline:none;transition:border-color 0.2s,background 0.2s;border-radius:18px}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.48)}
+.contact-form select{appearance:none;color:#fff;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,0.8) 50%),linear-gradient(135deg,rgba(255,255,255,0.8) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.contact-form select option{color:#111}
+.inline-helper{display:block;margin-top:0.42rem}
+.conditional-wrap,.guided-questions{display:none}
+.conditional-wrap.show,.guided-questions.show{display:grid;gap:0.78rem}
+.guided-questions{border-top:1px solid rgba(255,255,255,0.1);padding-top:0.85rem}
+.choice-grid-two{grid-template-columns:1fr 1fr}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:rgba(255,255,255,0.55);background-color:rgba(255,255,255,0.13)}
+.contact-form textarea{height:116px;resize:vertical}
+.contact-form input[type=number]{appearance:textfield}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem}
+.choice-pill{position:relative;display:block;cursor:pointer}
+.choice-pill input{position:absolute;opacity:0;pointer-events:none}
+.choice-pill span{display:flex;align-items:center;min-height:48px;padding:0.78rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);font-size:0.83rem;font-weight:750;color:rgba(255,255,255,0.78);line-height:1.22;transition:background 0.2s,color 0.2s,border-color 0.2s,box-shadow 0.2s}
+.choice-pill input:checked+span{background:rgba(255,255,255,0.92);border-color:#fff;color:#111;box-shadow:0 14px 36px rgba(0,0,0,0.16)}
+.form-helper{font-size:0.82rem;line-height:1.5;color:rgba(255,255,255,0.54)}
+.bike-heights-wrap{display:none}
+.bike-heights-wrap.show{display:block}
+.form-error{display:none;padding:0.85rem 1rem;border-radius:18px;background:rgba(145,70,53,0.24);border:1px solid rgba(255,255,255,0.14);color:#fff;font-size:0.9rem;line-height:1.45}
+.form-error.show{display:block}
+.form-success{display:none;padding:0.4rem 0}
+.form-success p{font-family:var(--body);font-size:0.92rem;color:rgba(255,255,255,0.68)}
+.contact-modal-overlay{z-index:1100}
+.contact-modal{width:min(1120px,100%);background:#2f3332;color:#fff;border-color:rgba(255,255,255,0.18);padding:2rem;box-shadow:0 35px 110px rgba(0,0,0,0.48)}
+.contact-modal .legal-close{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.18);color:#fff}
+.contact-modal h2{font-family:var(--head);font-size:clamp(3.4rem,7vw,6.8rem);line-height:0.86;text-transform:uppercase;margin-bottom:0.85rem;color:#fff}
+.contact-modal-intro{max-width:720px;margin-bottom:1.2rem;color:rgba(255,255,255,0.72);line-height:1.65;font-size:0.98rem}
+
+/* CLOSING */
+.closing{background:var(--gray-dark);padding:3.3rem 2rem 3.6rem;text-align:center;overflow:hidden}
+.closing-logo{margin-bottom:1.15rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem}
+.closing-logo span{font-family:var(--head);font-size:1rem;letter-spacing:0.28em;color:rgba(255,255,255,0.42);text-transform:uppercase}
+.closing h2{font-family:var(--head);font-size:clamp(5rem,14vw,12rem);color:#fff;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em}
+
+.site-footer{position:relative;z-index:1;overflow:hidden;background:#9aa9a7;color:#fff;padding:6.2rem 3rem 2rem}
+.site-footer::before{content:'Julian';position:absolute;left:34%;top:-12%;font-family:var(--head);font-size:34vw;line-height:0.8;letter-spacing:0.02em;color:rgba(255,255,255,0.09);pointer-events:none;transform:rotate(-7deg)}
+.footer-grid{position:relative;z-index:1;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;align-items:start}
+.footer-col h3{font-family:var(--body);font-size:1rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.35rem;color:#fff;text-shadow:0 1px 16px rgba(0,0,0,0.12)}
+.footer-links,.footer-contact{display:grid;gap:0.62rem}
+.footer-links a,.footer-contact a,.footer-legal button{width:max-content;background:none;border:0;padding:0;color:rgba(255,255,255,0.88);font-family:var(--body);font-size:0.95rem;text-decoration:none;cursor:pointer;transition:color 0.2s,transform 0.2s}
+.footer-links a:hover,.footer-contact a:hover,.footer-legal button:hover{color:#fff;transform:translateX(3px)}
+.footer-follow{display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;margin-top:0.35rem}
+.footer-follow span{font-family:var(--body);font-size:0.9rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+.footer-follow a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.34);transition:background 0.2s,transform 0.2s}
+.footer-follow a:hover{background:rgba(255,255,255,0.27);transform:translateY(-2px)}
+.footer-follow svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.footer-bottom{position:relative;z-index:1;max-width:1500px;margin:4.5rem auto 0;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,0.22);display:flex;justify-content:space-between;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.footer-bottom p{font-size:0.86rem;color:rgba(255,255,255,0.82)}
+.footer-legal{display:flex;gap:1rem;flex-wrap:wrap}
+.legal-modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(18,20,19,0.72);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1.2rem}
+.legal-modal-overlay.open{display:flex}
+.legal-modal{width:min(920px,100%);max-height:86vh;overflow:auto;background:rgba(255,255,255,0.96);color:#222;border-radius:30px;box-shadow:0 35px 100px rgba(0,0,0,0.36);padding:2.4rem;border:1px solid rgba(255,255,255,0.55)}
+.legal-modal h2{font-family:var(--head);font-size:clamp(2.8rem,6vw,5.4rem);line-height:0.9;text-transform:uppercase;margin-bottom:1rem;color:#111}
+.legal-modal h3{font-family:var(--head);font-size:1.65rem;font-weight:400;letter-spacing:0.04em;text-transform:uppercase;margin:1.35rem 0 0.35rem;color:#111}
+.legal-modal p,.legal-modal li{font-size:0.98rem;line-height:1.7;color:#3b3f3f}
+.legal-modal ul{padding-left:1.2rem;margin:0.5rem 0}
+.legal-close{float:right;width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,0,0,0.1);background:#f3f3f1;color:#111;font-size:1.2rem;cursor:pointer}
+.legal-modal.contact-modal{background:#101312;color:#fff;border-color:rgba(255,255,255,0.16);box-shadow:0 35px 110px rgba(0,0,0,0.62)}
+.legal-modal.contact-modal h2{color:#fff}
+.legal-modal.contact-modal p,.legal-modal.contact-modal li{color:rgba(255,255,255,0.7)}
+.legal-modal.contact-modal .contact-modal-intro{color:rgba(255,255,255,0.72)}
+.legal-modal.contact-modal .legal-close{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.18);color:#fff}
+.intro-map-modal{width:min(92vw,980px);padding:1rem;border-radius:30px;background:#f6f3ea}
+.intro-map-modal img{width:100%;height:auto;display:block;border-radius:22px}
+.legal-panel{display:none}
+.legal-panel.active{display:block}
+
+/* MODALI */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(4,6,5,0.78);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{position:relative;background:rgba(255,255,255,0.92);max-width:1120px;width:100%;max-height:90vh;overflow-y:auto;border-radius:32px;border:1px solid rgba(255,255,255,0.45);box-shadow:0 30px 90px rgba(0,0,0,0.38);transform:translateY(30px);opacity:0;transition:transform 0.35s ease,opacity 0.35s ease}
+.modal-overlay.open .modal{transform:translateY(0);opacity:1}
+.modal-close{position:absolute;top:1rem;right:1rem;z-index:10;background:rgba(0,0,0,0.38);border:1px solid rgba(255,255,255,0.36);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(12px)}
+.modal-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:0;min-height:620px}
+.modal-gallery{display:grid;grid-template-columns:1fr 0.72fr;grid-template-rows:1fr 1fr;gap:0.7rem;padding:0.9rem}
+.modal-gallery img{width:100%;height:100%;object-fit:cover;display:block;border-radius:24px;filter:saturate(1.08) contrast(1.03)}
+.modal-gallery img:first-child{grid-row:1/3}
+.modal-body{padding:3rem 3rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+.modal-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:#778186;margin-bottom:0.8rem;font-weight:800}
+.modal-title{font-family:var(--head);font-size:clamp(3.2rem,5vw,5.8rem);line-height:0.88;letter-spacing:0.045em;text-transform:uppercase;margin-bottom:1.2rem;color:#111}
+.modal-meta{display:flex;gap:0.65rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.meta-item{padding:0.75rem 0.95rem;border-radius:999px;background:rgba(17,17,17,0.06);border:1px solid rgba(17,17,17,0.08)}
+.meta-lbl{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.14em;color:#7d8990;margin-bottom:0.15rem;font-weight:800}
+.meta-val{font-family:var(--head);font-size:1.25rem;color:#111;letter-spacing:0.05em;text-transform:uppercase}
+.modal-desc{font-size:1rem;color:#333;line-height:1.85;margin-bottom:1.5rem}
+.modal-highlights{display:grid;gap:0.6rem;margin:0 0 1.7rem;padding:0;list-style:none}
+.modal-highlights li{position:relative;padding-left:1.25rem;font-size:0.92rem;line-height:1.6;color:#222}
+.modal-highlights li::before{content:'';position:absolute;left:0;top:0.7em;width:7px;height:7px;border-radius:50%;background:#111}
+.modal-cta{width:max-content;background:#111;color:#fff;padding:0.92rem 1.35rem;font-family:var(--head);font-size:1rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;border:1px solid #111;cursor:pointer;border-radius:999px;transition:background 0.2s,transform 0.2s,color 0.2s}
+.modal-cta:hover{background:#fff;color:#111;transform:translateY(-2px)}
+
+@media(max-width:900px){
+  .hero{min-height:680px}
+  .hero-content{top:52%;right:1.5rem;max-width:680px}
+  .dark-section-inner,.contact-inner{grid-template-columns:1fr}
+  .intro-section{min-height:840px;padding:4rem 1.5rem 4.2rem}
+  .story-heading{margin-bottom:1.2rem}
+  .intro-collage{min-height:720px}
+  .intro-photo-large{right:0;top:0;width:46vw;height:260px}
+  .intro-photo-small{left:0;top:245px;width:34vw;height:230px}
+  .intro-photo-map{left:50%;top:auto;bottom:0;width:58vw;height:auto;aspect-ratio:1448/1086}
+  .intro-brand{top:250px;width:min(500px,52vw);padding:1.45rem}
+  .intro-note{max-width:210px;font-size:0.78rem}
+  .intro-note-1{left:0;top:20px}
+  .intro-note-2{right:0;top:335px}
+  .intro-note-3{left:7%;top:515px;transform:none}
+  .tours-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
+  .route-finder{grid-template-columns:1fr;padding:1rem}
+  .route-finder-intro{min-height:0}
+  .bike-rental{grid-template-columns:1fr;padding:1rem}
+  .bike-rental-list{grid-template-columns:1fr 1fr}
+  .bike-rental-card:nth-child(3){grid-column:1/3}
+  .dark-section{padding:8rem 1.5rem 4.5rem}
+  .dark-section-inner{gap:1.4rem}
+  .rez-right{padding:1.4rem;border-radius:26px}
+  .modal-layout{grid-template-columns:1fr;min-height:0}
+  .modal-gallery{height:360px}
+  .tour-category-modal{width:94vw;max-height:86vh}
+  .route-options-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .route-detail-panel{grid-template-columns:1fr}
+  .route-mini-gallery{height:360px}
+  .rev-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 260px 260px}
+  .gal-item:nth-child(1){grid-row:auto;grid-column:1/3}
+  .gal-item:nth-child(2),.gal-item:nth-child(4){transform:none}
+  .contact-inner{gap:0}
+  .contact-inner>div{padding:2rem}
+  .site-footer{padding:4rem 1.5rem 1.6rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2.2rem}
+  .footer-col:last-child{grid-column:1/3}
+  .form-row{grid-template-columns:1fr}
+  .faq-tabs{flex-wrap:wrap}
+  .faq-tab{border-bottom:1px solid rgba(17,17,17,0.08)}
+  .lb-prev{left:0.5rem}.lb-next{right:0.5rem}
+}
+@media(max-width:520px){
+  .hero{height:100svh;min-height:650px;margin-top:0}
+  .hero-logo-mark{top:1vh}
+  .hero-logo-mark img{width:150px}
+  .hero-content{top:43%;left:1.1rem;right:1.1rem;max-width:none}
+  .hero-subtitle{font-size:0.65rem}
+  .hero h1{font-size:clamp(3.25rem,16vw,5.15rem);margin-bottom:1rem}
+  .hero-copy{font-size:0.92rem;line-height:1.62;max-width:300px}
+  .hero-btns{left:1rem;right:1rem;bottom:1.5rem;transform:translateY(20px);padding:0.45rem;border-radius:28px}
+  .hero-btns.in{transform:translateY(0)}
+  .btn-olive,.btn-olive2{width:100%;padding:0.85rem 1.1rem;font-size:1.05rem}
+  .hero-socials{right:1rem;bottom:9.4rem;gap:0.5rem}
+  .hero-socials a{width:46px;height:46px}
+  nav{padding:0.65rem 1rem}
+  .nav-logo{gap:0.35rem}
+  .nav-logo img{height:38px}
+  .nav-logo-text{display:none}
+  .nav-lang{gap:0.28rem;font-size:0.68rem;letter-spacing:0.07em}
+  .intro-section{min-height:0;padding:3.4rem 1.1rem 3.8rem}
+  .story-heading{font-size:3.05rem;line-height:0.92;margin-bottom:1.2rem}
+  .story-heading span{margin-left:1.1rem}
+  .intro-lead{display:none}
+  .intro-clarity-card{grid-template-columns:1fr;margin-bottom:2rem;padding:1rem;border-radius:22px}
+  .intro-clarity-card p{font-size:0.93rem}
+  .intro-collage{min-height:1050px}
+  .intro-photo-large{left:0;right:auto;top:0;width:100%;height:270px;border-radius:24px}
+  .intro-photo-small{left:0;top:300px;width:48%;height:190px;border-radius:22px;transform:rotate(-2deg)}
+  .intro-photo-map{left:auto;right:0;bottom:auto;top:320px;width:48%;height:auto;aspect-ratio:1448/1086;border-radius:22px;transform:rotate(2deg)}
+  .intro-brand{left:0;right:0;top:560px;width:auto;transform:none;padding:1.25rem;border-radius:24px}
+  .intro-brand h3{font-size:2.9rem}
+  .intro-note{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none;max-width:none;margin-bottom:0.55rem}
+  .intro-note-1{margin-top:780px}
+  .tours-section{padding:3.7rem 1.1rem 4.6rem}
+  .tours-section h2{font-size:3.25rem;margin-bottom:2.6rem}
+  .tours-section h2::after{margin-top:1.1rem}
+  .tours-grid{grid-template-columns:1fr;gap:1.15rem}
+  .route-finder{margin-top:2.4rem;border-radius:24px;padding:0.75rem}
+  .route-finder h3{font-size:3rem}
+  .bike-rental{margin-top:1rem;border-radius:24px;padding:0.75rem}
+  .bike-rental h3{font-size:3rem}
+  .bike-rental-list{grid-template-columns:1fr}
+  .bike-rental-card:nth-child(3),.bike-rental-note,.bike-rental-highlight{grid-column:auto}
+  .bike-rental-note,.bike-rental-highlight{align-items:flex-start;flex-direction:column}
+  .calc-grid{grid-template-columns:1fr}
+  .calc-result{grid-template-columns:1fr}
+  .calc-result img{width:100%;height:180px}
+  .tura-card{height:370px;border-radius:22px}
+  .tura-circle{border-radius:22px}
+  .tura-circle img{transform:scale(1.68)}
+  .tura-card:hover .tura-circle img{transform:scale(1.76)}
+  .tura-name{font-size:1.22rem}
+  .tura-desc{font-size:0.82rem}
+  .tour-category-modal{width:94vw;padding:1.15rem;border-radius:24px}
+  .route-options-grid{grid-template-columns:1fr}
+  .route-detail-panel{padding:0.65rem;border-radius:22px}
+  .route-detail-copy{padding:0.65rem}
+  .route-detail-title{font-size:2.35rem}
+  .route-detail-meta{grid-template-columns:1fr}
+  .route-mini-gallery{grid-template-columns:1fr;grid-template-rows:none;height:auto;max-height:none;min-height:0;overflow:visible;border-radius:20px}
+  .route-mini-shot,.route-mini-shot:first-child{grid-column:auto;height:190px;border-radius:18px}
+  .route-mini-shot img{height:100%}
+  .dark-section{padding:6rem 1.1rem 3.6rem}
+  .section-watermark-logo{top:9%;width:118vw;opacity:0.04}
+  .zakaj-left h2,.rez-right h2{font-size:3.25rem}
+  .dark-lead{font-size:1rem}
+  .zakaj-title,.rez-step-title{font-size:1.05rem}
+  .gal-section{padding:5rem 0.8rem 3.5rem}
+  .gal-section h2{font-size:3.2rem;margin-bottom:1.5rem}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:none;gap:0.75rem}
+  .gal-item,.gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(4),.gal-item:nth-child(5),.gal-item:nth-child(6),.gal-item:nth-child(7){grid-column:auto;grid-row:auto;height:280px;border-radius:24px;transform:none}
+  .rev-section{padding:3.5rem 1.1rem}
+  .rev-section h2{font-size:3.25rem}
+  .rev-grid{grid-template-columns:1fr}
+  .faq-section{padding:3.5rem 1.1rem 4rem}
+  .faq-section h2{font-size:3.1rem}
+  .faq-panels{padding:0.25rem 1rem;border-radius:22px}
+  .faq-q{font-size:1rem}
+  .contact-section{padding:3.5rem 0.8rem 4rem}
+  .contact-inner{border-radius:28px}
+  .contact-inner>div{padding:1.5rem}
+  .contact-section h2{font-size:3.7rem}
+  .contact-questionnaire-btn{width:100%;border-radius:26px;align-items:flex-start;flex-direction:column;padding:1rem}
+  .contact-questionnaire-btn small{text-align:left}
+  .contact-modal{padding:1.1rem;border-radius:24px}
+  .contact-modal h2{font-size:3.2rem}
+  .form-row,.choice-grid{grid-template-columns:1fr}
+  .form-section{padding:0.85rem;border-radius:20px}
+  .site-footer{padding:3.4rem 1.1rem 1.4rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-col:last-child{grid-column:auto}
+  .footer-bottom{margin-top:2.8rem;align-items:flex-start}
+  .footer-legal{gap:0.75rem}
+  .legal-modal{padding:1.4rem;border-radius:24px}
+  .floating-whatsapp{right:0.9rem;bottom:0.9rem;gap:0.55rem}
+  .floating-whatsapp-bubble{font-size:0.86rem;padding:0.72rem 0.9rem;max-width:190px}
+  .floating-whatsapp-icon{width:60px;height:60px}
+  .floating-whatsapp-icon svg{width:34px;height:34px}
+  .floating-whatsapp-badge{width:24px;height:24px;font-size:0.8rem}
+  .modal{border-radius:24px}
+  .modal-gallery{height:280px;grid-template-columns:1fr 1fr}
+  .modal-gallery img:first-child{grid-column:1/3;grid-row:auto}
+  .modal-body{padding:1.6rem}
+  .modal-title{font-size:3rem}
+
+  body::before{display:none}
+  nav{height:70px;padding:0.55rem 0.8rem;justify-content:center}
+  nav .nav-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+  .nav-logo img{height:48px}
+  .mobile-menu-toggle{display:flex;position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);z-index:101}
+  .nav-lang{position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);font-size:0.66rem}
+  .mobile-menu-open{overflow:hidden}
+  .hero{min-height:620px}
+  .hero-bg-img{background-position:center;transform:scale(1.03)}
+  .hero-logo-mark,.hero-socials,.hero-copy{display:none}
+  .hero-content{top:49%;left:0.9rem;right:0.9rem;text-align:center;display:flex;flex-direction:column;align-items:center;transform:translateY(calc(-50% + 18px))}
+  .hero h1{order:1;font-size:clamp(3.8rem,17vw,5.7rem);line-height:0.84;margin:0 auto 1rem;max-width:360px;letter-spacing:0.035em}
+  .hero-subtitle{order:2;margin:0 auto;font-size:0.62rem;letter-spacing:0.23em;max-width:280px}
+  .hero-btns{left:50%;right:auto;bottom:13vh;transform:translate(-50%,20px);background:transparent;border:0;box-shadow:none;backdrop-filter:none;padding:0}
+  .hero-btns.in{transform:translate(-50%,0)}
+  .hero-btns .btn-olive{display:none}
+  .hero-btns .btn-olive2{width:auto;min-width:168px;padding:0.82rem 1.15rem;background:rgba(255,255,255,0.86);color:#111;border-color:rgba(255,255,255,0.6);box-shadow:0 16px 44px rgba(0,0,0,0.2)}
+
+  .intro-section{padding:2.45rem 0 1.35rem}
+  .intro-section::before{opacity:0.38;background-size:220% 100%;background-position:center top}
+  .intro-inner{padding:0 0 0 1rem}
+  .story-heading{font-size:3.1rem;line-height:0.9;max-width:330px;margin:0 1rem 1rem 0}
+  .intro-clarity-card{margin:0 1rem 1rem 0;padding:0.95rem;border-radius:22px;grid-template-columns:1fr}
+  .intro-clarity-card strong{font-size:2.4rem;color:#9aa2a5}
+  .intro-clarity-card p{font-size:0.9rem;line-height:1.55}
+  .intro-collage{left:auto;width:auto;min-height:0;margin:0;transform:none;display:flex;flex-direction:column;gap:0.9rem}
+  .intro-photo-large{position:relative;order:1;left:auto;right:auto;top:auto;width:calc(100% - 1rem);height:250px;border-radius:25px}
+  .intro-photo-small,.intro-photo-map{display:none}
+  .intro-brand{position:relative;order:2;left:auto;right:auto;top:auto;width:calc(100% - 1rem);height:260px;transform:none!important;padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;perspective:1100px}
+  .intro-brand::after{content:'↻';position:absolute;right:1rem;bottom:1rem;z-index:3;width:42px;height:42px;border-radius:999px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.35rem;box-shadow:0 14px 34px rgba(0,0,0,0.18);animation:flipHint 1.9s ease-in-out infinite}
+  .intro-brand.is-flipped::after{opacity:0.42}
+  @keyframes flipHint{0%,100%{transform:translateX(0) rotate(0deg)}45%{transform:translateX(-5px) rotate(-12deg)}}
+  .intro-flip-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .intro-brand.is-flipped .intro-flip-inner{transform:rotateY(180deg)}
+  .intro-flip-face{position:absolute;inset:0;padding:1.25rem;border-radius:28px;background:rgba(255,255,255,0.88);border:1px solid rgba(17,17,17,0.08);box-shadow:0 22px 60px rgba(0,0,0,0.1);backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;backface-visibility:hidden}
+  .intro-flip-back{display:flex;transform:rotateY(180deg)}
+  .intro-map-btn{display:inline-flex;margin-top:1rem;border:0;border-radius:999px;background:#111;color:#fff;font-family:var(--head);font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.78rem 1rem}
+  .intro-brand h3{font-size:3.2rem}
+  .intro-brand p{font-size:0.95rem;line-height:1.55}
+  .intro-notes-mobile{order:3;display:flex;gap:0.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.1rem 1rem 0.5rem 0;-webkit-overflow-scrolling:touch}
+  .intro-notes-mobile::-webkit-scrollbar,.tours-grid::-webkit-scrollbar,.bike-rental-cards::-webkit-scrollbar,.gal-grid::-webkit-scrollbar{display:none}
+  .intro-note{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none!important;flex:0 0 78%;max-width:none;min-height:126px;margin:0;scroll-snap-align:start;background:rgba(255,255,255,0.78)}
+  .intro-note-1{margin-top:0}
+
+  .tours-section{padding:1.35rem 0 2.7rem;scroll-margin-top:64px}
+  .tours-section h2{font-size:3.15rem;margin:0 1rem 1.35rem}
+  .tours-section h2::after{font-size:0.66rem;margin-top:0.8rem}
+  .tours-grid{display:flex;gap:0.85rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 1rem 0.75rem;margin:0;max-width:none;-webkit-overflow-scrolling:touch}
+  .tura-card{flex:0 0 82%;height:286px;scroll-snap-align:start;border-radius:22px}
+  .tura-circle img,.tura-card:hover .tura-circle img{transform:scale(1.28)}
+  .tura-info{left:12px;right:12px;bottom:12px;padding:0.9rem;border-radius:18px}
+  .tura-name{font-size:1.45rem}
+  .tura-desc{font-size:0.78rem;line-height:1.35;margin-top:0.62rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .tura-btn-el{width:38px;height:38px;right:0.75rem;top:0.75rem}
+  .tours-grid{align-items:stretch;flex-wrap:nowrap;overflow-y:hidden;overscroll-behavior-x:contain;scroll-padding-inline:1rem;touch-action:pan-x}
+  .tours-grid .tura-card,
+  .tours-grid .tura-card:hover,
+  .tours-grid .tura-card:active,
+  .tours-grid .tura-card.reveal,
+  .tours-grid .tura-card.reveal.visible{height:286px;min-height:286px;max-height:286px;transform:none!important}
+  .tours-grid .tura-card.reveal,
+  .tours-grid .tura-card.reveal.visible{opacity:1!important;transition:box-shadow 0.24s ease}
+
+  .route-finder{display:block;margin:2rem 1rem 0;padding:1rem;border-radius:26px;background:#111;color:#fff}
+  .route-finder-intro{min-height:0;padding:0}
+  .route-finder-kicker,.route-finder-illustration{display:none}
+  .route-finder h3{font-size:0;margin:0 0 0.8rem}
+  .route-finder h3::after{content:'NE VEŠ, KATERA TURA JE PRAVA?';font-family:var(--head);font-size:2.7rem;line-height:0.9;letter-spacing:0.04em;color:#fff}
+  body[data-lang="en"] .route-finder h3::after{content:'NOT SURE WHICH RIDE IS RIGHT?'}
+  .route-finder-intro p{font-size:0.94rem;color:rgba(255,255,255,0.74);line-height:1.55}
+  .calc-open-btn{display:inline-flex;margin-top:1rem;border:1px solid rgba(255,255,255,0.28);border-radius:999px;background:rgba(255,255,255,0.12);color:#fff;font-family:var(--head);font-size:1.05rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1rem}
+  .route-finder-panel{display:none;margin-top:1rem;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12)}
+  .route-finder.mobile-calc-open .route-finder-panel{display:grid}
+  .calc-control{background:rgba(255,255,255,0.9)}
+  .calc-result{grid-template-columns:1fr}
+
+  .bike-rental{display:block;margin:1rem 1rem 0;padding:0.85rem;border-radius:26px}
+  .bike-rental-intro{min-height:190px;border-radius:22px}
+  .bike-rental h3{font-size:3.15rem}
+  .bike-rental-list{display:block}
+  .bike-rental-cards{display:flex;gap:0.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.85rem 0 0.8rem;-webkit-overflow-scrolling:touch}
+  .bike-rental-card{flex:0 0 76%;min-height:122px;scroll-snap-align:start}
+  .bike-rental-card strong{font-size:1.45rem}
+  .bike-rental-note{display:flex;flex-direction:row;align-items:center;border-radius:18px;padding:0.78rem 0.85rem;margin-bottom:0.65rem}
+  .bike-rental-highlight{border-radius:20px;padding:0.9rem;display:block}
+  .bike-rental-highlight strong{font-size:1.55rem;margin-bottom:0.5rem;display:block}
+  .bike-rental-highlight p{font-size:0.88rem;line-height:1.45}
+
+  .dark-section{padding:4rem 1rem 3rem}
+  .dark-section::before{height:150px}
+  .dark-section-inner{display:block}
+  .zakaj-left h2{font-size:3.15rem}
+  .dark-lead{font-size:0.92rem;line-height:1.55}
+  .zakaj-item{padding:0.9rem 0}
+  .zakaj-body.open{padding-top:0.45rem}
+  .rez-right{display:none}
+
+  .gal-section{padding:3.2rem 0 2.4rem}
+  .gal-section h2{font-size:3.15rem;margin:0 1rem 1.2rem}
+  .gal-grid{display:flex;gap:0.82rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 1rem 0.8rem;margin:0;max-width:none;-webkit-overflow-scrolling:touch}
+  .gal-item,.gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(4),.gal-item:nth-child(5),.gal-item:nth-child(6),.gal-item:nth-child(7){flex:0 0 84%;height:245px;scroll-snap-align:start;border-radius:24px;grid-column:auto;grid-row:auto;transform:none}
+  .rev-section{display:none}
+
+  .faq-section{padding:3rem 1rem}
+  .faq-section h2{font-size:3rem;margin-bottom:1rem}
+  .faq-tabs{overflow-x:auto;justify-content:flex-start;padding:0.25rem}
+  .faq-tab{white-space:nowrap}
+  .faq-panels{padding:0.2rem 0.9rem}
+  .faq-q{padding:1rem 0;font-size:0.98rem}
+
+  .contact-section{padding:3rem 0.9rem}
+  .contact-inner{grid-template-columns:1fr;gap:0.8rem;padding:1.1rem;border-radius:26px}
+  .contact-inner>div{padding:0}
+  .contact-section h2{font-size:3.25rem;margin-bottom:0.65rem}
+  .contact-section .sub{font-size:0.82rem;line-height:1.45}
+  .contact-questionnaire-btn{width:100%;border-radius:22px;padding:0.9rem 1rem}
+
+  .floating-whatsapp{right:0.75rem;bottom:0.75rem;gap:0.45rem}
+  .floating-whatsapp-bubble{font-size:0.72rem;padding:0.55rem 0.72rem;max-width:128px;white-space:normal;line-height:1.15;animation:none}
+  .floating-whatsapp-icon{width:50px;height:50px}
+  .floating-whatsapp-icon::before{display:none}
+  .floating-whatsapp-icon svg{width:28px;height:28px}
+  .floating-whatsapp-badge{width:19px;height:19px;font-size:0.68rem}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><link href="premium-theme-v3.css" rel="stylesheet"/></head>
+<body class="premium-theme">
+<nav id="mainNav">
+<button aria-label="Odpri meni" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button"><span></span></button>
+<a class="nav-logo" href="#"><img alt="Julian Alps cycling" src="assets/julian-alps-logo-white.png"/><span class="nav-logo-text">JULIAN ALPS CYCLING</span></a>
+<div class="nav-lang"><a class="active" data-lang-switch="sl" href="#">SI</a><span>|</span><a data-lang-switch="en" href="#">EN</a><span>|</span><a data-lang-switch="de" href="#">DE</a></div>
+</nav>
+<div class="mobile-menu-overlay" id="mobileMenu">
+<div class="mobile-menu-panel">
+<div class="mobile-menu-links">
+<a data-i18n-en="Who we are, what we do" data-i18n-sl="Kdo smo, kaj delamo" href="#nakratko" onclick="closeMobileMenu()">Kdo smo, kaj delamo</a>
+<a data-i18n-en="Tours" data-i18n-sl="Ture" href="#ture" onclick="closeMobileMenu()">Ture</a>
+<a data-i18n-en="Bike rental" data-i18n-sl="Najem koles" href="#najem-koles" onclick="closeMobileMenu()">Najem koles</a>
+<a data-i18n-en="Gallery" data-i18n-sl="Galerija" href="#galerija" onclick="closeMobileMenu()">Galerija</a>
+<a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+</div>
+<a class="btn-olive mobile-menu-cta" data-i18n-en="SEND ENQUIRY" data-i18n-sl="POŠLJI POVPRAŠEVANJE" href="#kontakt" onclick="closeMobileMenu();setTimeout(openContactModal,260)">POŠLJI POVPRAŠEVANJE</a>
+</div>
+</div>
+<header class="hero" id="hero">
+<div class="hero-bg-img" id="heroBg"></div>
+<div class="hero-logo-mark" id="heroLogo">
+<img alt="Julian Alps Cycling logo" src="assets/julian-alps-logo-white.png"/>
+</div>
+<div class="hero-content" id="heroContent">
+<p class="hero-subtitle" data-i18n-en="GUIDED ROAD AND GRAVEL TOURS | KRANJSKA GORA · MOJSTRANA · JULIAN ALPS" data-i18n-sl="VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE" id="heroSub">VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE</p>
+<h1 id="heroH1">Kolesarski izleti.<br/><em>Doživetja, ki ostanejo.</em></h1>
+</div>
+<div class="hero-btns" id="heroBtns">
+<a class="btn-olive" href="#kontakt">POVPRAŠAJ</a>
+<a class="btn-olive2" href="#ture">OGLEJ SI TURE</a>
+</div>
+<div aria-label="Kontakt" class="hero-socials">
+<a aria-label="Instagram" href="#kontakt"><svg viewbox="0 0 24 24"><rect height="16" rx="5" width="16" x="4" y="4"></rect><circle cx="12" cy="12" r="3.4"></circle><circle cx="17" cy="7" fill="currentColor" r="0.8" stroke="none"></circle></svg></a>
+<a aria-label="Gmail" class="gmail" href="#kontakt"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="17" x="3.5" y="6"></rect><path d="M4.5 7.5 12 13l7.5-5.5"></path><path d="M5 18 9.4 11.4M19 18l-4.4-6.6"></path></svg></a>
+<a aria-label="WhatsApp" href="#kontakt"><svg viewbox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"></path><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"></path></svg></a>
+</div>
+</header>
+<!-- INTRO -->
+<div class="intro-section" id="nakratko">
+<div class="intro-inner">
+<div class="story-heading reveal">Uživanje na kolesu brez omejitev.</div>
+<div class="intro-clarity-card reveal">
+<strong>Na kratko</strong>
+<p>Vodene cestne in gravel ture s startom v <em>Kranjski Gori ali Mojstrani</em>. Ture prilagodimo različnim nivojem, po potrebi uredimo <em>najem koles</em>, izvajamo pa jih v kolesarski sezoni <em>od pomladi do jeseni.</em></p>
+</div>
+<div class="intro-collage">
+<div class="intro-photo intro-photo-small reveal-left"><img alt="Jezero in odsev Julijskih Alp" src="assets/IMG_7275.JPG"/></div>
+<div class="intro-photo intro-photo-large reveal-right"><img alt="Gorska cesta med Julijskimi Alpami" src="assets/julian-mountain-road.jpg"/></div>
+<div class="intro-photo intro-photo-map reveal"><img alt="Zemljevid območja Julian Alps cycling" src="assets/julian-alps-riding-area-map.png"/></div>
+<div aria-label="Obrni kartico Kdo smo in kaj delamo" class="intro-brand reveal" onclick="toggleIntroCard(this)" role="button" tabindex="0">
+<div class="intro-flip-inner">
+<div class="intro-flip-face intro-flip-front">
+<div class="intro-brand-kicker" data-i18n-en="Who we are and what we do" data-i18n-sl="Kdo smo in kaj delamo">Kdo smo in kaj delamo</div>
+<h3>Julian Alps cycling</h3>
+<p data-i18n-en="Guided cycling tours." data-i18n-sl="Vodeni kolesarski izleti.">Vodeni kolesarski izleti.</p>
+</div>
+<div class="intro-flip-face intro-flip-back">
+<div class="intro-brand-kicker" data-i18n-en="In short" data-i18n-sl="Na kratko">Na kratko</div>
+<p data-i18n-en="Guided road and gravel tours starting in Kranjska Gora or Mojstrana. We adapt rides to your group, pace and experience. If needed, we can also arrange bike rental." data-i18n-sl="Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles.">Vodene cestne in gravel ture s startom v Kranjski Gori ali Mojstrani. Ture prilagodimo skupini, tempu in izkušnjam. Po potrebi uredimo tudi najem koles.</p>
+<button class="intro-map-btn" data-i18n-en="VIEW OUR MAP" data-i18n-sl="OGLEJ SI NAŠ ZEMLJEVID" onclick="openIntroMap(event)" type="button">OGLEJ SI NAŠ ZEMLJEVID</button>
+</div>
+</div>
+</div>
+<div class="intro-notes-mobile">
+<div class="intro-note intro-note-1 reveal-left"><strong>Lokalne poti</strong>Vozimo po cestah, ki jih poznamo iz domačega okolja – mirnejše, razgledne in primerne za dober kolesarski dan.</div>
+<div class="intro-note intro-note-2 reveal-right"><strong>Pravi tempo</strong>Tura ni dirka! Tempo prilagodimo skupini, ne obratno.</div>
+<div class="intro-note intro-note-3 reveal"><strong>Po vaši meri</strong>Od kratke razgledne vožnje do celodnevnega alpskega izleta – pot sestavimo glede na želje in pripravljenost.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="legal-modal-overlay map-modal-overlay" id="introMapModal" onclick="closeIntroMapOutside(event)">
+<div aria-label="Zemljevid območja voženj" aria-modal="true" class="legal-modal intro-map-modal" role="dialog">
+<button aria-label="Zapri" class="legal-close" onclick="closeIntroMap()" type="button">×</button>
+<img alt="Zemljevid območja Julian Alps Cycling" src="assets/julian-alps-riding-area-map.png"/>
+</div>
+</div>
+<!-- TURE -->
+<section class="tours-section" id="ture">
+<h2 class="reveal">Izberi si svojo turo</h2>
+<div class="tours-grid">
+<div class="tura-card reveal delay-1" onclick="openTourCategory('upper-sava')"><div class="tura-circle"><img alt="Zgornjesavska dolina" src="assets/julian-lake-reflection.jpg"/></div><button aria-label="Več o kategoriji Zgornjesavska dolina" class="tura-btn-el">VEČ O TURI</button><div class="tura-info"><div class="tura-name">Zgornjesavska dolina</div><div class="tura-meta"><span>30-45 km</span><span>220-380 m+</span></div><p class="tura-desc">Krajše razgledne ture za prvi stik z Julijskimi Alpami.</p></div></div>
+<div class="tura-card reveal delay-2" onclick="openTourCategory('radovna-bled')"><div class="tura-circle"><img alt="Dolina Radovna in Bled" src="assets/bled-gateway-banner.jpg"/></div><button aria-label="Več o kategoriji Radovna Valley &amp; Bled Gateway" class="tura-btn-el">VEČ O TURI</button><div class="tura-info"><div class="tura-name">Dolina Radovne in Bled</div><div class="tura-meta"><span>30-50 km</span><span>450-700 m+</span></div><p class="tura-desc">Mirnejše ceste, lokalni vzponi, slapovi in jezera.</p></div></div>
+<div class="tura-card reveal delay-3" onclick="openTourCategory('alpine-kings')"><div class="tura-circle"><img alt="Alpske -klasike-" class="tour-img-alpine" src="assets/alpine-kings-ibex.jpg"/></div><button aria-label="Več o kategoriji Alpine Kings &amp; Queens" class="tura-btn-el">VEČ O TURI</button><div class="tura-info"><div class="tura-name">Alpske "klasike"</div><div class="tura-meta"><span>25-108 km</span><span>750-1.900 m+</span></div><p class="tura-desc">Daljši gorski dnevi, ikonični vzponi in velike ceste.</p></div></div>
+<div class="tura-card reveal delay-4" onclick="openTourCategory('julian-gravel')"><div class="tura-circle"><img alt="Julijski gravel" class="tour-img-gravel" src="assets/julian-gravel-escape.jpg"/></div><button aria-label="Več o kategoriji Julian Gravel Escape" class="tura-btn-el">VEČ O TURI</button><div class="tura-info"><div class="tura-name">Julijski Gravel</div><div class="tura-meta"><span>18-40 km</span><span>200-650 m+</span></div><p class="tura-desc">Skrite gozdne ceste, makadam in bolj pustolovski ritem.</p></div></div>
+</div>
+<div class="route-finder reveal" id="najdi-turo">
+<div class="route-finder-intro">
+<div>
+<h3>Najdi svojo turo</h3>
+<p>Izberi kilometre, višince in občutek vožnje.</p>
+<button class="calc-open-btn" data-i18n-en="HELP ME CHOOSE" data-i18n-sl="POMAGAJ MI IZBRATI" onclick="toggleMobileCalculator()" type="button">POMAGAJ MI IZBRATI</button>
+</div>
+</div>
+<div class="route-finder-panel">
+<div class="calc-grid">
+<div class="calc-control">
+<div class="calc-label"><span>Dolžina ture</span><strong class="calc-value" id="calcDistanceValue">45 km</strong></div>
+<input id="calcDistance" max="110" min="18" oninput="updateRouteCalculatorLabels()" step="1" type="range" value="45"/>
+</div>
+<div class="calc-control">
+<div class="calc-label"><span>Višinski metri</span><strong class="calc-value" id="calcElevationValue">400 m+</strong></div>
+<input id="calcElevation" max="1900" min="200" oninput="updateRouteCalculatorLabels()" step="50" type="range" value="400"/>
+</div>
+</div>
+<div class="calc-control">
+<div class="calc-label"><span>Občutek ture</span><strong class="calc-value" id="calcTypeValue">Razgledno</strong></div>
+<div class="calc-types" id="calcTypes">
+<button class="calc-type active" data-type="scenic" onclick="selectCalcType(this)" type="button">Razgledno</button>
+<button class="calc-type" data-type="easy" onclick="selectCalcType(this)" type="button">Lahkotno</button>
+<button class="calc-type" data-type="climb" onclick="selectCalcType(this)" type="button">Vzpon</button>
+<button class="calc-type" data-type="gravel" onclick="selectCalcType(this)" type="button">Gravel</button>
+<button class="calc-type" data-type="long" onclick="selectCalcType(this)" type="button">Celodnevno</button>
+</div>
+</div>
+<div class="calc-action">
+<button class="calc-submit" onclick="calculateBestTour()" type="button">Predlagaj mi turo</button>
+</div>
+<div aria-live="polite" class="calc-result" id="calcResult"></div>
+</div>
+</div>
+<div class="bike-rental reveal" id="najem-koles">
+<div class="bike-rental-intro">
+<div>
+<p class="bike-rental-kicker">Najem koles</p>
+<h3>Kolesa za vaš izlet</h3>
+</div>
+<p>Če nimate svojega kolesa, vam lahko ob turi uredimo tudi najem.</p>
+</div>
+<div class="bike-rental-list">
+<div class="bike-rental-cards">
+<div class="bike-rental-card"><strong>Prednjevzmetena gorska kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
+<div class="bike-rental-card"><strong>Električna prednjevzmetena kolesa</strong><div class="bike-rental-price">46 EUR</div></div>
+<div class="bike-rental-card"><strong>Cestna in gravel kolesa</strong><div class="bike-rental-price">41 EUR</div></div>
+</div>
+<div class="bike-rental-note"><span>Dodatki</span><strong>Čelada 6 EUR</strong></div>
+<div class="bike-rental-highlight"><strong data-i18n-en="Important when booking" data-i18n-sl="Pomembno pri rezervaciji">Pomembno pri rezervaciji</strong><p data-i18n-en="In your enquiry, let us know if you NEED A BIKE or HELMET because you do not have your own equipment, and add each participant’s body height so we can prepare the right bike size." data-i18n-sl="V povpraševanju nam sporočite, da POTREBUJETE KOLO ali ČELADO, ker nimate svoje opreme ter dodajte telesno višino posameznih udeležencev, da pripravimo primerno velikost kolesa.">V povpraševanju nam sporočite, da POTREBUJETE KOLO ali ČELADO, ker nimate svoje opreme ter dodajte telesno višino posameznih udeležencev, da pripravimo primerno velikost kolesa.</p></div>
+</div>
+</div>
+</section>
+<!-- DARK SECTION -->
+<section class="dark-section" id="zakaj">
+<img alt="" aria-hidden="true" class="section-watermark-logo" src="assets/julian-alps-logo-black.png"/>
+<div class="dark-section-inner">
+<div class="zakaj-left reveal-left">
+<p class="dark-kicker">Premišljeno vodene ture</p>
+<h2>Zakaj z nami</h2>
+<p class="dark-lead">Turo sestavimo okoli ljudi, ne okoli urnika. Izberemo mirne ceste, pravi tempo in razglede, ki se odprejo takrat, ko vožnja dobi svoj ritem.</p>
+<div class="zakaj-items">
+<div class="zakaj-item open" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Pot po meri</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body open">Ne ponujamo ene trase za vse. Turo prilagodimo izkušnjam posamezniku ali skupini.</div></div>
+<div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Lokalni občutek</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body">Poznamo mirne ceste in poti, razgledne postanke in odseke, kjer Julijske Alpe zares pridejo do izraza.</div></div>
+<div class="zakaj-item" onclick="toggleZakaj(this)"><div class="zakaj-item-header"><span class="zakaj-title">Vaš dan, vaš tempo</span><span class="zakaj-arrow">+</span></div><div class="zakaj-body">Pri nas je pot jasna, tempo pa ostane sproščen. Dober izlet ne potrebuje hitenja!</div></div>
+</div>
+</div>
+<div class="rez-right reveal-right">
+<p class="dark-kicker">Od ideje do vožnje</p>
+<h2>Rezervacija</h2>
+<div class="rez-steps-wrap">
+<div class="rez-step active" onclick="setRezStep(this)"><div class="rez-step-num">1</div><div class="rez-step-text"><div class="rez-step-title">Izberi si svojo turo</div><div class="rez-step-desc">Povej, ali želiš lahek razgledni dan, vzpon ali daljše doživetje.</div></div></div>
+<div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">2</div><div class="rez-step-text"><div class="rez-step-title">Pošlji povpraševanje</div><div class="rez-step-desc">Dodaš termin, svojo željo, število oseb in raven pripravljenosti. Odgovorimo z realnim predlogom.</div></div></div>
+<div class="rez-step" onclick="setRezStep(this)"><div class="rez-step-num">3</div><div class="rez-step-text"><div class="rez-step-title">Potrdimo podrobnosti</div><div class="rez-step-desc">Dogovorimo zbirno mesto, uredimo opremo, potek dneva in morebitne prilagoditve.</div></div></div>
+</div>
+<div class="rez-cta"><a class="btn-olive" href="#kontakt">POŠLJI POVPRAŠEVANJE</a></div>
+</div>
+</div>
+</section>
+<!-- GALERIJA -->
+<section class="gal-section" id="galerija">
+<h2 class="reveal">Galerija</h2>
+<div class="gal-grid">
+<div class="gal-item reveal delay-1" data-num="01" onclick="openLightbox(0)"><img alt="Galerija 1" src="assets/IMG_7275.JPG"/></div>
+<div class="gal-item reveal delay-2" data-num="02" onclick="openLightbox(1)"><img alt="Galerija 2" src="assets/jasna-planica-meadow.jpg"/></div>
+<div class="gal-item reveal delay-3" data-num="03" onclick="openLightbox(2)"><img alt="Galerija 3" src="assets/planica-fusine-valley-road.jpg"/></div>
+<div class="gal-item reveal delay-4" data-num="04" onclick="openLightbox(3)"><img alt="Galerija 4" src="assets/IMG_7278.JPG"/></div>
+<div class="gal-item reveal delay-4" data-num="05" onclick="openLightbox(4)"><img alt="Galerija 5" src="assets/IMG_7277.JPG"/></div>
+<div class="gal-item reveal delay-3" data-num="06" onclick="openLightbox(5)"><img alt="Jezero pod Julijskimi Alpami" src="assets/julian-lake-reflection.jpg"/></div>
+<div class="gal-item reveal delay-4" data-num="07" onclick="openLightbox(6)"><img alt="Gorska pot v Julijskih Alpah" src="assets/ChatGPT Image Jul 8, 2026 at 09_30_05 PM.png"/></div>
+</div>
+</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="lbClickOutside(event)">
+<button class="lb-close" onclick="closeLightbox()">✕</button>
+<button class="lb-prev" onclick="lbPrev()">←</button>
+<button class="lb-next" onclick="lbNext()">→</button>
+<div class="lightbox-img-wrap"><img alt="" id="lbImg" src=""/></div>
+<div class="lb-counter" id="lbCounter">1 / 5</div>
+<div class="lb-dots" id="lbDots"></div>
+</div>
+<!-- EKIPA -->
+<section class="rev-section">
+<h2 class="reveal">Srce naše ekipe</h2>
+<div class="rev-grid">
+<div class="rev-card reveal delay-1"><span class="rev-quote"></span><p class="rev-text">Vodnik, ki pozna vse kotičke, razgledne ovinke in zna prisluhniti skupini. Poskrbi, da vožnja ostane sproščena in varna.</p><p class="rev-author">Vodnik ture</p></div>
+<div class="rev-card reveal delay-2"><span class="rev-quote"></span><p class="rev-text">Oseba za organizacijo, termine in vse male dogovore pred izletom. Pomaga izbrati turo, ki najbolj ustreza vaši ekipi.</p><p class="rev-author">Organizacija</p></div>
+<div class="rev-card reveal delay-3"><span class="rev-quote"></span><p class="rev-text">Lokalno znanje, izkušnje na terenu in občutek za vožnjo, postanke in razglede. To je del ekipe, ki turi doda karakter, Vam pa nepozabne spomine.</p><p class="rev-author">Lokalno znanje</p></div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+<h2 class="reveal">Pogosta vprašanja</h2>
+<div class="faq-tabs reveal">
+<button class="faq-tab active" onclick="switchTab(this,'tab-splosno')">SPLOŠNO</button>
+<button class="faq-tab" onclick="switchTab(this,'tab-ture')">TURE</button>
+<button class="faq-tab" onclick="switchTab(this,'tab-oprema')">OPREMA</button>
+<button class="faq-tab" onclick="switchTab(this,'tab-rezervacija')">REZERVACIJA</button>
+</div>
+<div class="faq-panels reveal">
+<div class="faq-panel active" id="tab-splosno">
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI SO TURE PRIMERNE ZA ZAČETNIKE?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Seveda, določene ture so primerne tudi za manj izkušene kolesarje. Turo lahko vedno prilagodimo glede na izkušnje in kondicijo.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KOLIKO OSEB JE LAHKO V SKUPINI?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Priporočeno število je do 8 oseb. Za večje skupine se predhodno dogovorimo. O tem nas ob rezervaciji obvestite.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAJ SE ZGODI V PRIMERU SLABEGA VREMENA?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">V primeru neprimernega vremena se dogovorimo za drug termin ali prilagodimo potek ture.</div></div>
+</div>
+<div class="faq-panel" id="tab-ture">
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO DOLGE SO TURE?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Razdalje od 25 - 110 km, višinski metri od 200 do 2000 m. Razlikujejo se glede na tip, dolžino ter težavnost. Več informacij pri "IZBERI SI SVOJO TURO"</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI SO TURE PRIMERNE ZA OTROKE?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Da, določene ture lahko prilagodimo tudi družinam z otroki. Pri povpraševanju nam sporočite starost otrok, njihove kolesarske izkušnje in kako samostojni so na kolesu. Na podlagi teh informacij vam pomagamo izbrati oziroma pripraviti turo, ki bo primerna za družino, varna in prijetna za vse udeležence.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KJE SE TURE ZAČNEJO?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">KRANJSKA GORA/ MOJSTRANA. Točna lokacija starta je odvisna od izbrane ture. Podrobnosti dobite po potrditvi rezervacije.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KDAJ IZVAJATE TURE?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Ture praviloma izvajamo v kolesarski sezoni, od pomladi do jeseni, odvisno od vremena, razmer na cestah in izbrane trase. Za alpske prelaze je sezona lahko krajša.</div></div>
+</div>
+<div class="faq-panel" id="tab-oprema">
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI POTREBUJEM SVOJE KOLO?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Ne nujno. Poleg vodenih tur ponujamo tudi možnost najema kolesa. Če potrebujete kolo za izposojo, nam to sporočite že ob povpraševanju. Prosimo, da dodate tudi telesno višino posameznih udeležencev, da lahko lažje pripravimo primerno velikost kolesa. Več informacij najdete v razdelku “Kolesa za vaš izlet”.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKŠNO OPREMO POTREBUJEM?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Čelada, kolesarska oblačila. Po želji; rokavice in sončna očala. Za daljše ture priporočamo nahrbtnik.</div></div>
+</div>
+<div class="faq-panel" id="tab-rezervacija">
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO REZERVIRAM TURO?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Izpolnite kontaktni obrazec ali pišite na info@probike-tours.si. Odgovorimo v 24 urah.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">KAKO POTEKA PLAČILO?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Gotovina ali bančno nakazilo po potrditvi rezervacije.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">ALI LAHKO ODPOVEM REZERVACIJO?<span class="faq-q-arrow">⌄</span></button><div class="faq-a">Brezplačna odpoved do 48 ur pred turo. Kasnejša odpoved: administrativni stroški.</div></div>
+</div>
+</div>
+</section>
+<!-- KONTAKT -->
+<section class="contact-section" id="kontakt">
+<div class="contact-inner">
+<div class="reveal-left">
+<h2 data-i18n-en="WRITE TO US!" data-i18n-sl="PIŠITE NAM!">Pišite nam!</h2>
+<p class="sub contact-main-copy" data-i18n-en="FILL IN A FEW SHORT DETAILS." data-i18n-sl="IZPOLNITE NEKAJ KRATKIH INFORMACIJ.">IZPOLNITE NEKAJ KRATKIH INFORMACIJ.</p>
+</div>
+<div class="reveal-right contact-cta-panel">
+<button class="contact-questionnaire-btn" onclick="openContactModal()" type="button">
+<span data-i18n-en="Fill in the questionnaire" data-i18n-sl="Izpolnite vprašalnik">Izpolnite vprašalnik</span>
+<small data-i18n-en="The enquiry form opens" data-i18n-sl="Odpre se obrazec za povpraševanje">Odpre se obrazec za povpraševanje</small>
+</button>
+</div>
+</div>
+</section>
+<div class="legal-modal-overlay contact-modal-overlay" id="contactModal" onclick="closeContactOutside(event)">
+<div aria-label="Povpraševanje" aria-modal="true" class="legal-modal contact-modal" role="dialog">
+<button aria-label="Zapri" class="legal-close" onclick="closeContactModal()" type="button">×</button>
+<h2 data-i18n-en="WRITE TO US!" data-i18n-sl="PIŠITE NAM!">Pišite nam!</h2>
+<p class="contact-modal-intro" data-i18n-en="Fill in a few short details. If you already know which tour interests you, choose it directly. If you are not sure yet, we will help you choose the right ride." data-i18n-sl="Izpolnite nekaj kratkih informacij. Če že veste, katera tura vas zanima, jo lahko izberete neposredno. Če še niste prepričani, vam bomo pomagali izbrati pravo turo.">Izpolnite nekaj kratkih informacij. Če že veste, katera tura vas zanima, jo lahko izberete neposredno. Če še niste prepričani, vam bomo pomagali izbrati pravo turo.</p>
+<form class="contact-form" id="contactForm" novalidate="" onsubmit="submitForm(event)">
+<div class="form-error" data-i18n-en="Please fill in all required fields so we can prepare the best possible tour proposal for you." data-i18n-sl="Prosimo, izpolnite vsa obvezna polja, da vam lahko pripravimo čim boljši predlog ture." id="contactError">Prosimo, izpolnite vsa obvezna polja, da vam lahko pripravimo čim boljši predlog ture.</div>
+<div class="form-section">
+<div class="form-section-title" data-i18n-en="Personal details" data-i18n-sl="Osebni podatki">Osebni podatki</div>
+<div class="form-row">
+<label><span class="form-field-label" data-i18n-en="Name and surname *" data-i18n-sl="Ime in priimek *">Ime in priimek *</span><input data-placeholder-en="Name and surname" data-placeholder-sl="Ime in priimek" id="contactName" placeholder="Ime in priimek" required="" type="text"/></label>
+<label><span class="form-field-label" data-i18n-en="Email *" data-i18n-sl="E-pošta *">E-pošta *</span><input data-placeholder-en="Email" data-placeholder-sl="E-pošta" id="contactEmail" placeholder="E-pošta" required="" type="email"/></label>
+</div>
+<label><span class="form-field-label" data-i18n-en="Phone" data-i18n-sl="Telefon">Telefon</span><input data-placeholder-en="Phone (optional)" data-placeholder-sl="Telefon (neobvezno)" id="contactPhone" placeholder="Telefon (neobvezno)" type="tel"/></label>
+</div>
+<div class="form-section">
+<div class="form-section-title" data-i18n-en="Date and group" data-i18n-sl="Termin in skupina">Termin in skupina</div>
+<label><span class="form-field-label" data-i18n-en="When would you like to ride? *" data-i18n-sl="Kdaj bi želeli na turo? *">Kdaj bi želeli na turo? *</span><input id="contactDate" required="" type="date"/></label>
+<div class="form-row">
+<label><span class="form-field-label" data-i18n-en="Adults in the group *" data-i18n-sl="Odrasli v skupini *">Odrasli v skupini *</span><input id="contactAdults" min="1" required="" type="number" value="1"/></label>
+<label><span class="form-field-label" data-i18n-en="Children in the group" data-i18n-sl="Otroci v skupini">Otroci v skupini</span><input id="contactChildren" min="0" type="number" value="0"/><span class="form-helper inline-helper" data-i18n-en="Children are participants up to 15 years old." data-i18n-sl="Otroci so udeleženci do 15. leta.">Otroci so udeleženci do 15. leta.</span></label>
+</div>
+</div>
+<div class="form-section">
+<div class="form-section-title" data-i18n-en="Tour choice" data-i18n-sl="Izbira ture">Izbira ture</div>
+<div class="form-field-label" data-i18n-en="Do you already know which tour interests you? *" data-i18n-sl="Že veste, katera tura vas zanima? *">Že veste, katera tura vas zanima? *</div>
+<div class="choice-grid choice-grid-two">
+<label class="choice-pill"><input data-en="Yes, I want to choose a tour" data-sl="Da, želim izbrati turo" name="tourChoiceMode" type="radio" value="direct"/><span data-i18n-en="Yes, I want to choose a tour" data-i18n-sl="Da, želim izbrati turo">Da, želim izbrati turo</span></label>
+<label class="choice-pill"><input data-en="I am not sure yet, help me choose" data-sl="Ne vem še, pomagajte mi izbrati" name="tourChoiceMode" type="radio" value="help"/><span data-i18n-en="I am not sure yet, help me choose" data-i18n-sl="Ne vem še, pomagajte mi izbrati">Ne vem še, pomagajte mi izbrati</span></label>
+</div>
+<div class="conditional-wrap" id="directTourWrap">
+<label><span class="form-field-label" data-i18n-en="Selected tour *" data-i18n-sl="Izbrana tura *">Izbrana tura *</span>
+<select id="selectedTour">
+<option data-i18n-en="Choose a tour" data-i18n-sl="Izberite turo" value="">Izberite turo</option>
+<option data-i18n-en="Upper Sava Valley" data-i18n-sl="Zgornjesavska dolina" value="Zgornjesavska dolina">Zgornjesavska dolina</option>
+<option data-i18n-en="Radovna Valley and Bled" data-i18n-sl="Dolina Radovne in Bled" value="Dolina Radovne in Bled">Dolina Radovne in Bled</option>
+<option data-i18n-en="Alpine Classics" data-i18n-sl="Alpske klasike" value="Alpske klasike">Alpske klasike</option>
+<option data-i18n-en="Julian Gravel" data-i18n-sl="Julijski gravel" value="Julijski gravel">Julijski gravel</option>
+<option data-i18n-en="I am not completely sure yet" data-i18n-sl="Nisem še čisto prepričan/a" value="Nisem še čisto prepričan/a">Nisem še čisto prepričan/a</option>
+</select>
+</label>
+</div>
+<div class="guided-questions" id="guidedQuestionsWrap">
+<div>
+<div class="form-field-label" data-i18n-en="What kind of ride feeling would you like? *" data-i18n-sl="Kakšen občutek ture želite? *">Kakšen občutek ture želite? *</div>
+<div class="choice-grid">
+<label class="choice-pill"><input data-en="Easy and scenic" data-sl="Lahkotno in razgledno" name="tourFeeling" type="radio" value="scenic"/><span data-i18n-en="Easy and scenic" data-i18n-sl="Lahkotno in razgledno">Lahkotno in razgledno</span></label>
+<label class="choice-pill"><input data-en="Family friendly" data-sl="Družinsko" name="tourFeeling" type="radio" value="family"/><span data-i18n-en="Family friendly" data-i18n-sl="Družinsko">Družinsko</span></label>
+<label class="choice-pill"><input data-en="A little climbing" data-sl="Malo vzpona" name="tourFeeling" type="radio" value="climb"/><span data-i18n-en="A little climbing" data-i18n-sl="Malo vzpona">Malo vzpona</span></label>
+<label class="choice-pill"><input data-en="Longer road ride" data-sl="Daljša cestna tura" name="tourFeeling" type="radio" value="long"/><span data-i18n-en="Longer road ride" data-i18n-sl="Daljša cestna tura">Daljša cestna tura</span></label>
+<label class="choice-pill"><input data-en="Gravel" data-sl="Gravel / makadam" name="tourFeeling" type="radio" value="gravel"/><span data-i18n-en="Gravel" data-i18n-sl="Gravel / makadam">Gravel / makadam</span></label>
+<label class="choice-pill"><input data-en="Not sure" data-sl="Nismo prepričani" name="tourFeeling" type="radio" value="unsure"/><span data-i18n-en="Not sure" data-i18n-sl="Nismo prepričani">Nismo prepričani</span></label>
+</div>
+</div>
+<div>
+<div class="form-field-label" data-i18n-en="What is your cycling experience? *" data-i18n-sl="Kakšne so vaše izkušnje? *">Kakšne so vaše izkušnje? *</div>
+<div class="choice-grid">
+<label class="choice-pill"><input data-en="Beginner" data-sl="Začetnik" name="experience" type="radio" value="beginner"/><span data-i18n-en="Beginner" data-i18n-sl="Začetnik">Začetnik</span></label>
+<label class="choice-pill"><input data-en="Recreational rider" data-sl="Rekreativec" name="experience" type="radio" value="recreational"/><span data-i18n-en="Recreational rider" data-i18n-sl="Rekreativec">Rekreativec</span></label>
+<label class="choice-pill"><input data-en="I ride regularly" data-sl="Redno kolesarim" name="experience" type="radio" value="regular"/><span data-i18n-en="I ride regularly" data-i18n-sl="Redno kolesarim">Redno kolesarim</span></label>
+<label class="choice-pill"><input data-en="Experienced cyclist" data-sl="Izkušen kolesar" name="experience" type="radio" value="experienced"/><span data-i18n-en="Experienced cyclist" data-i18n-sl="Izkušen kolesar">Izkušen kolesar</span></label>
+<label class="choice-pill"><input data-en="Mixed group" data-sl="Mešana skupina" name="experience" type="radio" value="mixed"/><span data-i18n-en="Mixed group" data-i18n-sl="Mešana skupina">Mešana skupina</span></label>
+</div>
+</div>
+</div>
+</div>
+<div class="form-section">
+<div class="form-section-title" data-i18n-en="Do you need rental bikes? *" data-i18n-sl="Potrebujete kolo za izposojo? *">Potrebujete kolo za izposojo? *</div>
+<div class="choice-grid">
+<label class="choice-pill"><input data-en="No, we have our own bikes" data-sl="Ne, imamo svoja kolesa" name="bikeRental" type="radio" value="no"/><span data-i18n-en="No, we have our own bikes" data-i18n-sl="Ne, imamo svoja kolesa">Ne, imamo svoja kolesa</span></label>
+<label class="choice-pill"><input data-en="Yes, we need bikes" data-sl="Da, potrebujemo kolesa" name="bikeRental" type="radio" value="yes"/><span data-i18n-en="Yes, we need bikes" data-i18n-sl="Da, potrebujemo kolesa">Da, potrebujemo kolesa</span></label>
+<label class="choice-pill"><input data-en="Not sure yet" data-sl="Nismo še prepričani" name="bikeRental" type="radio" value="unsure"/><span data-i18n-en="Not sure yet" data-i18n-sl="Nismo še prepričani">Nismo še prepričani</span></label>
+</div>
+<div class="bike-heights-wrap" id="bikeHeightsWrap">
+<label><span class="form-field-label" data-i18n-en="Participants' body height" data-i18n-sl="Telesna višina udeležencev">Telesna višina udeležencev</span><textarea data-placeholder-en="e.g. person 1: 180 cm, person 2: 165 cm, child: 145 cm..." data-placeholder-sl="npr. oseba 1: 180 cm, oseba 2: 165 cm, otrok: 145 cm..." id="contactHeights" placeholder="npr. oseba 1: 180 cm, oseba 2: 165 cm, otrok: 145 cm..."></textarea></label>
+<p class="form-helper" data-i18n-en="We need this information so we can prepare the right bike size for each participant." data-i18n-sl="Podatek potrebujemo zato, da lahko lažje pripravimo primerno velikost kolesa za posameznega udeleženca.">Podatek potrebujemo zato, da lahko lažje pripravimo primerno velikost kolesa za posameznega udeleženca.</p>
+</div>
+</div>
+<div class="form-section">
+<div class="form-section-title" data-i18n-en="Additional message" data-i18n-sl="Dodatno sporočilo">Dodatno sporočilo</div>
+<textarea data-placeholder-en="Write anything that helps us: children’s ages, pace wishes, special requests, questions or group information." data-placeholder-sl="Napišite karkoli, kar nam pomaga: starost otrok, želje glede tempa, posebne želje, vprašanja ali informacije o skupini." id="contactMessage" placeholder="Napišite karkoli, kar nam pomaga: starost otrok, želje glede tempa, posebne želje, vprašanja ali informacije o skupini."></textarea>
+</div>
+<button class="btn-olive" data-i18n-en="SEND ENQUIRY" data-i18n-sl="POŠLJI POVPRAŠEVANJE" type="submit">POŠLJI POVPRAŠEVANJE</button>
+</form>
+<div class="form-success" id="formSuccess"><p data-i18n-en="Your email program is opening." data-i18n-sl="Odpiramo vaš e-mail program.">Odpiramo vaš e-mail program.</p></div>
+</div>
+</div>
+<div class="closing">
+<div class="closing-logo reveal"><span>JULIAN ALPS CYCLING</span></div>
+<h2 class="reveal">SE VIDIMO,<br/>KMALU.</h2>
+</div>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-col">
+<h3>Julian Alps Cycling</h3>
+<div class="footer-links">
+<a href="#ture">01  Ture</a>
+<a href="#kontakt">02  Povprašaj</a>
+<a href="#faq">03  Vprašanja</a>
+</div>
+</div>
+<div class="footer-col">
+<h3>Follow us on</h3>
+<div aria-label="Follow us" class="footer-follow">
+<a aria-label="Instagram" href="#kontakt"><svg viewbox="0 0 24 24"><rect height="16" rx="5" width="16" x="4" y="4"></rect><circle cx="12" cy="12" r="3.4"></circle><circle cx="17" cy="7" fill="currentColor" r="0.8" stroke="none"></circle></svg></a>
+<a aria-label="Email" href="mailto:info@probike-tours.si"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="17" x="3.5" y="6"></rect><path d="M4.5 7.5 12 13l7.5-5.5"></path></svg></a>
+<a aria-label="WhatsApp" href="#kontakt"><svg viewbox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"></path><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"></path></svg></a>
+</div>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<div class="footer-contact">
+<a href="mailto:info@probike-tours.si">info@probike-tours.si</a>
+<a href="#kontakt">Pošlji povpraševanje</a>
+<a href="#ture">Oglej si ture</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Julian Alps Cycling. Vse pravice pridržane.</p>
+<div aria-label="Pravne povezave" class="footer-legal">
+<button onclick="openLegal('privacy')" type="button">Privacy Policy</button>
+<button onclick="openLegal('terms')" type="button">Terms and Conditions</button>
+<button onclick="openLegal('cookies')" type="button">Cookies</button>
+</div>
+</div>
+</footer>
+<a aria-label="Pišite nam prek WhatsApp" class="floating-whatsapp" href="#kontakt">
+<span class="floating-whatsapp-bubble">Vprašanja? Pišite nam!</span>
+<span class="floating-whatsapp-icon">
+<span class="floating-whatsapp-badge">1</span>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6.6 18.2 4.5 20l.7-2.7A8 8 0 1 1 12 20a7.9 7.9 0 0 1-5.4-1.8Z"></path><path d="M9.2 8.7c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.7 2.7l.5-.4c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .3-.1.5-.5.7-.6.3-1.4.4-2.4.1-2.8-.8-5.1-3.1-5.9-5.9-.3-1-.2-1.8.1-2.4Z"></path></svg>
+</span>
+</a>
+<div class="legal-modal-overlay" id="legalModal" onclick="closeLegalOutside(event)">
+<div aria-label="Pravne informacije" aria-modal="true" class="legal-modal" role="dialog">
+<button aria-label="Zapri" class="legal-close" onclick="closeLegal()" type="button">×</button>
+<div class="legal-panel" id="legal-privacy">
+<h2>Privacy Policy</h2>
+<p>Zadnja posodobitev: 25. junij 2026. Ta politika zasebnosti pojasnjuje, kako Julian Alps Cycling obravnava osebne podatke, ki nam jih posredujete prek spletne strani, kontaktnega obrazca, e-pošte ali drugih komunikacijskih kanalov.</p>
+<h3>Katere podatke zbiramo</h3>
+<p>Ob povpraševanju lahko obdelujemo vaše ime, priimek, e-poštni naslov, telefonsko številko, izbrano turo, želeni termin, število oseb, vaše kolesarske izkušnje in vsebino sporočila.</p>
+<h3>Zakaj jih uporabljamo</h3>
+<ul>
+<li>za pripravo odgovora na povpraševanje in predloga ture,</li>
+<li>za dogovor glede termina, zahtevnosti, lokacije starta in izvedbe,</li>
+<li>za komunikacijo pred, med in po rezervaciji,</li>
+<li>za izpolnjevanje zakonskih obveznosti, če pride do potrjene storitve.</li>
+</ul>
+<h3>Hramba in deljenje podatkov</h3>
+<p>Podatke hranimo samo toliko časa, kot je potrebno za namen komunikacije, izvedbe storitve ali zakonskih obveznosti. Podatkov ne prodajamo. Delimo jih le, kadar je to potrebno za izvedbo storitve, tehnično delovanje spletne strani ali kadar to zahteva zakon.</p>
+<h3>Vaše pravice</h3>
+<p>Imate pravico do dostopa, popravka, izbrisa, omejitve obdelave in ugovora. Za vprašanja nam pišite na <a href="mailto:info@probike-tours.si">info@probike-tours.si</a>.</p>
+</div>
+<div class="legal-panel" id="legal-terms">
+<h2>Terms and Conditions</h2>
+<p>Ti pogoji opisujejo osnovna pravila uporabe spletne strani Julian Alps Cycling in dogovarjanja za vodene kolesarske ture. Oddaja povpraševanja še ne pomeni potrjene rezervacije.</p>
+<h3>Rezervacija in potrditev</h3>
+<p>Tura je potrjena šele po pisni potrditvi termina, lokacije, cene, programa in morebitnih posebnih pogojev. Program ture lahko prilagodimo glede na vreme, promet, sposobnosti skupine in varnostne razmere.</p>
+<h3>Odgovornost udeležencev</h3>
+<ul>
+<li>Udeleženec mora biti zdravstveno sposoben za izbrano kolesarsko aktivnost.</li>
+<li>Obvezna je uporaba čelade in tehnično brezhibnega kolesa.</li>
+<li>Udeleženec mora spoštovati cestnoprometne predpise in navodila vodnika.</li>
+<li>Priporočamo ustrezno nezgodno in potovalno zavarovanje.</li>
+</ul>
+<h3>Cene, plačilo in odpoved</h3>
+<p>Cene so odvisne od izbrane ture, števila oseb in dogovorjenih dodatnih storitev. Plačilo, odpovedni roki in morebitni stroški odpovedi se potrdijo pisno ob rezervaciji.</p>
+<h3>Vreme in varnost</h3>
+<p>V primeru slabega vremena ali drugih varnostnih razlogov lahko turo prestavimo, skrajšamo, prilagodimo ali odpovemo. Varnost ima prednost pred izvedbo prvotno dogovorjene trase.</p>
+</div>
+<div class="legal-panel" id="legal-cookies">
+<h2>Cookies</h2>
+<p>Ta spletna stran trenutno uporablja predvsem osnovne tehnične elemente, ki omogočajo prikaz strani in obrazcev. Če bodo kasneje dodana analitična orodja, oglaševalski piškotki ali vdelane zunanje storitve, bo treba uporabniku omogočiti ustrezno izbiro in soglasje.</p>
+<h3>Nujni piškotki</h3>
+<p>Nujni piškotki oziroma tehnična shramba so potrebni za osnovno delovanje spletne strani in jih ni mogoče izključiti, če so potrebni za varnost ali funkcionalnost.</p>
+<h3>Zunanje storitve</h3>
+<p>Stran lahko naloži zunanje vire, kot so spletne pisave ali povezave na družbena omrežja. Takšne storitve imajo lahko lastne politike zasebnosti in piškotkov.</p>
+<h3>Upravljanje piškotkov</h3>
+<p>Piškotke lahko upravljate ali izbrišete v nastavitvah svojega brskalnika. Če se na strani kasneje doda analitika ali oglaševanje, priporočamo dodatek za upravljanje soglasij.</p>
+</div>
+</div>
+</div>
+<!-- TOUR MODAL -->
+<div class="modal-overlay tour-category-overlay" id="tourCategoryModal" onclick="closeTourCategoryOutside(event)">
+<div aria-label="Podrobnosti ture" aria-modal="true" class="modal tour-category-modal" role="dialog">
+<button class="modal-close" onclick="closeTourCategoryModal()">x</button>
+<p class="modal-label">Julian Alps cycling</p>
+<h3 class="modal-title" id="tourCategoryTitle">Upper Sava Valley</h3>
+<p class="route-category-desc" id="tourCategoryDesc"></p>
+<div class="modal-meta route-category-meta" id="tourCategoryMeta"></div>
+<p class="route-category-help">Niste prepričani, katera možnost vam najbolj ustreza? Pošljite nam osnovne informacije in predlagali Vam bomo pravo traso.</p>
+<div class="route-options-grid" id="routeOptionsGrid"></div>
+<div class="route-detail-panel">
+<div class="route-detail-copy">
+<p class="modal-label">Izbrana tura</p>
+<h4 class="route-detail-title" id="routeDetailTitle"></h4>
+<p class="route-detail-desc" id="routeDetailDesc"></p>
+<div class="route-detail-meta">
+<div class="meta-item"><div class="meta-lbl">Razdalja</div><div class="meta-val" id="routeDetailDistance"></div></div>
+<div class="meta-item"><div class="meta-lbl">Višinci</div><div class="meta-val" id="routeDetailElevation"></div></div>
+</div>
+<button class="modal-cta" onclick="enquireActiveTour()">POVPRAŠAJ ZA TO TURO</button>
+</div>
+<div class="route-mini-gallery" id="routeMiniGallery"></div>
+</div>
+</div>
+</div>
+<script>
+// ===== HERO entrance =====
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    ['heroLogo','heroSub','heroH1','heroBtns'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el) el.classList.add('in');
+    });
+  },100);
+});
+
+// ===== HERO parallax =====
+window.addEventListener('scroll',function(){
+  var s=window.scrollY;
+  var bg=document.getElementById('heroBg');
+  if(bg) bg.style.transform='scale(1.08) translateY('+(s*0.25)+'px)';
+  document.getElementById('mainNav').classList.toggle('scrolled',s>20);
+});
+
+// ===== SCROLL REVEAL =====
+var revEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+revEls.forEach(function(el){ro.observe(el)});
+
+// ===== STATS counter =====
+document.querySelectorAll('.stat-item').forEach(function(item){
+  var so=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target.querySelector('.stat-num');
+        var target=parseInt(el.getAttribute('data-target'));
+        var start=null; el.style.opacity='1';
+        function step(ts){
+          if(!start)start=ts;
+          var p=Math.min((ts-start)/1200,1);
+          var ease=1-Math.pow(1-p,3);
+          el.textContent=Math.round(ease*target)+(target===100?'%':'+');
+          if(p<1)requestAnimationFrame(step);
+          else el.textContent=target+(target===100?'%':'+');
+        }
+        requestAnimationFrame(step);
+        so.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  so.observe(item);
+});
+
+// ===== LIGHTBOX =====
+// Read image srcs directly from DOM to avoid base64-in-JS escaping issues
+var lbImages = [];
+var lbCurrent = 0;
+
+function initLightbox() {
+  lbImages = [];
+  document.querySelectorAll('.gal-item img').forEach(function(img) {
+    lbImages.push(img.src);
+  });
+}
+
+function buildDots() {
+  var dotsEl = document.getElementById('lbDots');
+  dotsEl.innerHTML = '';
+  lbImages.forEach(function(src, i) {
+    var d = document.createElement('button');
+    d.className = 'lb-dot' + (i === lbCurrent ? ' active' : '');
+    d.onclick = function(e) { e.stopPropagation(); goToLb(i); };
+    dotsEl.appendChild(d);
+  });
+}
+
+function openLightboxFromImages(images, idx) {
+  lbImages = images.slice();
+  lbCurrent = idx;
+  var lb = document.getElementById('lightbox');
+  var img = document.getElementById('lbImg');
+  img.style.transition = 'none';
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.92)';
+  img.src = lbImages[lbCurrent];
+  img.onload = function() {
+    img.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+    img.style.opacity = '1';
+    img.style.transform = 'scale(1)';
+  };
+  document.getElementById('lbCounter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+  buildDots();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setModalState(true);
+}
+
+function openLightbox(idx) {
+  initLightbox();
+  openLightboxFromImages(lbImages, idx);
+}
+
+function openRouteLightbox(idx) {
+  var cat = tourCategories[activeTourCategoryId];
+  if (!cat || !cat.tours[activeTourIndex]) return;
+  openLightboxFromImages(cat.tours[activeTourIndex].images, idx);
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  setModalState(false);
+}
+
+function goToLb(idx) {
+  lbCurrent = idx;
+  var img = document.getElementById('lbImg');
+  img.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.92)';
+  setTimeout(function() {
+    img.src = lbImages[lbCurrent];
+    img.onload = function() {
+      img.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+      img.style.opacity = '1';
+      img.style.transform = 'scale(1)';
+    };
+    document.getElementById('lbCounter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+    buildDots();
+  }, 150);
+}
+
+function lbNext() { goToLb((lbCurrent + 1) % lbImages.length); }
+function lbPrev() { goToLb((lbCurrent - 1 + lbImages.length) % lbImages.length); }
+function lbClickOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+
+// swipe support
+var lbTouchX=null;
+document.getElementById('lightbox').addEventListener('touchstart',function(e){lbTouchX=e.touches[0].clientX});
+document.getElementById('lightbox').addEventListener('touchend',function(e){
+  if(lbTouchX===null)return;
+  var dx=e.changedTouches[0].clientX-lbTouchX;
+  if(Math.abs(dx)>50){dx<0?lbNext():lbPrev();}
+  lbTouchX=null;
+});
+
+function setModalState(open){
+  if(open){
+    document.body.classList.add('modal-open');
+    return;
+  }
+  setTimeout(function(){
+    var stillOpen=document.querySelector('.modal-overlay.open,.legal-modal-overlay.open,.lightbox.open');
+    document.body.classList.toggle('modal-open',!!stillOpen);
+  },0);
+}
+
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  if(!menu)return;
+  var open=!menu.classList.contains('open');
+  menu.classList.toggle('open',open);
+  document.body.classList.toggle('mobile-menu-open',open);
+}
+
+function closeMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  if(menu)menu.classList.remove('open');
+  document.body.classList.remove('mobile-menu-open');
+}
+
+function toggleIntroCard(card){
+  if(window.innerWidth>520)return;
+  card.classList.toggle('is-flipped');
+}
+
+function openIntroMap(e){
+  if(e)e.stopPropagation();
+  var modal=document.getElementById('introMapModal');
+  if(!modal)return;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  setModalState(true);
+}
+
+function closeIntroMap(){
+  var modal=document.getElementById('introMapModal');
+  if(modal)modal.classList.remove('open');
+  document.body.style.overflow='';
+  setModalState(false);
+}
+
+function closeIntroMapOutside(e){
+  if(e.target.id==='introMapModal')closeIntroMap();
+}
+
+function toggleMobileCalculator(){
+  var finder=document.getElementById('najdi-turo');
+  if(finder)finder.classList.toggle('mobile-calc-open');
+}
+
+// ===== TOUR CATEGORIES =====
+var tourCategories={
+  'upper-sava':{title:'Upper Sava Valley',meta:['30-45 km','220-380 m+','Cestna / Razgledna'],desc:'Krajše razgledne poti po Zgornjesavski dolini, primerne so za sproščeno vožnjo, prvi stik z Julijskimi Alpami in krajši kolesarski dan.',tours:[
+    {title:'Jezero Jasna',route:'Mojstrana - jezero Jasna - Mojstrana',distance:'30 km',elevation:'220 m+',desc:'Sproščena razgledna vožnja iz Mojstrane proti Kranjski Gori in jezeru Jasna. Primerna je za prvi stik z Julijskimi Alpami, saj ponuja odprte poglede na dolino, miren ritem vožnje in lepo naravno kuliso.',images:['assets/image-01-2e0dff7f46.jpg','assets/jasna-ride-road.jpg','assets/jasna-ride-bridge.jpg']},
+    {title:'Jasna & Planica',route:'Mojstrana - jezero Jasna - Planica - Mojstrana',distance:'45 km',elevation:'380 m+',type:'Cestna / Razgledna',desc:'Klasična tura po Zgornjesavski dolini, ki poveže Mojstrano, Kranjsko Goro, jezero Jasna in Planico. Tura je tekoča, razgledna in primerna za kolesarje, ki želijo lep krog brez zahtevnih alpskih vzponov.',images:['assets/jasna-planica-road.jpg','assets/jasna-planica-lake-ibex.jpg','assets/jasna-planica-jumps.jpg','assets/jasna-planica-meadow.jpg']},
+    {title:'Planica & Belopeška jezera',route:'Kranjska Gora - Planica - Belopeška jezera - Kranjska Gora',distance:'30 km',elevation:'360 m+',type:'Cestna / Čezmejna razgledna',desc:'Krajša, a zelo slikovita vožnja iz Kranjske Gore skozi Planico in naprej proti Belopeškim jezerom. Tura ponuja alpske razglede, občutek treh meja in enega najlepših kratkih kolesarskih izletov v okolici.',images:['assets/planica-fusine-road.jpg','assets/planica-fusine-lake-boats.jpg','assets/planica-fusine-lake-view.jpg','assets/planica-fusine-valley-road.jpg']},
+    {title:'Slap Peričnik',route:'Kranjska Gora - slap Peričnik - Kranjska Gora',distance:'35 km',elevation:'300 m+',type:'Cestna / Razgledna',desc:'Razgledna cestna tura iz Kranjske Gore proti Mojstrani in slapu Peričnik. Vožnja je umirjena, prijetna in ima močno naravno točko, ki turi doda poseben značaj.',images:['assets/image-12-42d24c65c8.png','assets/julian-lake-reflection.jpg','assets/image-03-b38989071a.png']}
+  ]},
+  'radovna-bled':{title:'Radovna Valley & Bled Gateway',meta:['30-50 km','450-700 m+','Cestna / Dolinska'],desc:'Cestne ture proti Radovni, Bledu, Jesenicam in krajem nad dolino. Ture združujejo mirnejše ceste, lokalne vzpone, slapove, jezera in klasične gorenjske razglede.',tours:[
+    {title:'Peričnik & Kreda Lake Ride',route:'Mojstrana - slap Peričnik - jezero Kreda - Mojstrana',distance:'30 km',elevation:'450 m+',type:'Cestna / Dolinska',desc:'Lokalna tura, ki združi slap Peričnik, mirne dolinske ceste in jezero Kreda. Po razdalji je krajša, vendar ponudi veliko naravnih zanimivosti in lep občutek vožnje skozi domače okolje.',images:['assets/bled-gateway-banner.jpg','assets/julian-lake-reflection.jpg','assets/image-15-3692c00272.png']},
+    {title:'Golica Side Ride',route:'Mojstrana - Planina pod Golico - Mojstrana',distance:'30 km',elevation:'500 m+',type:'Cestna / Lokalni vzpon',desc:'Kompaktna cestna tura proti vasem nad Jesenicami in Planini pod Golico. Primerna je za kolesarje, ki si želijo krajše vožnje z bolj izrazitim vzponom in lepimi pogledi na drugo stran doline.',images:['assets/image-15-3692c00272.png','assets/bled-gateway-banner.jpg','assets/image-14-21ffc4599b.png']},
+    {title:'Lake Bled Ride',route:'Mojstrana - Blejsko jezero',distance:'45 km',elevation:'650 m+',type:'Cestna / Destinacijska tura',desc:'Lepa cestna tura iz Mojstrane proti Bledu. Združuje mirnejše ceste, gorenjske razglede in eno najbolj prepoznavnih slovenskih destinacij. Primerna je tudi kot enosmerna tura po dogovoru.',images:['assets/bled-gateway-banner.jpg','assets/julian-lake-reflection.jpg','assets/image-03-b38989071a.png']},
+    {title:'Radovna, Bled & Radovljica Loop',route:'Mojstrana - Radovna - Bled - Radovljica - Jesenice - Mojstrana',distance:'50 km',elevation:'700 m+',type:'Cestna / Dolinski krog',desc:'Razgiban cestni krog skozi Radovno, Bled, Radovljico in nazaj proti Mojstrani. Tura ponuja dobro kombinacijo dolinskih cest, lokalnih krajev, razgledov in pravega gorenjskega občutka.',images:['assets/bled-gateway-banner.jpg','assets/image-15-3692c00272.png','assets/image-12-42d24c65c8.png']}
+  ]},
+  'alpine-kings':{title:'Alpine Kings & Queens',meta:['25-108 km','750-1.900 m+','Cestna / Alpska'],desc:'Daljše alpske cestne ture za kolesarje, ki si želijo več vzponov, več kilometrov in pravega gorskega kolesarskega dne. To so ture za močne noge, dolge razglede in ikonične alpske ceste.',tours:[
+    {title:'Vršič Climb',route:'Kranjska Gora - Vršič - Kranjska Gora',distance:'25 km',elevation:'750 m+',type:'Cestna / Vzpon',desc:'Kratka, a izrazita alpska tura na enega najbolj znanih slovenskih prelazov. Razdalja ni dolga, vendar vzpon na Vršič hitro pokaže pravi gorski značaj.',images:['assets/alpine-kings-ibex.jpg','assets/julian-gravel-escape.jpg','assets/image-14-21ffc4599b.png']},
+    {title:'Soča Gorge Ride',route:'Kranjska Gora - Vršič - Velika korita Soče - Kranjska Gora',distance:'70 km',elevation:'1.700 m+',type:'Cestna / Alpska',desc:'Prava alpska tura čez Vršič proti dolini Soče in Velikim koritom Soče. Tura združuje dolg vzpon, razgledne spuste in enega najlepših alpskih ambientov v Sloveniji.',images:['assets/alpine-kings-ibex.jpg','assets/julian-gravel-escape.jpg','assets/image-10-d14ca99cb3.png']},
+    {title:'Bovec, Trenta & Vršič Ride',route:'Kranjska Gora - Bovec - Trenta - Vršič - Kranjska Gora',distance:'85 km',elevation:'1.900 m+',type:'Cestna / Alpski krog',desc:'Zahtevna alpska tura, ki poveže Kranjsko Goro, Vršič, Trento in Bovec. Namenjena je kolesarjem, ki si želijo polnega gorskega dneva z dolgimi vzponi, spusti in razgledi.',images:['assets/alpine-kings-ibex.jpg','assets/julian-gravel-escape.jpg','assets/image-14-21ffc4599b.png']},
+    {title:'Sella Nevea Ride',route:'Kranjska Gora - Sella Nevea - Kranjska Gora',distance:'75 km',elevation:'900 m+',type:'Cestna / Italijanska alpska tura',desc:'Čezmejna cestna tura proti Sella Nevei. Vožnja ponuja drugačen cestni karakter, italijansko alpsko kuliso in tekočo traso za kolesarje, ki želijo nekaj več od klasične dolinske vožnje.',images:['assets/image-14-21ffc4599b.png','assets/alpine-kings-ibex.jpg','assets/julian-lake-reflection.jpg']},
+    {title:'Bohinj Ride',route:'Mojstrana - Bohinj - Mojstrana',distance:'95 km',elevation:'1.000 m+',type:'Cestna / Vzdržljivostna',desc:'Daljša gorenjska tura iz Mojstrane proti Bohinju. Primerna je za kolesarje, ki želijo več kilometrov, mirnejši ritem in vožnjo skozi doline, vasi ter jezerski ambient.',images:['assets/bohinj-ride-lake-bikes.jpg','assets/bohinj-ride-forest-road.jpg','assets/bohinj-ride-sunny-road.jpg','assets/bohinj-ride-cyclist-river.jpg']},
+    {title:'Pokljuka & Bohinj Ride',route:'Mojstrana - Pokljuka - Bohinj - Mojstrana',distance:'95 km',elevation:'1.500 m+',type:'Cestna / Alpska vzdržljivostna',desc:'Zahtevnejša različica bohinjske ture, ki doda vzpon na Pokljuko. Tura ponuja gozdne ceste, alpsko planoto, spust proti Bohinju in občutek pravega dolgega kolesarskega dne.',images:['assets/alpine-kings-ibex.jpg','assets/julian-lake-reflection.jpg','assets/image-12-42d24c65c8.png']},
+    {title:'Jamnik, Tržič & Begunje Ride',route:'Mojstrana - Jamnik - Tržič - Begunje - Mojstrana',distance:'100 km',elevation:'1.600 m+',type:'Cestna / Dolga klasika',desc:'Raznolika dolga cestna tura po nekaterih najlepših cestah Gorenjske. Jamnik, Tržič in Begunje dodajo vzpone, razglede in močan lokalni značaj.',images:['assets/image-15-3692c00272.png','assets/alpine-kings-ibex.jpg','assets/image-14-21ffc4599b.png']},
+    {title:'Pontebba & Sella Nevea Loop',route:'Kranjska Gora - Pontebba - Sella Nevea - Tarvisio - Kranjska Gora',distance:'108 km',elevation:'1.300 m+',type:'Cestna / Čezmejni alpski krog',desc:'Daljši čezmejni cestni krog skozi Italijo, ki poveže Pontebbo, Sella Neveo in Tarvisio. Tura je primerna za kolesarje, ki želijo več kilometrov, alpske razglede in občutek velikega cestnega dne.',images:['assets/alpine-kings-ibex.jpg','assets/julian-gravel-escape.jpg','assets/image-10-d14ca99cb3.png']}
+  ]},
+  'julian-gravel':{title:'Julian Gravel Escape',meta:['18-40 km','200-650 m+','Gravel / Pustolovska'],desc:'Gravel ture okoli Mojstrane, Radovne, Krme, Plavškega Rovta in skritih gozdnih cest nad dolino. Po razdalji so krajše, vendar ponujajo vzpone, mirne poti in bolj pustolovski občutek Julijskih Alp.',tours:[
+    {title:'Planina na Vršah Gravel Climb',route:'Mojstrana - Planina na Vršah - Mojstrana',distance:'18 km',elevation:'550 m+',type:'Gravel / Kratek vzpon',desc:'Kratka, a strma gravel tura nad Mojstrano. Primerna je za kolesarje, ki želijo kompakten izziv, lokalni vzpon in občutek bolj divje vožnje.',images:['assets/julian-gravel-escape.jpg','assets/image-10-d14ca99cb3.png','assets/image-14-21ffc4599b.png']},
+    {title:'Peričnik & Krma Gravel Ride',route:'Mojstrana - slap Peričnik - dolina Krma - Mojstrana',distance:'25 km',elevation:'400 m+',type:'Gravel / Dolinska',desc:'Slikovita gravel tura proti slapu Peričnik in dolini Krma. Mirnejše poti, pogledi proti goram in prijeten pustolovski občutek brez predolge razdalje.',images:['assets/image-12-42d24c65c8.png','assets/julian-gravel-escape.jpg','assets/julian-lake-reflection.jpg']},
+    {title:'Plavški Rovt Gravel Loop',route:'Mojstrana - Dovje - Plavški Rovt - Hrušica - Mojstrana',distance:'25 km',elevation:'650 m+',type:'Gravel / Lokalni vzpon',desc:'Kratka, razgibana gravel tura skozi Dovje, Plavški Rovt in Hrušico. Po razdalji ni dolga, vendar ima dovolj vzpona in lokalnega karakterja, da deluje kot prava gravel vožnja.',images:['assets/image-10-d14ca99cb3.png','assets/image-15-3692c00272.png','assets/julian-gravel-escape.jpg']},
+    {title:'Radovna & Klek Gravel Escape',route:'Mojstrana - Radovna - Klek - Mojstrana',distance:'40 km',elevation:'200 m+',type:'Gravel / Lažja pustolovska',desc:'Daljša, a bolj umirjena gravel tura skozi Radovno in Klek. Primerna je za kolesarje, ki želijo naravo, makadam, mirnejši ritem in manj tehnično zahtevno vožnjo.',images:['assets/image-08-a3d0d9b26c.png','assets/julian-gravel-escape.jpg','assets/image-12-42d24c65c8.png']}
+  ]}
+};
+
+var currentLang='sl';
+var tourCategoriesSl=tourCategories;
+var tourCategoriesEn={"upper-sava": {"title": "Upper Sava Valley", "meta": ["30-45 km", "220-380 m+", "Road / Scenic"], "desc": "Short scenic road rides through the Upper Sava Valley, ideal for a relaxed ride, your first contact with the Julian Alps and a shorter cycling day.", "tours": [{"title": "Lake Jasna Ride", "distance": "30 km", "elevation": "220 m+", "desc": "A relaxed scenic ride from Mojstrana toward Kranjska Gora and Lake Jasna. A gentle first taste of the Julian Alps with open valley views, calm rhythm and beautiful natural surroundings.", "images": ["assets/image-01-2e0dff7f46.jpg", "assets/jasna-ride-road.jpg", "assets/jasna-ride-bridge.jpg"]}, {"title": "Jasna & Planica Ride", "distance": "45 km", "elevation": "380 m+", "desc": "A classic Upper Sava Valley ride connecting Mojstrana, Kranjska Gora, Lake Jasna and Planica. Flowing, scenic and ideal for cyclists who want a beautiful loop without demanding alpine climbs.", "images": ["assets/jasna-planica-road.jpg", "assets/jasna-planica-lake-ibex.jpg", "assets/jasna-planica-jumps.jpg", "assets/jasna-planica-meadow.jpg"]}, {"title": "Planica & Fusine Lakes", "distance": "30 km", "elevation": "360 m+", "desc": "A short but very scenic ride from Kranjska Gora through Planica and on toward the Fusine Lakes. Alpine views, a cross-border feeling and one of the finest short rides in the area.", "images": ["assets/planica-fusine-road.jpg", "assets/planica-fusine-lake-boats.jpg", "assets/planica-fusine-lake-view.jpg", "assets/planica-fusine-valley-road.jpg"]}, {"title": "Peričnik Waterfall Ride", "distance": "35 km", "elevation": "300 m+", "desc": "A scenic road ride from Kranjska Gora toward Mojstrana and Peričnik waterfall. Calm, pleasant and shaped around a strong natural highlight.", "images": ["assets/image-12-42d24c65c8.png", "assets/julian-lake-reflection.jpg", "assets/image-03-b38989071a.png"]}]}, "radovna-bled": {"title": "Radovna Valley & Bled Gateway", "meta": ["30-50 km", "450-700 m+", "Road / Valley"], "desc": "Road tours toward Radovna, Bled, Jesenice and the villages above the valley. Quiet roads, local climbs, waterfalls, lakes and classic Gorenjska views.", "tours": [{"title": "Peričnik & Kreda Lake Ride", "distance": "30 km", "elevation": "450 m+", "desc": "A local ride combining Peričnik waterfall, quiet valley roads and Lake Kreda. Short in distance, rich in natural highlights and full of local character.", "images": ["assets/bled-gateway-banner.jpg", "assets/julian-lake-reflection.jpg", "assets/image-15-3692c00272.png"]}, {"title": "Golica Side Ride", "distance": "30 km", "elevation": "500 m+", "desc": "A compact road ride toward the villages above Jesenice and Planina pod Golico. Ideal if you want a shorter ride with a clear climb and views across the valley.", "images": ["assets/image-15-3692c00272.png", "assets/bled-gateway-banner.jpg", "assets/image-14-21ffc4599b.png"]}, {"title": "Lake Bled Ride", "distance": "45 km", "elevation": "650 m+", "desc": "A beautiful road ride from Mojstrana toward Lake Bled, combining quieter roads, Gorenjska views and one of Slovenia’s most iconic destinations.", "images": ["assets/bled-gateway-banner.jpg", "assets/julian-lake-reflection.jpg", "assets/image-03-b38989071a.png"]}, {"title": "Radovna, Bled & Radovljica Loop", "distance": "50 km", "elevation": "700 m+", "desc": "A varied road loop through Radovna, Bled, Radovljica and back toward Mojstrana. A strong mix of valley roads, local places, views and true Gorenjska feeling.", "images": ["assets/bled-gateway-banner.jpg", "assets/image-15-3692c00272.png", "assets/image-12-42d24c65c8.png"]}]}, "alpine-kings": {"title": "Alpine Classics", "meta": ["25-108 km", "750-1,900 m+", "Road / Alpine"], "desc": "Longer alpine road rides for cyclists who want more climbing, more distance and a real mountain cycling day. Strong legs, long views and iconic alpine roads.", "tours": [{"title": "Vršič Climb", "distance": "25 km", "elevation": "750 m+", "desc": "A short but unmistakably alpine ride to one of Slovenia’s most famous mountain passes. Not long in distance, but the climb quickly shows its mountain character.", "images": ["assets/alpine-kings-ibex.jpg", "assets/julian-gravel-escape.jpg", "assets/image-14-21ffc4599b.png"]}, {"title": "Soča Gorge Ride", "distance": "70 km", "elevation": "1,700 m+", "desc": "A true alpine ride over Vršič toward the Soča Valley and the Great Soča Gorges. Long climbing, scenic descents and one of Slovenia’s finest alpine settings.", "images": ["assets/alpine-kings-ibex.jpg", "assets/julian-gravel-escape.jpg", "assets/image-10-d14ca99cb3.png"]}, {"title": "Bovec, Trenta & Vršič Ride", "distance": "85 km", "elevation": "1,900 m+", "desc": "A demanding alpine route linking Kranjska Gora, Vršič, Trenta and Bovec. Built for riders who want a full mountain day with long climbs, descents and views.", "images": ["assets/alpine-kings-ibex.jpg", "assets/julian-gravel-escape.jpg", "assets/image-14-21ffc4599b.png"]}, {"title": "Sella Nevea Ride", "distance": "75 km", "elevation": "900 m+", "desc": "A cross-border road ride toward Sella Nevea. A different road character, Italian alpine scenery and a flowing route beyond the classic valley rides.", "images": ["assets/image-14-21ffc4599b.png", "assets/alpine-kings-ibex.jpg", "assets/julian-lake-reflection.jpg"]}, {"title": "Bohinj Ride", "distance": "95 km", "elevation": "1,000 m+", "desc": "A longer Gorenjska ride from Mojstrana toward Bohinj. More kilometres, a steadier rhythm and a journey through valleys, villages and lake scenery.", "images": ["assets/bohinj-ride-lake-bikes.jpg", "assets/bohinj-ride-forest-road.jpg", "assets/bohinj-ride-sunny-road.jpg", "assets/bohinj-ride-cyclist-river.jpg"]}, {"title": "Pokljuka & Bohinj Ride", "distance": "95 km", "elevation": "1,500 m+", "desc": "A more demanding version of the Bohinj ride with the climb to Pokljuka. Forest roads, an alpine plateau, descent toward Bohinj and the feeling of a proper long cycling day.", "images": ["assets/alpine-kings-ibex.jpg", "assets/julian-lake-reflection.jpg", "assets/image-12-42d24c65c8.png"]}, {"title": "Jamnik, Tržič & Begunje Ride", "distance": "100 km", "elevation": "1,600 m+", "desc": "A varied long road ride on some of Gorenjska’s most beautiful roads. Jamnik, Tržič and Begunje add climbs, views and strong local character.", "images": ["assets/image-15-3692c00272.png", "assets/alpine-kings-ibex.jpg", "assets/image-14-21ffc4599b.png"]}, {"title": "Pontebba & Sella Nevea Loop", "distance": "108 km", "elevation": "1,300 m+", "desc": "A longer cross-border road loop through Italy, linking Pontebba, Sella Nevea and Tarvisio. More kilometres, alpine views and the feeling of a big road day.", "images": ["assets/alpine-kings-ibex.jpg", "assets/julian-gravel-escape.jpg", "assets/image-10-d14ca99cb3.png"]}]}, "julian-gravel": {"title": "Julian Gravel Escape", "meta": ["18-40 km", "200-650 m+", "Gravel / Adventure"], "desc": "Gravel rides around Mojstrana, Radovna, Krma, Plavški Rovt and hidden forest roads above the valley. Shorter in distance, but full of climbs, quiet tracks and adventure.", "tours": [{"title": "Planina na Vršah Gravel Climb", "distance": "18 km", "elevation": "550 m+", "desc": "A short but steep gravel ride above Mojstrana. Compact, local and wild enough to feel like a real challenge.", "images": ["assets/julian-gravel-escape.jpg", "assets/image-10-d14ca99cb3.png", "assets/image-14-21ffc4599b.png"]}, {"title": "Peričnik & Krma Gravel Ride", "distance": "25 km", "elevation": "400 m+", "desc": "A scenic gravel ride toward Peričnik waterfall and the Krma Valley. Quiet tracks, mountain views and an adventurous feel without too much distance.", "images": ["assets/image-12-42d24c65c8.png", "assets/julian-gravel-escape.jpg", "assets/julian-lake-reflection.jpg"]}, {"title": "Plavški Rovt Gravel Loop", "distance": "25 km", "elevation": "650 m+", "desc": "A short and varied gravel loop through Dovje, Plavški Rovt and Hrušica. Not long, but with enough climbing and local character to feel like a proper gravel ride.", "images": ["assets/image-10-d14ca99cb3.png", "assets/image-15-3692c00272.png", "assets/julian-gravel-escape.jpg"]}, {"title": "Radovna & Klek Gravel Escape", "distance": "40 km", "elevation": "200 m+", "desc": "A longer but calmer gravel ride through Radovna and Klek. Nature, gravel, quiet rhythm and a less technical adventure.", "images": ["assets/image-08-a3d0d9b26c.png", "assets/julian-gravel-escape.jpg", "assets/image-12-42d24c65c8.png"]}]}};
+var staticTranslations=[{"selector": "#heroSub", "sl": "VODENE CESTNE IN GRAVEL TURE | KRANJSKA GORA · MOJSTRANA · JULIJSKE ALPE", "en": "GUIDED ROAD AND GRAVEL TOURS | KRANJSKA GORA · MOJSTRANA · JULIAN ALPS"}, {"selector": "#heroH1", "html": true, "sl": "Kolesarski izleti.<br><em>Doživetja, ki ostanejo.</em>", "en": "Cycling tours.<br><em>Memories that stay.</em>"}, {"selector": "#heroBtns .btn-olive", "sl": "POVPRAŠAJ", "en": "ENQUIRE"}, {"selector": "#heroBtns .btn-olive2", "sl": "OGLEJ SI TURE", "en": "VIEW TOURS"}, {"selector": ".story-heading", "html": true, "sl": "Uživanje na kolesu brez omejitev.", "en": "Cycling without limits."}, {"selector": ".intro-lead", "sl": "Vodeni kolesarski izleti po Zgornjesavski dolini, Julijskih Alpah in širši Gorenjski. Ture sestavimo glede na tvoj dan, izkušnje in tempo – od lahkih razglednih voženj do daljših alpskih izletov.", "en": "Guided cycling tours through the Upper Sava Valley, the Julian Alps and the wider Gorenjska region. We shape each ride around your day, experience and pace, from easy scenic routes to longer alpine rides."}, {"selector": ".intro-brand-kicker", "sl": "Kdo smo in kaj delamo", "en": "Who we are and what we do"}, {"selector": ".intro-brand p", "sl": "Vodeni kolesarski izleti.", "en": "Guided cycling tours."}, {"selector": ".intro-note-1", "html": true, "sl": "<strong>Lokalne poti</strong>Vozimo po cestah, ki jih poznamo iz domačega okolja – mirnejše, razgledne in primerne za dober kolesarski dan.", "en": "<strong>Local roads</strong>We ride roads we know from home: quieter, scenic and made for a good day on the bike."}, {"selector": ".intro-note-2", "html": true, "sl": "<strong>Pravi tempo</strong>Tura ni dirka! Tempo prilagodimo skupini, ne obratno.", "en": "<strong>The right pace</strong>A tour is not a race. We adapt the pace to the group, not the other way around."}, {"selector": ".intro-note-3", "html": true, "sl": "<strong>Po vaši meri</strong>Od kratke razgledne vožnje do celodnevnega alpskega izleta – pot sestavimo glede na želje in pripravljenost.", "en": "<strong>Tailor made</strong>From a short scenic ride to a full alpine day, we shape the route around your wishes and fitness."}, {"selector": ".intro-clarity-card strong", "sl": "Na kratko", "en": "In short"}, {"selector": ".intro-clarity-card p", "html": true, "sl": "Vodene cestne in gravel ture s startom v <em>Kranjski Gori ali Mojstrani</em>. Ture prilagodimo različnim nivojem, po potrebi uredimo <em>najem koles</em>, izvajamo pa jih v kolesarski sezoni <em>od pomladi do jeseni.</em>", "en": "Guided road and gravel tours starting in <em>Kranjska Gora or Mojstrana</em>. We adapt rides to different levels, can arrange <em>bike rental</em> if needed, and run them during the cycling season <em>from spring to autumn.</em>"}, {"selector": ".tours-section h2", "sl": "IZBERI SI SVOJO TURO", "en": "CHOOSE YOUR TOUR"}, {"selector": ".tours-grid .tura-card:nth-child(1) .tura-name", "sl": "Zgornjesavska dolina", "en": "Upper Sava Valley"}, {"selector": ".tours-grid .tura-card:nth-child(1) .tura-desc", "sl": "Krajše razgledne ture za prvi stik z Julijskimi Alpami.", "en": "Short scenic rides for your first taste of the Julian Alps."}, {"selector": ".tours-grid .tura-card:nth-child(2) .tura-name", "sl": "Dolina Radovne in Bled", "en": "Radovna Valley & Bled"}, {"selector": ".tours-grid .tura-card:nth-child(2) .tura-desc", "sl": "Mirnejše ceste, lokalni vzponi, slapovi in jezera.", "en": "Quiet roads, local climbs, waterfalls and lakes."}, {"selector": ".tours-grid .tura-card:nth-child(3) .tura-name", "sl": "Alpske \"klasike\"", "en": "Alpine Classics"}, {"selector": ".tours-grid .tura-card:nth-child(3) .tura-desc", "sl": "Daljši gorski dnevi, ikonični vzponi in velike ceste.", "en": "Longer mountain days, iconic climbs and big alpine roads."}, {"selector": ".tours-grid .tura-card:nth-child(4) .tura-name", "sl": "Julijski Gravel", "en": "Julian Gravel"}, {"selector": ".tours-grid .tura-card:nth-child(4) .tura-desc", "sl": "Skrite gozdne ceste, makadam in bolj pustolovski ritem.", "en": "Hidden forest roads, gravel tracks and a more adventurous rhythm."}, {"selector": ".zakaj-left .dark-kicker", "sl": "Premišljeno vodene ture", "en": "Thoughtfully guided rides"}, {"selector": ".zakaj-left h2", "sl": "Zakaj z nami", "en": "Why ride with us"}, {"selector": ".dark-lead", "sl": "Turo sestavimo okoli ljudi, ne okoli urnika. Izberemo mirne ceste, pravi tempo in razglede, ki se odprejo takrat, ko vožnja dobi svoj ritem.", "en": "We build the tour around people, not around a fixed schedule. We choose quiet roads, the right pace and views that open up when the ride finds its rhythm."}, {"selector": ".zakaj-item:nth-child(1) .zakaj-title", "sl": "Pot po meri", "en": "Tailor made route"}, {"selector": ".zakaj-item:nth-child(1) .zakaj-body", "sl": "Ne ponujamo ene trase za vse. Turo prilagodimo izkušnjam posamezniku ali skupini.", "en": "We do not offer one route for everyone. We adapt the ride to the experience of each rider or group."}, {"selector": ".zakaj-item:nth-child(2) .zakaj-title", "sl": "Lokalni občutek", "en": "Local feel"}, {"selector": ".zakaj-item:nth-child(2) .zakaj-body", "sl": "Poznamo mirne ceste in poti, razgledne postanke in odseke, kjer Julijske Alpe zares pridejo do izraza.", "en": "We know the quiet roads, scenic stops and sections where the Julian Alps truly come alive."}, {"selector": ".zakaj-item:nth-child(3) .zakaj-title", "sl": "Vaš dan, vaš tempo", "en": "Your day, your pace"}, {"selector": ".zakaj-item:nth-child(3) .zakaj-body", "sl": "Pri nas je pot jasna, tempo pa ostane sproščen. Dober izlet ne potrebuje hitenja!", "en": "With us the route is clear and the pace stays relaxed. A good ride does not need to be rushed."}, {"selector": ".rez-right .dark-kicker", "sl": "Od ideje do vožnje", "en": "From idea to ride"}, {"selector": ".rez-right h2", "sl": "Rezervacija", "en": "Booking"}, {"selector": ".rez-step:nth-child(1) .rez-step-title", "sl": "Izberi si svojo pot", "en": "Choose your route"}, {"selector": ".rez-step:nth-child(1) .rez-step-desc", "sl": "Povej, ali želiš lahek razgledni dan, vzpon ali daljše doživetje.", "en": "Tell us whether you want an easy scenic day, a climb or a longer experience."}, {"selector": ".rez-step:nth-child(2) .rez-step-title", "sl": "Pošlji povpraševanje", "en": "Send an enquiry"}, {"selector": ".rez-step:nth-child(2) .rez-step-desc", "sl": "Dodaš termin, svojo željo, število oseb in raven pripravljenosti. Odgovorimo z realnim predlogom.", "en": "Add your preferred date, wishes, group size and fitness level. We reply with a realistic proposal."}, {"selector": ".rez-step:nth-child(3) .rez-step-title", "sl": "Potrdimo podrobnosti", "en": "Confirm the details"}, {"selector": ".rez-step:nth-child(3) .rez-step-desc", "sl": "Dogovorimo zbirno mesto, uredimo opremo, potek dneva in morebitne prilagoditve.", "en": "We agree on the meeting point, equipment, flow of the day and any adjustments."}, {"selector": ".rez-cta .btn-olive", "sl": "POŠLJI POVPRAŠEVANJE", "en": "SEND ENQUIRY"}, {"selector": ".gal-section h2", "sl": "Galerija", "en": "Gallery"}, {"selector": ".rev-section h2", "sl": "SRCE NAŠE EKIPE", "en": "THE HEART OF OUR TEAM"}, {"selector": ".rev-card:nth-child(1) .rev-text", "sl": "Vodnik, ki pozna vse kotičke, razgledne ovinke in zna prisluhniti skupini. Poskrbi, da vožnja ostane sproščena in varna.", "en": "A guide who knows the hidden corners, scenic turns and how to listen to the group. The ride stays relaxed and safe."}, {"selector": ".rev-card:nth-child(1) .rev-author", "sl": "Vodnik ture", "en": "Tour guide"}, {"selector": ".rev-card:nth-child(2) .rev-text", "sl": "Oseba za organizacijo, termine in vse male dogovore pred izletom. Pomaga izbrati turo, ki najbolj ustreza vaši ekipi.", "en": "The person behind planning, dates and all small details before the ride. Helps you choose the tour that fits your group best."}, {"selector": ".rev-card:nth-child(2) .rev-author", "sl": "Organizacija", "en": "Organisation"}, {"selector": ".rev-card:nth-child(3) .rev-text", "sl": "Lokalno znanje, izkušnje na terenu in občutek za vožnjo, postanke in razglede. To je del ekipe, ki turi doda karakter, Vam pa nepozabne spomine.", "en": "Local knowledge, field experience and a feeling for riding, stops and views. This is what gives each tour its character and leaves you with lasting memories."}, {"selector": ".rev-card:nth-child(3) .rev-author", "sl": "Lokalno znanje", "en": "Local knowledge"}, {"selector": ".faq-section h2", "sl": "POGOSTA VPRAŠANJA", "en": "FREQUENTLY ASKED QUESTIONS"}, {"selector": ".faq-tab:nth-child(1)", "sl": "SPLOŠNO", "en": "GENERAL"}, {"selector": ".faq-tab:nth-child(2)", "sl": "TURE", "en": "TOURS"}, {"selector": ".faq-tab:nth-child(3)", "sl": "OPREMA", "en": "EQUIPMENT"}, {"selector": ".faq-tab:nth-child(4)", "sl": "REZERVACIJA", "en": "BOOKING"}, {"selector": "#kontakt h2", "sl": "PIŠITE NAM!", "en": "WRITE TO US!"}, {"selector": "#kontakt .sub:nth-of-type(1)", "sl": "IZPOLNITE NEKAJ KRATKIH INFORMACIJ.", "en": "FILL IN A FEW SHORT DETAILS."}, {"selector": "#kontakt .sub:nth-of-type(2)", "sl": "POŠLJITE NAM POVPRAŠEVANJE IN SKUPAJ BOMO PRIPRAVILI KOLESARSKO IZKUŠNJO.", "en": "SEND US AN ENQUIRY AND TOGETHER WE WILL SHAPE YOUR CYCLING EXPERIENCE."}, {"selector": "#kontakt .sub:nth-of-type(3)", "sl": "Odgovorimo z realnim predlogom poti, težavnosti in termina.", "en": "We reply with a realistic route, difficulty and date proposal."}, {"selector": "#contactForm button", "sl": "POŠLJI POVPRAŠEVANJE", "en": "SEND ENQUIRY"}, {"selector": "#formSuccess p", "sl": "Odpiramo vaš e-mail program.", "en": "Your email program is opening."}, {"selector": ".closing h2", "html": true, "sl": "SE VIDIMO,<br>KMALU.", "en": "SEE YOU<br>SOON."}, {"selector": ".footer-links a:nth-child(1)", "html": true, "sl": "01&nbsp;&nbsp;Ture", "en": "01&nbsp;&nbsp;Tours"}, {"selector": ".footer-links a:nth-child(2)", "html": true, "sl": "02&nbsp;&nbsp;Povprašaj", "en": "02&nbsp;&nbsp;Enquire"}, {"selector": ".footer-links a:nth-child(3)", "html": true, "sl": "03&nbsp;&nbsp;Vprašanja", "en": "03&nbsp;&nbsp;Questions"}, {"selector": ".footer-contact a:nth-child(2)", "sl": "Pošlji povpraševanje", "en": "Send enquiry"}, {"selector": ".footer-contact a:nth-child(3)", "sl": "Oglej si ture", "en": "View tours"}, {"selector": ".footer-bottom p", "sl": "© 2026 Julian Alps Cycling. Vse pravice pridržane.", "en": "© 2026 Julian Alps Cycling. All rights reserved."}, {"selector": ".floating-whatsapp-bubble", "sl": "Vprašanja? Pišite nam!", "en": "Questions? Let us chat!"}, {"selector": "#tourCategoryModal .modal-label:first-of-type", "sl": "Julian Alps cycling", "en": "Julian Alps cycling"}, {"selector": ".route-category-help", "sl": "Niste prepričani, katera možnost vam najbolj ustreza? Pošljite nam osnovne informacije in predlagali Vam bomo pravo traso.", "en": "Not sure which option suits you best? Send us the basic details and we will suggest the right route."}, {"selector": ".route-detail-copy .modal-label", "sl": "Izbrana tura", "en": "Selected tour"}, {"selector": ".route-detail-meta .meta-item:nth-child(1) .meta-lbl", "sl": "Razdalja", "en": "Distance"}, {"selector": ".route-detail-meta .meta-item:nth-child(2) .meta-lbl", "sl": "Višinci", "en": "Elevation"}, {"selector": ".route-detail-copy .modal-cta", "sl": "POVPRAŠAJ ZA TO TURO", "en": "ENQUIRE ABOUT THIS TOUR"}, {"selector": ".bike-rental-kicker", "sl": "Najem koles", "en": "Bike rental"}, {"selector": ".bike-rental h3", "sl": "Kolesa za vaš izlet", "en": "Bikes for your ride"}, {"selector": ".bike-rental-intro > p", "sl": "Če nimate svojega kolesa, vam lahko ob turi uredimo tudi najem.", "en": "If you do not have your own bike, we can arrange rental for your tour."}, {"selector": ".bike-rental-card:nth-child(1) strong", "sl": "Prednjevzmetena gorska kolesa", "en": "Front-suspension mountain bikes"}, {"selector": ".bike-rental-card:nth-child(2) strong", "sl": "Električna prednjevzmetena kolesa", "en": "Electric front-suspension bikes"}, {"selector": ".bike-rental-card:nth-child(3) strong", "sl": "Cestna in gravel kolesa", "en": "Road and gravel bikes"}, {"selector": ".bike-rental-note span", "sl": "Dodatki", "en": "Extras"}, {"selector": ".bike-rental-note strong", "sl": "Čelada 6 EUR", "en": "Helmet 6 EUR"}, {"selector": ".bike-rental-highlight strong", "sl": "Pomembno pri rezervaciji", "en": "Important when booking"}, {"selector": ".bike-rental-highlight p", "sl": "V povpraševanju nam sporočite, da POTREBUJETE KOLO ali ČELADO, ker nimate svoje opreme ter dodajte telesno višino posameznih udeležencev, da pripravimo primerno velikost kolesa.", "en": "In your enquiry, let us know if you NEED A BIKE or HELMET because you do not have your own equipment, and add each participant’s body height so we can prepare the right bike size."}, {"selector": ".route-finder-intro p", "sl": "Izberi kilometre, višince in občutek vožnje.", "en": "Choose the distance, elevation and ride feeling."}, {"selector": ".route-finder-kicker", "sl": "Pametni kalkulator", "en": "Smart route finder"}, {"selector": ".route-finder h3", "sl": "Najdi svojo turo", "en": "Find your ride"}, {"selector": ".calc-submit", "sl": "Predlagaj mi turo", "en": "Suggest my ride"}, {"selector": ".calc-grid .calc-control:nth-child(1) .calc-label span", "sl": "Dolžina ture", "en": "Ride distance"}, {"selector": ".calc-grid .calc-control:nth-child(2) .calc-label span", "sl": "Višinski metri", "en": "Elevation gain"}, {"selector": ".route-finder-panel > .calc-control .calc-label span", "sl": "Občutek ture", "en": "Ride feeling"}, {"selector": ".calc-type[data-type='scenic']", "sl": "Razgledno", "en": "Scenic"}, {"selector": ".calc-type[data-type='easy']", "sl": "Lahkotno", "en": "Easy"}, {"selector": ".calc-type[data-type='climb']", "sl": "Vzpon", "en": "Climb"}, {"selector": ".calc-type[data-type='gravel']", "sl": "Gravel", "en": "Gravel"}, {"selector": ".calc-type[data-type='long']", "sl": "Celodnevno", "en": "Full day"}];
+var placeholderTranslations=[{"selector": "#contactForm input[type=\"text\"]", "sl": "Ime in priimek", "en": "Name and surname"}, {"selector": "#contactForm input[type=\"email\"]", "sl": "E-pošta", "en": "Email"}, {"selector": "#contactForm input[type=\"tel\"]", "sl": "Telefon (neobvezno)", "en": "Phone (optional)"}, {"selector": "#contactForm textarea", "sl": "Sporočilo — kdaj, koliko vas bo, izkušnje...", "en": "Message — when, how many riders, experience..."}];
+var selectTranslations={"sl": ["Katera tura vas zanima?", "Upper Sava Valley", "Radovna Valley & Bled Gateway", "Alpine Kings & Queens", "Julian Gravel Escape", "Nisem še odločen/a"], "en": ["Which tour are you interested in?", "Upper Sava Valley", "Radovna Valley & Bled Gateway", "Alpine Kings & Queens", "Julian Gravel Escape", "Not sure yet"]};
+var faqTextTranslations={"ALI SO TURE PRIMERNE ZA ZAČETNIKE?": "ARE THE TOURS SUITABLE FOR BEGINNERS?", "Seveda, določene ture so primerne tudi za manj izkušene kolesarje. Turo lahko vedno prilagodimo glede na izkušnje in kondicijo.": "Of course. Some tours are also suitable for less experienced cyclists. We can always adapt the ride to your experience and fitness.", "KOLIKO OSEB JE LAHKO V SKUPINI?": "HOW MANY PEOPLE CAN JOIN A GROUP?", "Priporočeno število je do 8 oseb. Za večje skupine se predhodno dogovorimo. O tem nas ob rezervaciji obvestite.": "The recommended group size is up to 8 people. Larger groups can be arranged in advance. Please let us know when booking.", "KAJ SE ZGODI V PRIMERU SLABEGA VREMENA?": "WHAT HAPPENS IN BAD WEATHER?", "V primeru neprimernega vremena se dogovorimo za drug termin ali prilagodimo potek ture.": "In unsuitable weather, we arrange another date or adapt the route.", "KAKO DOLGE SO TURE?": "HOW LONG ARE THE TOURS?", "Razdalje od 25 - 110 km, višinski metri od 200 do 2000 m. Razlikujejo se glede na tip, dolžino ter težavnost. Več informacij pri \"IZBERI SI SVOJO TURO\"": "Distances range from 25 to 110 km, with 200 to 2,000 m of elevation gain. They vary by type, length and difficulty. More information is available under \"CHOOSE YOUR TOUR\".", "ALI SO TURE PRIMERNE ZA OTROKE?": "ARE THE TOURS SUITABLE FOR CHILDREN?", "Da, določene ture lahko prilagodimo tudi družinam z otroki. Pri povpraševanju nam sporočite starost otrok, njihove kolesarske izkušnje in kako samostojni so na kolesu. Na podlagi teh informacij vam pomagamo izbrati oziroma pripraviti turo, ki bo primerna za družino, varna in prijetna za vse udeležence.": "Yes, certain tours can also be adapted for families with children. In your enquiry, please tell us the children’s ages, cycling experience and how independent they are on the bike. Based on that, we help you choose or prepare a route that is suitable, safe and enjoyable for the whole family.", "KJE SE TURE ZAČNEJO?": "WHERE DO THE TOURS START?", "KRANJSKA GORA/ MOJSTRANA. Točna lokacija starta je odvisna od izbrane ture. Podrobnosti dobite po potrditvi rezervacije.": "KRANJSKA GORA / MOJSTRANA. The exact starting location depends on the selected tour. You receive all details after the booking is confirmed.", "KDAJ IZVAJATE TURE?": "WHEN DO YOU RUN TOURS?", "Ture praviloma izvajamo v kolesarski sezoni, od pomladi do jeseni, odvisno od vremena, razmer na cestah in izbrane trase. Za alpske prelaze je sezona lahko krajša.": "Tours usually run during the cycling season, from spring to autumn, depending on the weather, road conditions and chosen route. The season for alpine passes can be shorter.", "ALI POTREBUJEM SVOJE KOLO?": "DO I NEED MY OWN BIKE?", "Ne nujno. Poleg vodenih tur ponujamo tudi možnost najema kolesa. Če potrebujete kolo za izposojo, nam to sporočite že ob povpraševanju. Prosimo, da dodate tudi telesno višino posameznih udeležencev, da lahko lažje pripravimo primerno velikost kolesa. Več informacij najdete v razdelku “Kolesa za vaš izlet”.": "Not necessarily. In addition to guided tours, we also offer bike rental. If you need a rental bike, please tell us already in your enquiry. Please also add each participant’s body height so we can prepare the right bike size. More information is available in the “Bikes for your ride” section.", "KAKŠNO OPREMO POTREBUJEM?": "WHAT EQUIPMENT DO I NEED?", "Čelada, kolesarska oblačila. Po želji; rokavice in sončna očala. Za daljše ture priporočamo nahrbtnik.": "Helmet and cycling clothing. Optional: gloves and sunglasses. For longer tours, we recommend a small backpack.", "KAKO REZERVIRAM TURO?": "HOW DO I BOOK A TOUR?", "Izpolnite kontaktni obrazec ali pišite na info@probike-tours.si. Odgovorimo v 24 urah.": "Fill in the contact form or write to info@probike-tours.si. We reply within 24 hours.", "KAKO POTEKA PLAČILO?": "HOW DOES PAYMENT WORK?", "Gotovina ali bančno nakazilo po potrditvi rezervacije.": "Payment is made in cash or by bank transfer after the booking is confirmed.", "ALI LAHKO ODPOVEM REZERVACIJO?": "CAN I CANCEL A BOOKING?", "Brezplačna odpoved do 48 ur pred turo. Kasnejša odpoved: administrativni stroški.": "Free cancellation is possible up to 48 hours before the tour. Later cancellations may include an administrative fee."};
+function setContent(selector,value,html){var el=document.querySelector(selector);if(!el)return;if(html)el.innerHTML=value;else el.textContent=value;}
+function applyTextDictionary(lang){document.querySelectorAll('.faq-q,.faq-a').forEach(function(el){var txt=el.textContent.replace('⌄','').trim();if(lang==='en'&&faqTextTranslations[txt]){var arrow=el.querySelector('.faq-q-arrow');el.childNodes[0].nodeValue=faqTextTranslations[txt];}else if(lang==='sl'){Object.keys(faqTextTranslations).forEach(function(sl){if(faqTextTranslations[sl]===txt){el.childNodes[0].nodeValue=sl;}})}})}
+function applyLanguage(lang){
+  if(lang==='de')return;
+  currentLang=lang;
+  document.documentElement.lang=lang;
+  document.body.setAttribute('data-lang',lang);
+  localStorage.setItem('jac-lang',lang);
+  document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-lang-switch')===lang)});
+  staticTranslations.forEach(function(item){setContent(item.selector,item[lang],!!item.html)});
+  placeholderTranslations.forEach(function(item){var el=document.querySelector(item.selector);if(el)el.setAttribute('placeholder',item[lang])});
+  document.querySelectorAll('[data-i18n-sl]').forEach(function(el){var value=el.getAttribute('data-i18n-'+lang);if(value!==null)el.textContent=value});
+  document.querySelectorAll('[data-placeholder-sl]').forEach(function(el){var value=el.getAttribute('data-placeholder-'+lang);if(value!==null)el.setAttribute('placeholder',value)});
+  var select=document.getElementById('tourSelect');
+  if(select){Array.from(select.options).forEach(function(opt,i){if(selectTranslations[lang][i])opt.textContent=selectTranslations[lang][i]})}
+  applyTextDictionary(lang);
+  tourCategories=lang==='en'?tourCategoriesEn:tourCategoriesSl;
+  updateRouteCalculatorLabels();
+  var activeCalc=document.querySelector('.calc-type.active');
+  if(activeCalc)document.getElementById('calcTypeValue').textContent=getCalcTypeLabel(activeCalc.getAttribute('data-type'));
+  if(document.getElementById('calcResult')&&document.getElementById('calcResult').classList.contains('show'))calculateBestTour();
+  if(document.getElementById('tourCategoryModal').classList.contains('open'))renderTourCategory();
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('[data-lang-switch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();applyLanguage(a.getAttribute('data-lang-switch'))})});
+  document.querySelectorAll('input[name="bikeRental"]').forEach(function(input){input.addEventListener('change',toggleBikeHeights)});
+  document.querySelectorAll('input[name="tourChoiceMode"]').forEach(function(input){input.addEventListener('change',toggleTourChoiceMode)});
+  applyLanguage(localStorage.getItem('jac-lang')||'sl');
+  toggleBikeHeights();
+  toggleTourChoiceMode();
+});
+
+var activeTourCategoryId='upper-sava';
+var activeTourIndex=0;
+function openTourCategory(id){activeTourCategoryId=id;activeTourIndex=0;renderTourCategory();document.getElementById('tourCategoryModal').classList.add('open');document.body.style.overflow='hidden';setModalState(true)}
+function closeTourCategoryModal(){document.getElementById('tourCategoryModal').classList.remove('open');document.body.style.overflow='';setModalState(false)}
+function closeTourCategoryOutside(e){if(e.target.id==='tourCategoryModal')closeTourCategoryModal()}
+function selectTourOption(index){activeTourIndex=index;renderTourCategory()}
+function renderTourCategory(){
+  var cat=tourCategories[activeTourCategoryId];
+  if(!cat)return;
+  document.getElementById('tourCategoryTitle').textContent=cat.title;
+  document.getElementById('tourCategoryDesc').textContent=cat.desc;
+  document.getElementById('tourCategoryMeta').innerHTML=cat.meta.slice(0,2).map(function(m){return '<div class="meta-item"><div class="meta-val">'+m+'</div></div>'}).join('');
+  document.getElementById('routeOptionsGrid').innerHTML=cat.tours.map(function(t,i){return '<button class="route-option-card '+(i===activeTourIndex?'active':'')+'" onclick="selectTourOption('+i+')"><strong>'+t.title+'</strong><span>'+t.distance+' · '+t.elevation+'</span></button>'}).join('');
+  renderActiveTour(cat.tours[activeTourIndex]);
+}
+function renderActiveTour(tour){
+  document.getElementById('routeDetailTitle').textContent=tour.title;
+  document.getElementById('routeDetailDesc').textContent=tour.desc;
+  document.getElementById('routeDetailDistance').textContent=tour.distance;
+  document.getElementById('routeDetailElevation').textContent=tour.elevation;
+  var galleryImages=tour.images.slice(0,3);
+  var gallery=document.getElementById('routeMiniGallery');
+  gallery.className='route-mini-gallery count-3';
+  gallery.innerHTML=galleryImages.map(function(src,i){return '<button class="route-mini-shot" type="button" onclick="openRouteLightbox('+i+')" aria-label="Odpri sliko '+(i+1)+' za '+tour.title+'"><img src="'+src+'" alt="'+tour.title+'"></button>'}).join('');
+}
+function enquireActiveTour(){
+  var direct=document.querySelector('input[name="tourChoiceMode"][value="direct"]');
+  if(direct){direct.checked=true;toggleTourChoiceMode();}
+  var select=document.getElementById('selectedTour');
+  var categoryMap={'upper-sava':'Zgornjesavska dolina','radovna-bled':'Dolina Radovne in Bled','alpine-kings':'Alpske klasike','julian-gravel':'Julijski gravel'};
+  if(select)select.value=categoryMap[activeTourCategoryId]||'';
+  closeTourCategoryModal();
+  var kontakt=document.getElementById('kontakt');
+  if(kontakt)kontakt.scrollIntoView({behavior:'smooth'});
+  setTimeout(openContactModal,260);
+}
+
+function openContactModal(){
+  var modal=document.getElementById('contactModal');
+  if(!modal)return;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  setModalState(true);
+}
+function closeContactModal(){
+  var modal=document.getElementById('contactModal');
+  if(modal)modal.classList.remove('open');
+  document.body.style.overflow='';
+  setModalState(false);
+}
+function closeContactOutside(e){
+  if(e.target.id==='contactModal')closeContactModal();
+}
+
+
+function parseRouteNumber(value){return parseFloat(String(value||'0').replace(/\./g,'').replace(/,/g,''))||0}
+function getCalcTypeLabel(type){
+  var labels={sl:{scenic:'Razgledno',easy:'Lahkotno',climb:'Vzpon',gravel:'Gravel',long:'Celodnevno'},en:{scenic:'Scenic',easy:'Easy',climb:'Climb',gravel:'Gravel',long:'Full day'}};
+  return (labels[currentLang]||labels.sl)[type]||type;
+}
+function updateRouteCalculatorLabels(){
+  var d=document.getElementById('calcDistance');
+  var e=document.getElementById('calcElevation');
+  if(!d||!e)return;
+  document.getElementById('calcDistanceValue').textContent=d.value+' km';
+  document.getElementById('calcElevationValue').textContent=e.value+' m+';
+}
+function selectCalcType(btn){
+  document.querySelectorAll('.calc-type').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('calcTypeValue').textContent=getCalcTypeLabel(btn.getAttribute('data-type'));
+}
+function getTourCalcTags(categoryId,tour){
+  var text=(categoryId+' '+(tour.title||'')+' '+(tour.desc||'')).toLowerCase();
+  var tags=[];
+  if(categoryId==='julian-gravel'||text.indexOf('gravel')>-1)tags.push('gravel');
+  if(categoryId==='alpine-kings'||text.indexOf('vzpon')>-1||text.indexOf('climb')>-1||parseRouteNumber(tour.elevation)>=900)tags.push('climb');
+  if(parseRouteNumber(tour.distance)>=70||parseRouteNumber(tour.elevation)>=1200)tags.push('long');
+  if(parseRouteNumber(tour.distance)<=45&&parseRouteNumber(tour.elevation)<=500)tags.push('easy');
+  if(text.indexOf('razgled')>-1||text.indexOf('scenic')>-1||categoryId==='upper-sava'||categoryId==='radovna-bled')tags.push('scenic');
+  return tags;
+}
+function findBestCalculatedTour(){
+  var distance=parseRouteNumber(document.getElementById('calcDistance').value);
+  var elevation=parseRouteNumber(document.getElementById('calcElevation').value);
+  var typeBtn=document.querySelector('.calc-type.active');
+  var type=typeBtn?typeBtn.getAttribute('data-type'):'scenic';
+  var best=null;
+  Object.keys(tourCategories).forEach(function(categoryId){
+    var cat=tourCategories[categoryId];
+    cat.tours.forEach(function(tour,index){
+      var d=parseRouteNumber(tour.distance);
+      var e=parseRouteNumber(tour.elevation);
+      var tags=getTourCalcTags(categoryId,tour);
+      var score=Math.abs(d-distance)*1.2+Math.abs(e-elevation)/18;
+      if(tags.indexOf(type)===-1)score+=26;
+      if(type==='easy'&&e>800)score+=30;
+      if(type==='long'&&d<65)score+=24;
+      if(type==='gravel'&&categoryId!=='julian-gravel')score+=45;
+      if(type==='climb'&&e<700)score+=24;
+      if(!best||score<best.score)best={score:score,categoryId:categoryId,tourIndex:index,tour:tour,cat:cat};
+    });
+  });
+  return best;
+}
+function calculateBestTour(){
+  updateRouteCalculatorLabels();
+  var match=findBestCalculatedTour();
+  if(!match)return;
+  var result=document.getElementById('calcResult');
+  var img=(match.tour.images&&match.tour.images[0])?match.tour.images[0]:'assets/julian-lake-reflection.jpg';
+  var label=currentLang==='en'?'Recommended route':'Predlagana tura';
+  var more=currentLang==='en'?'View tour':'Več o turi';
+  var enquire=currentLang==='en'?'Enquire':'Povprašaj';
+  result.innerHTML='<img src="'+img+'" alt="'+match.tour.title+'"><div><div class="calc-result-kicker">'+label+'</div><div class="calc-result-title">'+match.tour.title+'</div><div class="calc-result-meta"><span>'+match.tour.distance+'</span><span>'+match.tour.elevation+'</span></div><div class="calc-result-actions"><button class="calc-mini-btn" type="button" onclick="openCalculatedTour()">'+more+'</button><button class="calc-mini-btn" type="button" onclick="enquireCalculatedTour()">'+enquire+'</button></div></div>';
+  result.dataset.categoryId=match.categoryId;
+  result.dataset.tourIndex=match.tourIndex;
+  result.classList.add('show');
+}
+function openCalculatedTour(){
+  var result=document.getElementById('calcResult');
+  if(!result.dataset.categoryId)return;
+  activeTourCategoryId=result.dataset.categoryId;
+  activeTourIndex=parseInt(result.dataset.tourIndex,10)||0;
+  renderTourCategory();
+  document.getElementById('tourCategoryModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  setModalState(true);
+}
+function enquireCalculatedTour(){
+  var result=document.getElementById('calcResult');
+  if(result.dataset.categoryId){
+    activeTourCategoryId=result.dataset.categoryId;
+    activeTourIndex=parseInt(result.dataset.tourIndex,10)||0;
+  }
+  enquireActiveTour();
+}
+
+// ===== ZAKAJ =====
+function toggleZakaj(item){
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.zakaj-item').forEach(function(i){i.classList.remove('open');i.querySelector('.zakaj-body').classList.remove('open')});
+  if(!isOpen){item.classList.add('open');item.querySelector('.zakaj-body').classList.add('open')}
+}
+
+// ===== REZ STEPPER =====
+function setRezStep(step){
+  document.querySelectorAll('.rez-step').forEach(function(s){s.classList.remove('active')});
+  step.classList.add('active');
+}
+
+// ===== FAQ TABS =====
+function switchTab(btn,panelId){
+  document.querySelectorAll('.faq-tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.faq-panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open')});
+}
+
+// ===== FAQ ACCORDION =====
+function toggleFaq(btn){
+  var item=btn.parentElement,ans=item.querySelector('.faq-a'),isOpen=item.classList.contains('open');
+  btn.closest('.faq-panel').querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').classList.remove('open')});
+  if(!isOpen){item.classList.add('open');ans.classList.add('open')}
+}
+
+// ===== FORM =====
+function contactValue(id){var el=document.getElementById(id);return el?el.value.trim():''}
+function selectedChoice(name){var el=document.querySelector('input[name="'+name+'"]:checked');return el?el.getAttribute('data-'+currentLang)||el.getAttribute('data-sl')||el.value:''}
+function selectedMode(){var el=document.querySelector('input[name="tourChoiceMode"]:checked');return el?el.value:''}
+function selectedTourLabel(){var select=document.getElementById('selectedTour');if(!select||!select.value)return '';var option=select.options[select.selectedIndex];return option?option.getAttribute('data-i18n-'+currentLang)||option.textContent:select.value}
+function toggleBikeHeights(){
+  var selected=document.querySelector('input[name="bikeRental"]:checked');
+  var wrap=document.getElementById('bikeHeightsWrap');
+  if(wrap)wrap.classList.toggle('show',!!selected&&selected.value==='yes');
+}
+function toggleTourChoiceMode(){
+  var mode=selectedMode();
+  var direct=document.getElementById('directTourWrap');
+  var guided=document.getElementById('guidedQuestionsWrap');
+  if(direct)direct.classList.toggle('show',mode==='direct');
+  if(guided)guided.classList.toggle('show',mode==='help');
+}
+function submitForm(e){
+  e.preventDefault();
+  var error=document.getElementById('contactError');
+  var mode=selectedMode();
+  var requiredMissing=!contactValue('contactName')||!contactValue('contactEmail')||!contactValue('contactDate')||!contactValue('contactAdults')||Number(contactValue('contactAdults'))<1||!mode||!selectedChoice('bikeRental');
+  if(mode==='direct'&&!selectedTourLabel())requiredMissing=true;
+  if(mode==='help'&&(!selectedChoice('tourFeeling')||!selectedChoice('experience')))requiredMissing=true;
+  if(requiredMissing){if(error)error.classList.add('show');return}
+  if(error)error.classList.remove('show');
+  var notProvided=currentLang==='en'?'not specified':'ni navedeno';
+  var bikeChoice=document.querySelector('input[name="bikeRental"]:checked');
+  var heightsValue=bikeChoice&&bikeChoice.value==='yes'?(contactValue('contactHeights')||notProvided):notProvided;
+  var subject=currentLang==='en'?'Guided cycling tour enquiry':'Povpraševanje za vodeno kolesarsko turo';
+  var bodyLines;
+  if(currentLang==='en'){
+    bodyLines=mode==='direct' ? [
+      'Hello,','','I am interested in a guided cycling tour.','',
+      'Name and surname: '+contactValue('contactName'),
+      'Email: '+contactValue('contactEmail'),
+      'Phone: '+(contactValue('contactPhone')||notProvided),'',
+      'Preferred date: '+contactValue('contactDate'),
+      'Adults in the group: '+contactValue('contactAdults'),
+      'Children in the group: '+(contactValue('contactChildren')||'0'),'',
+      'Selected tour: '+selectedTourLabel(),'',
+      'Bike rental: '+selectedChoice('bikeRental'),
+      'Participants body height: '+heightsValue,'',
+      'Additional message:',contactValue('contactMessage')||notProvided,'','Kind regards.'
+    ] : [
+      'Hello,','','I am interested in a guided cycling tour, but I am not sure yet which option would suit us best.','',
+      'Name and surname: '+contactValue('contactName'),
+      'Email: '+contactValue('contactEmail'),
+      'Phone: '+(contactValue('contactPhone')||notProvided),'',
+      'Preferred date: '+contactValue('contactDate'),
+      'Adults in the group: '+contactValue('contactAdults'),
+      'Children in the group: '+(contactValue('contactChildren')||'0'),'',
+      'Desired ride feeling: '+selectedChoice('tourFeeling'),
+      'Cycling experience: '+selectedChoice('experience'),'',
+      'Bike rental: '+selectedChoice('bikeRental'),
+      'Participants body height: '+heightsValue,'',
+      'Additional message:',contactValue('contactMessage')||notProvided,'','Kind regards.'
+    ];
+  }else{
+    bodyLines=mode==='direct' ? [
+      'Pozdravljeni,','','zanima me vodena kolesarska tura.','',
+      'Ime in priimek: '+contactValue('contactName'),
+      'E-pošta: '+contactValue('contactEmail'),
+      'Telefon: '+(contactValue('contactPhone')||notProvided),'',
+      'Želeni datum: '+contactValue('contactDate'),
+      'Odrasli v skupini: '+contactValue('contactAdults'),
+      'Otroci v skupini: '+(contactValue('contactChildren')||'0'),'',
+      'Izbrana tura: '+selectedTourLabel(),'',
+      'Najem kolesa: '+selectedChoice('bikeRental'),
+      'Telesna višina udeležencev: '+heightsValue,'',
+      'Dodatno sporočilo:',contactValue('contactMessage')||notProvided,'','Lep pozdrav.'
+    ] : [
+      'Pozdravljeni,','','zanima me vodena kolesarska tura, vendar še nisem prepričan/a, katera tura bi bila najprimernejša.','',
+      'Ime in priimek: '+contactValue('contactName'),
+      'E-pošta: '+contactValue('contactEmail'),
+      'Telefon: '+(contactValue('contactPhone')||notProvided),'',
+      'Želeni datum: '+contactValue('contactDate'),
+      'Odrasli v skupini: '+contactValue('contactAdults'),
+      'Otroci v skupini: '+(contactValue('contactChildren')||'0'),'',
+      'Želeni občutek ture: '+selectedChoice('tourFeeling'),
+      'Kolesarske izkušnje: '+selectedChoice('experience'),'',
+      'Najem kolesa: '+selectedChoice('bikeRental'),
+      'Telesna višina udeležencev: '+heightsValue,'',
+      'Dodatno sporočilo:',contactValue('contactMessage')||notProvided,'','Lep pozdrav.'
+    ];
+  }
+  window.location.href='mailto:info@probike-tours.si?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyLines.join('\n'));
+  var success=document.getElementById('formSuccess');
+  if(success)success.style.display='block';
+}
+
+// ===== LEGAL MODALS =====
+function openLegal(type){
+  document.querySelectorAll('.legal-panel').forEach(function(panel){panel.classList.remove('active')});
+  var panel=document.getElementById('legal-'+type);
+  if(panel) panel.classList.add('active');
+  document.getElementById('legalModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  setModalState(true);
+}
+function closeLegal(){
+  document.getElementById('legalModal').classList.remove('open');
+  document.body.style.overflow='';
+  setModalState(false);
+}
+function closeLegalOutside(e){
+  if(e.target.id==='legalModal') closeLegal();
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    closeLegal();
+    closeContactModal();
+    closeTourCategoryModal();
+    closeLightbox();
+    closeIntroMap();
+    closeMobileMenu();
+  }
+});
+</script>
+</body>
+</html>
