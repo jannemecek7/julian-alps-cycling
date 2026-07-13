@@ -1736,3 +1736,12 @@ body.premium-theme .hero-socials a {
   .premium-theme .experience-package-note{align-items:flex-start;flex-direction:column;gap:.25rem}
   .premium-theme .experience-package-note strong{text-align:left}
 }
+
+
+/* FINAL PRICING COLOR ALIGNMENT */
+.premium-theme .experience-pricing{
+  background:
+    radial-gradient(circle at 86% 32%, rgba(199,164,90,.14), transparent 28rem),
+    var(--ink) !important;
+}
+.premium-theme .experience-pricing-note{display:none !important;}
