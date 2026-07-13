@@ -1745,3 +1745,12 @@ body.premium-theme .hero-socials a {
     var(--ink) !important;
 }
 .premium-theme .experience-pricing-note{display:none !important;}
+
+
+/* EXACT MATCH: pricing section uses the same background as Zakaj z nami */
+.premium-theme .experience-pricing {
+  background:
+    radial-gradient(circle at 86% 32%, rgba(199, 164, 90, 0.14), transparent 28rem),
+    var(--ink) !important;
+  background-color: var(--ink) !important;
+}
