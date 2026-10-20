@@ -810,3 +810,15 @@ body.premium-theme{--ink:#10130f;--forest:#162019;--forest-2:#243226;--sage:#b8c
 @media(min-width:1025px) and (max-width:1350px){.winter-journey.winter-journey-editorial{padding:75px 4vw}.winter-journey-editorial h2{font-size:clamp(43px,4vw,61px)}.winter-journey-editorial .winter-journey-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}}
 @media(max-width:1024px){.winter-journey.winter-journey-editorial{padding:70px 5vw}.winter-journey-editorial .winter-journey-layout{grid-template-columns:1fr;gap:38px}.winter-journey-editorial .winter-journey-content{max-width:760px}.winter-journey-editorial h2{font-size:clamp(48px,7.4vw,78px)}.winter-journey-editorial .winter-journey-photos{height:clamp(350px,53vw,540px)}.winter-journey-editorial .winter-journey-side-note{display:none}}
 @media(max-width:520px){.winter-journey.winter-journey-editorial{padding:65px 22px 75px}.winter-journey-editorial .winter-journey-brand{font-size:9px;letter-spacing:.24em;margin-bottom:24px}.winter-journey-editorial h2{font-size:clamp(38px,10.2vw,56px);line-height:1.05}.winter-journey-editorial .winter-journey-overline{font-size:11px;letter-spacing:.13em;margin:22px 0 17px}.winter-journey-editorial .winter-journey-description{font-size:14px;line-height:1.7;margin-bottom:25px}.winter-journey-editorial .winter-journey-cta{width:100%;min-width:0}.winter-journey-editorial .winter-journey-layout{gap:32px}.winter-journey-editorial .winter-journey-photos{height:310px;gap:6px}.winter-journey-editorial .winter-photo-one{height:76%}.winter-journey-editorial .winter-photo-three{height:73%}}
+
+/* Winter 2027 refinements: harmonize with existing JAE dark palette, avoid heading overflow */
+.winter-journey.winter-journey-editorial{background:#17211b;scroll-margin-top:90px}
+.winter-journey-editorial .winter-journey-ambient{background:radial-gradient(ellipse at 70% 42%,rgba(80,91,72,.22),transparent 60%),linear-gradient(115deg,#17211b 0%,#202a22 55%,#17211b 100%)}
+.winter-journey-editorial .winter-journey-layout{grid-template-columns:minmax(0,0.88fr) minmax(0,1.12fr);gap:clamp(32px,4vw,70px)}
+.winter-journey-editorial .winter-journey-content{max-width:570px}
+.winter-journey-editorial h2{font-size:clamp(40px,3.65vw,68px);line-height:1.08;overflow-wrap:normal;word-break:normal;max-width:100%;text-wrap:balance}
+.winter-journey-editorial .winter-journey-photos{height:clamp(360px,35vw,560px)}
+#ture{scroll-margin-top:85px}
+@media(min-width:1025px) and (max-width:1350px){.winter-journey-editorial h2{font-size:clamp(38px,3.5vw,52px)}}
+@media(max-width:1024px){.winter-journey-editorial .winter-journey-layout{grid-template-columns:minmax(0,1fr)}.winter-journey-editorial h2{font-size:clamp(43px,6.4vw,66px)}}
+@media(max-width:520px){.winter-journey-editorial h2{font-size:clamp(34px,9vw,48px)}.winter-journey-editorial .winter-journey-photos{height:310px}}
